@@ -29,20 +29,20 @@ class Dashboard(QMainWindow):
         debt_management_label.setStyleSheet("color: rgb(34, 139, 34);")
         layout.addWidget(debt_management_label)
 
+        layout.addWidget(QLabel("Cash To Debt Ratio – Optimal 0.20 or higher"))
         layout.addWidget(QLabel("D/E ratio – Optimal under 1, ideal under 0.5"))
         layout.addWidget(QLabel("Debt to EBITDA ratio – Optimal under 2.5"))
         layout.addWidget(QLabel("Interest Coverage ratio – Optimal over 5, ideal over 10"))
         layout.addWidget(QLabel("Current Ratio – Optimal over 1"))
-        layout.addWidget(QLabel("Cash To Debt Ratio – Optimal 0.20 or higher"))
         layout.addSpacing(10)
 
         efficiency_label = QLabel("➢ Efficiency", alignment=Qt.AlignLeft)
         efficiency_label.setStyleSheet("color: rgb(34, 139, 34);")
         layout.addWidget(efficiency_label)
 
-        layout.addWidget(QLabel("ROIC – Optimal over 12%"))
         layout.addWidget(QLabel("ROE – Optimal over 12%"))
         layout.addWidget(QLabel("ROA – Optimal over 5-7%"))
+        layout.addWidget(QLabel("ROIC – Optimal over 12%"))
         layout.addSpacing(10)
 
         price_estimates_label = QLabel("➢ Price Estimates", alignment=Qt.AlignLeft)
@@ -52,10 +52,13 @@ class Dashboard(QMainWindow):
         layout.addWidget(QLabel("• No revenue growth → P/E under 10/11"))
         layout.addWidget(QLabel("• 5% to 7% revenue growth → P/E under 15/17"))
         layout.addWidget(QLabel("• 10% to 12% revenue growth → P/E under 20/25"))
-        layout.addWidget(QLabel("P/FCF ratio – Look for values under 25"))
+        layout.addSpacing(10)
+
         layout.addWidget(QLabel("PEG ratio – Optimal under 1 for growth stocks"))
         layout.addWidget(QLabel("P/S ratio – Optimal under 2.0 for growth"))
         layout.addWidget(QLabel("P/B ratio – Optimal under 3.0 for value"))
+        layout.addWidget(QLabel("P/FCF ratio – Look for values under 25"))
+
         layout.addSpacing(10)
 
         avoid_companies_label = QLabel("➢ Avoid Companies Under the Following Circumstances", alignment=Qt.AlignLeft)
@@ -68,11 +71,9 @@ class Dashboard(QMainWindow):
         layout.addWidget(QLabel("• ROIC under 7%"))
         layout.addSpacing(10)
 
-
         self.text_input = QLineEdit(self)
         self.text_input.setPlaceholderText("Enter your stock here")
         layout.addWidget(self.text_input)
-
 
         self.button = QPushButton("Search", self)
         self.button.clicked.connect(self.trigger_method)
@@ -95,7 +96,5 @@ class Dashboard(QMainWindow):
         open_focus_guru(entered_symbol)
         open_alpha_spread(entered_symbol)
 
-
         self.text_input.clear()
         self.feedback_label.setText(f"Searching for {entered_symbol}...")
-
