@@ -1,7 +1,7 @@
 import os
 import webbrowser
-import time
 from functools import lru_cache
+import time
 
 firefox = webbrowser.get('firefox')
 cookies_location_file = "cookies_location.txt"
@@ -36,4 +36,16 @@ def open_focus_guru(symbol: str):
 
 def open_alpha_spread(symbol: str):
     endpoint = f"https://www.alphaspread.com/security/nyse/{symbol}/summary"
+    firefox.open(endpoint)
+
+def open_finance_charts(symbol:str):
+    endpoint = f'https://www.financecharts.com/stocks/{symbol}'
+    firefox.open(endpoint)
+
+def open_macro_trends():
+    endpoint = f'https://www.macrotrends.net'
+    firefox.open(endpoint)
+
+def open_companies_market_cap():
+    endpoint = f'https://companiesmarketcap.com/'
     firefox.open(endpoint)
