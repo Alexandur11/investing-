@@ -26,6 +26,7 @@ def clean_cookies():
     cookies_location = get_cookies_location()
     if cookies_location and os.path.exists(cookies_location):
         os.remove(cookies_location)
+        print(cookies_location)
         print("Cookies deleted successfully!")
     else:
         print("Cookies file not found.")
