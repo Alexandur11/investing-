@@ -1,5 +1,9 @@
+import asyncio
+
+from app.models.advisor_page import AdvisorPage
+from app.models.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from PySide6.QtWidgets import QPushButton
-from app.event_handlers import *
+from app.models.event_handlers.event_handlers import *
 
 class InvestingButton(QPushButton):
     def __init__(self, parent, text_input, feedback_label, investing_ui):
@@ -15,6 +19,8 @@ class InvestingButton(QPushButton):
         if not entered_symbol:
             self.feedback_label.setText("Please enter a valid stock symbol.")
             return
+
+        self.advisor_method(entered_symbol)
 
         close_browser()
         clean_cookies()
@@ -32,3 +38,19 @@ class InvestingButton(QPushButton):
 
         self.text_input.clear()
         self.feedback_label.setText(f"Searching for {entered_symbol}...")
+
+    def advisor_method(self,symbol):
+        data = scrape_focus_guru_data(symbol)
+
+        financial_strengths_data = data['financial_strengths']
+        growth_rank_data = data['growth_rank']
+        liquidity_ratio_data = data['liquidity_ratio']
+        profitability_rank_data = data['profitability_rank']
+        gf_value_rank_data=data['gf_value_rank']
+
+        self.advisor_page = AdvisorPage(
+            financial_strengths_data, growth_rank_data, liquidity_ratio_data,
+            profitability_rank_data, gf_value_rank_data
+        )
+        self.advisor_page.setup_layout()
+

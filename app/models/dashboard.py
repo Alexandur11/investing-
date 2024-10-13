@@ -2,8 +2,8 @@ from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QWidget, QLineEdit, QLabel
 
 from app.models.config_check import ConfigCheck
-from app.models.investing_buttons import InvestingButton
-from app.models.user_interface import InvestingInterface
+from app.models.buttons.investing_buttons import InvestingButton
+from app.models.user_interfaces.user_interface import InvestingInterface
 
 
 class Dashboard(QMainWindow):
