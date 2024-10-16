@@ -14,8 +14,6 @@ class InvestingInterface(QWidget):
         self.finance_charts = QCheckBox("Finance Charts")
         self.companies_market_cap = QCheckBox("Companies Market Cap")
 
-
-
     def ui(self):
         # Adding metrics with better formatting
         debt_management_label = QLabel("➢ Debt Management", alignment=Qt.AlignLeft)
@@ -64,15 +62,14 @@ class InvestingInterface(QWidget):
         self.layout.addWidget(QLabel("• ROIC under 7%"))
         self.layout.addSpacing(10)
 
-        self.status_label = QLabel("Select options")
+        status_label = QLabel("Select options")
 
+        self.layout.addWidget(status_label)
         self.layout.addWidget(self.analytics_panel)
         self.layout.addWidget(self.alpha_spread)
         self.layout.addWidget(self.focus_guru)
         self.layout.addWidget(self.macro_trends)
         self.layout.addWidget(self.finance_charts)
         self.layout.addWidget(self.companies_market_cap)
-        self.layout.addWidget(self.status_label)
 
         return self.layout
-

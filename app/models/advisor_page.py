@@ -9,17 +9,11 @@ class AdvisorPage(QMainWindow):
     WINDOW_ICON_PATH = 'images/search_app.png'
     WINDOW_SIZE = (500, 300)
 
-    def __init__(self,financial_strength_data,growth_rank_data,liquidity_ratio_data,
-                 profitability_rank_data,gf_value_rank_data):
-        self.financial_strength_data=financial_strength_data
-        self.growth_rank_data=growth_rank_data
-        self.liquidity_ratio_data=liquidity_ratio_data
-        self.profitability_rank_data=profitability_rank_data
-        self.gf_value_rank_data=gf_value_rank_data
-        self.central_widget = QWidget()
+    def __init__(self, financial_data):
         super().__init__()
-        self.advisor_ui = AdvisorPageInterface(self.financial_strength_data,self.growth_rank_data,self.liquidity_ratio_data,
-                                               self.profitability_rank_data,self.gf_value_rank_data)
+        self.financial_data = financial_data
+        self.central_widget = QWidget()
+        self.advisor_ui = AdvisorPageInterface(self.financial_data)
         self.setup_window()
 
     def setup_window(self):
@@ -28,7 +22,7 @@ class AdvisorPage(QMainWindow):
         self.resize(*self.WINDOW_SIZE)
 
     def setup_layout(self):
-        layout = self.advisor_ui.ui()
+        layout = self.advisor_ui.build_ui()
         self.central_widget.setLayout(layout)
         self.setCentralWidget(self.central_widget)
         self.show()

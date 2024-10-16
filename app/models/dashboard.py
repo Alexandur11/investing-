@@ -11,7 +11,6 @@ class Dashboard(QMainWindow):
     WINDOW_ICON_PATH = 'images/search_app.png'
     WINDOW_SIZE = (500, 300)
 
-
     def __init__(self):
         super().__init__()
         self.setup_window()
@@ -23,7 +22,6 @@ class Dashboard(QMainWindow):
 
         self.configs = ConfigCheck(self.investing_ui)
         self.configs.load_checkbox_config()
-
 
     def setup_window(self):
         self.setWindowTitle(self.WINDOW_TITLE)

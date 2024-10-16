@@ -2,91 +2,72 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
 
-class AdvisorPageInterface(QWidget):
+class FinancialData:
     def __init__(self, financial_strength_data, growth_rank_data, liquidity_ratio_data,
                  profitability_rank_data, gf_value_rank_data):
-        self.financial_strength_data = financial_strength_data
-        self.growth_rank_data = growth_rank_data
-        self.liquidity_ratio_data = liquidity_ratio_data
-        self.profitability_rank_data = profitability_rank_data
-        self.gf_value_rank_data = gf_value_rank_data
+        self.financial_strength = financial_strength_data
+        self.growth_rank = growth_rank_data
+        self.liquidity_ratio = liquidity_ratio_data
+        self.profitability_rank = profitability_rank_data
+        self.gf_value_rank = gf_value_rank_data
 
-        self.green = "color: rgb(34, 139, 34);"
-        self.black = "color: rgb(0, 0, 0);"
-        self.red = "color: rgb(255, 0, 0);"
+
+class LabelStyler:
+    GREEN = "color: rgb(34, 139, 34);"
+    RED = "color: rgb(255, 0, 0);"
+    BLACK = "color: rgb(0, 0, 0);"
+
+    @staticmethod
+    def apply_color(label, condition):
+        label.setStyleSheet(LabelStyler.GREEN if condition else LabelStyler.RED)
+
+
+class AdvisorPageInterface(QWidget):
+    def __init__(self, financial_data: FinancialData):
         super().__init__()
+        self.financial_data = financial_data
         self.layout = QVBoxLayout()
 
-    def set_label_color(self, label, condition):
-        label.setStyleSheet(self.green if condition else self.red)
-
-    def ui(self):
-        debt_management_label = QLabel("➢ Debt Management", alignment=Qt.AlignLeft)
-        debt_management_label.setStyleSheet(self.green)
-        self.layout.addWidget(debt_management_label)
-
-        cash_to_debt_label = QLabel(f"Cash to Debt: {self.financial_strength_data['cash_to_debt']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(cash_to_debt_label, self.financial_strength_data['cash_to_debt'] >= 0.20)
-        self.layout.addWidget(cash_to_debt_label)
-
-        debt_to_equity_label = QLabel(f"D/E Ratio: {self.financial_strength_data['debt_to_equity']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(debt_to_equity_label, self.financial_strength_data['debt_to_equity'] <= 1)
-        self.layout.addWidget(debt_to_equity_label)
-
-        debt_to_ebitda_label = QLabel(f"Debt to EBITDA Ratio: {self.financial_strength_data['debt_to_ebitda']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(debt_to_ebitda_label, self.financial_strength_data['debt_to_ebitda'] <= 2.5)
-        self.layout.addWidget(debt_to_ebitda_label)
-
-        interest_coverage_label = QLabel(f"Interest Coverage Ratio: {self.financial_strength_data['interest_coverage_ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(interest_coverage_label, self.financial_strength_data['interest_coverage_ratio'] >= 5)
-        self.layout.addWidget(interest_coverage_label)
-
-        current_ratio_label = QLabel(f"Current Ratio: {self.liquidity_ratio_data['current_ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(current_ratio_label, self.liquidity_ratio_data['current_ratio'] >= 1)
-        self.layout.addWidget(current_ratio_label)
+    def build_ui(self):
+        self.add_section("Debt Management", [
+            ("Cash to Debt", self.financial_data.financial_strength['cash_to_debt'], lambda x: x >= 0.20),
+            ("D/E Ratio", self.financial_data.financial_strength['debt_to_equity'], lambda x: x <= 1),
+            ("Debt to EBITDA Ratio", self.financial_data.financial_strength['debt_to_ebitda'], lambda x: x <= 2.5),
+            ("Interest Coverage Ratio", self.financial_data.financial_strength['interest_coverage_ratio'],
+             lambda x: x >= 5),
+            ("Current Ratio", self.financial_data.liquidity_ratio['current_ratio'], lambda x: x >= 1),
+        ])
 
         self.layout.addSpacing(10)
 
-        efficiency_label = QLabel("➢ Efficiency", alignment=Qt.AlignLeft)
-        efficiency_label.setStyleSheet(self.green)
-        self.layout.addWidget(efficiency_label)
-
-        roa_label = QLabel(f"ROA: {self.profitability_rank_data['roa']:.2f}%", alignment=Qt.AlignLeft)
-        self.set_label_color(roa_label, self.profitability_rank_data['roa'] >= 12)
-        self.layout.addWidget(roa_label)
-
-        roe_label = QLabel(f"ROE: {self.profitability_rank_data['roe']:.2f}%", alignment=Qt.AlignLeft)
-        self.set_label_color(roe_label, self.profitability_rank_data['roe'] >= 5)
-        self.layout.addWidget(roe_label)
-
-        roic_label = QLabel(f"ROIC: {self.profitability_rank_data['roic']:.2f}%", alignment=Qt.AlignLeft)
-        self.set_label_color(roic_label, self.profitability_rank_data['roic'] >= 12)
-        self.layout.addWidget(roic_label)
+        self.add_section("Efficiency", [
+            ("ROA", self.financial_data.profitability_rank['roa'], lambda x: x >= 12),
+            ("ROE", self.financial_data.profitability_rank['roe'], lambda x: x >= 5),
+            ("ROIC", self.financial_data.profitability_rank['roic'], lambda x: x >= 12),
+        ])
 
         self.layout.addSpacing(10)
 
-        price_estimates_label = QLabel("➢ Price Estimates", alignment=Qt.AlignLeft)
-        price_estimates_label.setStyleSheet(self.green)
-        self.layout.addWidget(price_estimates_label)
-
-        pe_label = QLabel(f"P/E Ratio: {self.gf_value_rank_data['P/E Ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(pe_label, self.gf_value_rank_data['P/E Ratio'] <= 15)
-        self.layout.addWidget(pe_label)
-
-        peg_label = QLabel(f"PEG Ratio: {self.gf_value_rank_data['PEG Ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(peg_label, self.gf_value_rank_data['PEG Ratio'] <= 1)
-        self.layout.addWidget(peg_label)
-
-        ps_label = QLabel(f"P/S Ratio: {self.gf_value_rank_data['PS Ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(ps_label, self.gf_value_rank_data['PS Ratio'] <= 2)
-        self.layout.addWidget(ps_label)
-
-        pb_label = QLabel(f"P/B Ratio: {self.gf_value_rank_data['PB Ratio']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(pb_label, self.gf_value_rank_data['PB Ratio'] <= 3)
-        self.layout.addWidget(pb_label)
-
-        p_fcf_label = QLabel(f"P/FCF Ratio: {self.gf_value_rank_data['P FCF']:.2f}", alignment=Qt.AlignLeft)
-        self.set_label_color(p_fcf_label, self.gf_value_rank_data['P FCF'] <= 25)
-        self.layout.addWidget(p_fcf_label)
+        self.add_section("Price Estimates", [
+            ("P/E Ratio", self.financial_data.gf_value_rank['P/E Ratio'], lambda x: x <= 23),
+            ("PEG Ratio", self.financial_data.gf_value_rank['PEG Ratio'], lambda x: x <= 1),
+            ("P/S Ratio", self.financial_data.gf_value_rank['PS Ratio'], lambda x: x <= 2),
+            ("P/B Ratio", self.financial_data.gf_value_rank['PB Ratio'], lambda x: x <= 3),
+            ("P/FCF Ratio", self.financial_data.gf_value_rank['P FCF'], lambda x: x <= 25),
+        ])
 
         return self.layout
+
+    def add_section(self, section_title, labels):
+
+        section_label = QLabel(f"➢ {section_title}", alignment=Qt.AlignLeft)
+        section_label.setStyleSheet(LabelStyler.BLACK)
+        self.layout.addWidget(section_label)
+
+        for label_text, value, condition in labels:
+            try:
+                label = QLabel(f"{label_text}: {value:.2f}", alignment=Qt.AlignLeft)
+                LabelStyler.apply_color(label, condition(value))
+                self.layout.addWidget(label)
+            except (ValueError, TypeError):
+                print(f'{label_text} is missing')

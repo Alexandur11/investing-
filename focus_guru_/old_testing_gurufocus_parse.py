@@ -14,21 +14,25 @@ def scrape_focus_guru_data(symbol:str):
 
 
     if response.status_code == 200:
-        tables = pd.read_html(response.text, header=0)
+        try:
+            tables = pd.read_html(response.text, header=0)
 
-        financial_strength_data = tables[0]
-        growth_rank_data = tables[1]
-        momentum_rank_data = tables[2]
-        liquidity_ratio_data = tables[3]
-        dividend_and_buy_back_data = tables[4]
-        profitability_rank_data = tables[5]
-        gf_value_rank_data = tables[6]
+            financial_strength_data = tables[0]
+            growth_rank_data = tables[1]
+            momentum_rank_data = tables[2]
+            liquidity_ratio_data = tables[3]
+            dividend_and_buy_back_data = tables[4]
+            profitability_rank_data = tables[5]
+            gf_value_rank_data = tables[6]
 
-        financial_strengths(financial_strength_data)
-        growth_rank(growth_rank_data)
-        liquidity_ratio(liquidity_ratio_data)
-        profitability_rank(profitability_rank_data)
-        gf_value_rank(gf_value_rank_data)
+            financial_strengths(financial_strength_data)
+            growth_rank(growth_rank_data)
+            liquidity_ratio(liquidity_ratio_data)
+            profitability_rank(profitability_rank_data)
+            gf_value_rank(gf_value_rank_data)
+        except(TypeError,ValueError):
+            print(f'Scraping Data for symbol: {symbol} failed.')
+
 
 
     else:
