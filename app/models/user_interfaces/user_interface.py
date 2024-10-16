@@ -7,11 +7,13 @@ class InvestingInterface(QWidget):
     def __init__(self):
         super().__init__()
         self.layout = QVBoxLayout()
+        self.analytics_panel = QCheckBox("Analytics Panel")
         self.alpha_spread = QCheckBox("Alpha Spread")
         self.focus_guru = QCheckBox("Focus Guru")
         self.macro_trends = QCheckBox("Macro Trends")
         self.finance_charts = QCheckBox("Finance Charts")
         self.companies_market_cap = QCheckBox("Companies Market Cap")
+
 
 
     def ui(self):
@@ -64,6 +66,7 @@ class InvestingInterface(QWidget):
 
         self.status_label = QLabel("Select options")
 
+        self.layout.addWidget(self.analytics_panel)
         self.layout.addWidget(self.alpha_spread)
         self.layout.addWidget(self.focus_guru)
         self.layout.addWidget(self.macro_trends)

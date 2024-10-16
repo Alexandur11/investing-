@@ -50,7 +50,6 @@ def financial_strengths(financial_strength_data):
         if not row.empty:
             data[d] = float(row.iloc[0]['Current'])
 
-    print(data)
     return data
 def liquidity_ratio(liquidity_ratio_data):
     data = {'current_ratio':None}

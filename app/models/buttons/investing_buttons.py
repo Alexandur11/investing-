@@ -25,6 +25,13 @@ class InvestingButton(QPushButton):
         close_browser()
         clean_cookies()
 
+        if self.investing_ui.analytics_panel.isChecked():
+            data = scrape_focus_guru_data(entered_symbol)
+            AdvisorPage(financial_strength_data=data['financial_strengths'],
+                        growth_rank_data=data['growth_rank'],
+                        liquidity_ratio_data=data['liquidity_ratio'],
+                        profitability_rank_data=data['profitability_rank'],
+                        gf_value_rank_data=data['gf_value_rank'])
         if self.investing_ui.focus_guru.isChecked():
             open_focus_guru(entered_symbol)
         if self.investing_ui.alpha_spread.isChecked():
@@ -35,6 +42,7 @@ class InvestingButton(QPushButton):
             open_macro_trends()
         if self.investing_ui.companies_market_cap.isChecked():
             open_companies_market_cap()
+
 
         self.text_input.clear()
         self.feedback_label.setText(f"Searching for {entered_symbol}...")
