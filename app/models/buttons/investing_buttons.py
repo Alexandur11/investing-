@@ -35,22 +35,25 @@ class InvestingButton(QPushButton):
         self.feedback_label.setText(f"Searching for {entered_symbol}...")
 
     async def advisor_method(self, symbol):
-        data = scrape_focus_guru_data(symbol)
-        if data:
-            financial_strengths_data = data['financial_strengths']
-            growth_rank_data = data['growth_rank']
-            liquidity_ratio_data = data['liquidity_ratio']
-            profitability_rank_data = data['profitability_rank']
-            gf_value_rank_data = data['gf_value_rank']
+        advisor_method_status = self.investing_ui.analytics_panel.isChecked()
+        if advisor_method_status:
+            data = scrape_focus_guru_data(symbol)
+            if data:
+                financial_strengths_data = data['financial_strengths']
+                growth_rank_data = data['growth_rank']
+                liquidity_ratio_data = data['liquidity_ratio']
+                profitability_rank_data = data['profitability_rank']
+                gf_value_rank_data = data['gf_value_rank']
 
-            financial_data = FinancialData(financial_strength_data=financial_strengths_data,
-                                           growth_rank_data=growth_rank_data,
-                                           liquidity_ratio_data=liquidity_ratio_data,
-                                           profitability_rank_data=profitability_rank_data,
-                                           gf_value_rank_data=gf_value_rank_data)
+                financial_data = FinancialData(financial_strength_data=financial_strengths_data,
+                                               growth_rank_data=growth_rank_data,
+                                               liquidity_ratio_data=liquidity_ratio_data,
+                                               profitability_rank_data=profitability_rank_data,
+                                               gf_value_rank_data=gf_value_rank_data)
 
-            self.advisor_page = AdvisorPage(financial_data)
-            self.advisor_page.setup_layout()
+                self.advisor_page = AdvisorPage(financial_data)
+                self.advisor_page.setup_layout()
+
 
     async def browser_methods(self, entered_symbol):
         focus_guru_status = self.investing_ui.focus_guru.isChecked()

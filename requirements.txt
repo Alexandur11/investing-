@@ -4,3 +4,8 @@ pyinstaller
 beautifulsoup4
 selenium
 pandas
+python-dotenv
+openpyxl
+gspread
+oauth2client
+=
