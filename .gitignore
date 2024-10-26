@@ -162,3 +162,4 @@ cython_debug/
 .idea/
 command_text
 
+app/models/event_handlers/stocks-439709-358f6c1e35af.json
