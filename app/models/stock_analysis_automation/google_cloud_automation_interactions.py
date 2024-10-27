@@ -45,23 +45,28 @@ def update_unfiltered_stock_symbols_list(df):
 
 
 def collect_unfiltered_symbols_from_google_sheet_cloud(column:int):
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
 
-    # Authorize the gspread client
-    gc = gspread.authorize(creds)
+    try:
+        SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+        creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
 
-    # Use the spreadsheet ID to open the spreadsheet
-    spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
-    worksheet_name = 'Unfiltered_stocks'
+        # Authorize the gspread client
+        gc = gspread.authorize(creds)
 
-    # Open the spreadsheet using its ID
-    sh = gc.open_by_key(spreadsheet_id)
-    worksheet = sh.worksheet(worksheet_name)
+        # Use the spreadsheet ID to open the spreadsheet
+        spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
+        worksheet_name = 'Unfiltered_stocks'
 
-    column_data = worksheet.col_values(column)
+        # Open the spreadsheet using its ID
+        sh = gc.open_by_key(spreadsheet_id)
+        worksheet = sh.worksheet(worksheet_name)
 
-    return column_data
+        column_data = worksheet.col_values(column)
+
+        return column_data
+    except Exception as e:
+        print(f'Error collecting unfiltered symbols list from column {column}')
+        print(f'Due to following error: {e}')
 
 def update_filtered_google_sheet_list_with_new_symbols(data_to_append):
     try:
