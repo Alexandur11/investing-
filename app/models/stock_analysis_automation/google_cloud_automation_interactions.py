@@ -1,10 +1,4 @@
-import json
-import time
-
-import requests
 from dotenv import dotenv_values
-import pandas as pd
-
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -12,39 +6,6 @@ from google.oauth2.service_account import Credentials
 env_vars = dotenv_values()
 
 
-
-def stock_collector_orchestrator(url):
-    response = fetch_stocks(url=url,limit=1000)
-    df = convert_response_to_dataframe(response)
-    save_dataframe_to_sheets(df['df'])
-
-    if df['next_url']:
-        print(df['next_url'])
-        time.sleep(20)
-        stock_collector_orchestrator(df['next_url'])
-    print(f' Stock collector process completed')
-
-def fetch_stocks(limit=1000,url=None):
-    try:
-        api_key = env_vars.get('POLYGONAPIKEY')
-        params = {'limit': limit}
-        headers = {'Authorization': f'Bearer {api_key}'}
-        print('Data fetched')
-        return requests.get(url=url, params=params, headers=headers)
-    except Exception as e:
-        print(f'Error fetching stocks {e}')
-
-def convert_response_to_dataframe(response):
-    try:
-        print(f'Status code {response.status_code}')
-        decoded_data = response.content.decode("utf-8")
-        json_data = json.loads(decoded_data)
-        df = pd.DataFrame(json_data['results'])
-        df.dropna()
-        print(f'Data converted {df}')
-        return {'df':df.loc[df['market'] == 'stocks', 'ticker'],'next_url':json_data['next_url']}
-    except Exception as e:
-        print(f'Error converting response to dataframe {e}')
 
 def update_unfiltered_stock_symbols_list(df):
     try:
@@ -83,7 +44,7 @@ def update_unfiltered_stock_symbols_list(df):
         print(f'Error saving dataframe to Google Sheets: {e}')
 
 
-def collect_symbols_from_google_sheet_cloud(column:int):
+def collect_unfiltered_symbols_from_google_sheet_cloud(column:int):
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
 
@@ -102,7 +63,7 @@ def collect_symbols_from_google_sheet_cloud(column:int):
 
     return column_data
 
-def update_filtered_list_with_new_symbols(data_to_append):
+def update_filtered_google_sheet_list_with_new_symbols(data_to_append):
     try:
         SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
         creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
@@ -136,5 +97,3 @@ def update_filtered_list_with_new_symbols(data_to_append):
         print(f'Sheet updated')
     except Exception as e:
         print(f'Error saving dataframe to Google Sheets: {e}')
-#
-# print(stock_collector(url='https://api.polygon.io/v3/reference/tickers'))

@@ -1,94 +1,46 @@
 import asyncio
+import time
+
+from app.models.event_handlers.automated_analytics_handlers import collect_symbols_from_google_sheet_cloud, \
+    update_filtered_list_with_new_symbols
+from app.models.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 
 
 async def automated_focus_guru_scrape_orchestrator():
     filtered_data = []
 
-    unfiltered_data = [None]
+    unfiltered_symbols = collect_symbols_from_google_sheet_cloud(1)
 
-    for x in unfiltered_data:
-        scraped_data = None
+    try:
+        for index,symbol in enumerate(unfiltered_symbols):
+            time.sleep(30)
+            scraped_data = scrape_focus_guru_data(symbol)
+            financial_strengths = scraped_data['financial_strengths']
+            growth_rank = scraped_data['growth_rank']
+            liquidity_ratio=scraped_data['liquidity_ratio']
+            profitability_rank=scraped_data['profitability_rank']
+            gf_value_rank=scraped_data['gf_value_rank']
 
+            successful_validation =  data_validation_orchestrator(financial_strengths,
+                                                                  growth_rank,
+                                                                  liquidity_ratio,
+                                                                  profitability_rank,
+                                                                  gf_value_rank)
 
-async def data_validation_orchestrator(financial_strengths,
-                                       growth_rank,
-                                       liquidity_raio,
-                                       profitability_rank,
-                                       gf_value_rank):
-    async with asyncio.TaskGroup() as tg:
-        tasks = [
-            tg.create_task(varify_cash_to_debt_ratio(financial_strengths)),
-            tg.create_task(verify_debt_to_equity_ratio(financial_strengths)),
-            tg.create_task(verify_debt_to_ebitda_ratio(financial_strengths)),
-            tg.create_task(verify_interest_coverage_ratio(financial_strengths)),
-            tg.create_task(verify_roe(profitability_rank)),
-            tg.create_task(verify_roa(profitability_rank)),
-            tg.create_task(verify_roic(profitability_rank)),
-            tg.create_task(verify_price_to_earnings_ratio(gf_value_rank, growth_rank)),
-            tg.create_task(verify_peg_ratio(gf_value_rank)),
-            tg.create_task(verify_price_to_sales_ratio(gf_value_rank)),
-            tg.create_task(verify_price_to_book_ratio(gf_value_rank)),
-            tg.create_task(verify_price_to_free_cash_flow_ratio(gf_value_rank))
-        ]
+            if successful_validation:
+                filtered_data.append(symbol)
+                print(f'New stock discovered as potential investment {symbol}')
 
-
-async def varify_cash_to_debt_ratio(data):
-    if data['Cash-To-Debt'] > 0.20:
-        return True
-
-async def verify_debt_to_equity_ratio(data):
-    if data['Debt-to-Equity'] < 1:
-        return True
-
-async def verify_debt_to_ebitda_ratio(data):
-    if data['Debt-to-EBITDA'] < 2.5:
-        return True
-
-async def verify_interest_coverage_ratio(data):
-    if data['Interest Coverage'] > 5:
-        return True
-
-async def verify_roe(data):
-    if data['ROE %'] > 12:
-        return True
-
-async def verify_roa(data):
-    if data['ROA %'] > 5:
-        return True
-
-async def verify_roic(data):
-    if data['ROIC %'] > 12:
-        return True
+            print(f'{index}/{len(unfiltered_symbols)} analysed')
+    except Exception as e:
+        print(f'Error occurred while analysing: {e}')
 
 
-async def verify_price_to_earnings_ratio(gf_data,growth_rank_data):
-    revenue = growth_rank_data['3-Year Revenue Growth Rate'] if not None else 0
-    pe = gf_data['PE Ratio']
-
-    if revenue == 0 and pe <11:
-        return True
-
-    if revenue in range(5,8) and pe < 17:
-        return True
-
-    if revenue in range(10,13) and pe <25:
-        return True
+    # send_filtered_data_to_cloud_sheet
+    update_filtered_list_with_new_symbols(filtered_data)
 
 
-async def verify_peg_ratio(data):
-    if data['PEG Ratio'] <1:
-        return True
-
-async def verify_price_to_sales_ratio(data):
-    if data['PS Ratio'] < 2:
-        return True
-
-async def verify_price_to_book_ratio(data):
-    if data['PB Ratio'] <3:
-        return True
 
 
-async def verify_price_to_free_cash_flow_ratio(data):
-    if data['Price-to-Free-Cash-Flow'] < 25:
-        return True
+
 
