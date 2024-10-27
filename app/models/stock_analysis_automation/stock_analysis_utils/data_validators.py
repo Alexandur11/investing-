@@ -52,10 +52,12 @@ async def verify_debt_to_ebitda_ratio(data):
 
 async def verify_interest_coverage_ratio(data):
     try:
-        if data['interest_coverage_ratio'] > 5:
-            return True
+        if data['interest_coverage_ratio'] < 5:
+            return False
     except Exception as e:
         print(f'Error obtaining interest coverage: {e}')
+
+    return True
 
 async def verify_current_ratio(data):
     try:
