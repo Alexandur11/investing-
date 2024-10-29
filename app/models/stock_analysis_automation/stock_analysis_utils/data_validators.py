@@ -12,7 +12,6 @@ async def data_validation_orchestrator(financial_strengths,
             tg.create_task(verify_debt_to_equity_ratio(financial_strengths)),
             tg.create_task(verify_debt_to_ebitda_ratio(financial_strengths)),
             tg.create_task(verify_interest_coverage_ratio(financial_strengths)),
-            tg.create_task(verify_current_ratio(liquidity_ratio)),
             tg.create_task(verify_roe(profitability_rank)),
             tg.create_task(verify_roa(profitability_rank)),
             tg.create_task(verify_roic(profitability_rank)),
@@ -22,7 +21,6 @@ async def data_validation_orchestrator(financial_strengths,
             tg.create_task(verify_price_to_book_ratio(gf_value_rank)),
             tg.create_task(verify_price_to_free_cash_flow_ratio(gf_value_rank))
         ]
-        print(f'Tasks results')
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
     if all(results):

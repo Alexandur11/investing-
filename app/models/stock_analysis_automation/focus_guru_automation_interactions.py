@@ -8,14 +8,14 @@ from app.models.stock_analysis_automation.google_cloud_automation_interactions i
 from app.models.stock_analysis_automation.stock_analysis_utils.data_validators import data_validation_orchestrator
 
 
-def automated_focus_guru_scrape_orchestrator():
+def automated_focus_guru_scrape_orchestrator(columns):
     filtered_data = []
 
-    unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(9)
+    unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(columns)
 
     try:
-        for index,symbol in enumerate(unfiltered_symbols[9:13]):
-            time.sleep(random.uniform(5, 15))
+        for index,symbol in enumerate(unfiltered_symbols):
+            time.sleep(random.uniform(63,303))
             try:
                 scraped_data = scrape_focus_guru_data(symbol)
                 if scraped_data:
@@ -43,6 +43,8 @@ def automated_focus_guru_scrape_orchestrator():
 
 
     # send_filtered_data_to_cloud_sheet
-    update_filtered_google_sheet_list_with_new_symbols(filtered_data)
+    sheet_to_update = 'US_Unfiltered_stocks'
+    update_filtered_google_sheet_list_with_new_symbols(filtered_data,sheet_to_update)
 
-automated_focus_guru_scrape_orchestrator()
+
+automated_focus_guru_scrape_orchestrator(3)

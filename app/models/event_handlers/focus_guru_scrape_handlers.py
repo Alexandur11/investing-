@@ -10,6 +10,7 @@ def scrape_focus_guru_data(symbol: str):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
 
+    print(f'Requesting data for {symbol}')
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
@@ -30,7 +31,7 @@ def scrape_focus_guru_data(symbol: str):
                 'profitability_rank': profitability_rank(profitability_rank_data),
                 'gf_value_rank': gf_value_rank(gf_value_rank_data)
             }
-
+            print(f'Successfully scraped available data for {symbol}')
             return results
         except (ValueError, TypeError):
             print(f'Scraping data failed,potentially due to invalid symbol: {symbol}')
@@ -44,9 +45,12 @@ def financial_strengths(financial_strength_data):
     values = ['Cash-To-Debt', 'Debt-to-Equity', 'Debt-to-EBITDA', 'Interest Coverage']
 
     for d, v in zip(data.keys(), values):
-        row = financial_strength_data[financial_strength_data['Name'] == v]
-        if not row.empty:
-            data[d] = float(row.iloc[0]['Current'])
+        try:
+            row = financial_strength_data[financial_strength_data['Name'] == v]
+            if not row.empty:
+                data[d] = float(row.iloc[0]['Current'])
+        except Exception as e:
+            print(f'Financial Strengths failed is missing {v}: {e}')
 
     return data
 
@@ -56,9 +60,12 @@ def liquidity_ratio(liquidity_ratio_data):
     values = ['Current Ratio']
 
     for d, v in zip(data.keys(), values):
-        row = liquidity_ratio_data[liquidity_ratio_data['Name'] == v]
-        if not row.empty:
-            data[d] = float(row.iloc[0]['Current'])
+        try:
+            row = liquidity_ratio_data[liquidity_ratio_data['Name'] == v]
+            if not row.empty:
+                data[d] = float(row.iloc[0]['Current'])
+        except Exception as e:
+            print(f'Liquidity ratio is missing {v} : {e}')
 
     return data
 
@@ -72,9 +79,12 @@ def profitability_rank(profitability_rank_data):
     values = ['ROE %', 'ROA %', 'ROIC %']
 
     for d, v in zip(data.keys(), values):
-        row = profitability_rank_data[profitability_rank_data['Name'] == v]
-        if not row.empty:
-            data[d] = float(row.iloc[0]['Current'])
+        try:
+            row = profitability_rank_data[profitability_rank_data['Name'] == v]
+            if not row.empty:
+                data[d] = float(row.iloc[0]['Current'])
+        except Exception as e:
+            print(f'Profitability rank is missing {v} : {e}')
 
     return data
 
@@ -84,9 +94,12 @@ def growth_rank(growth_rank_data):
     values = ['3-Year Revenue Growth Rate']
 
     for d, v in zip(data.keys(), values):
-        row = growth_rank_data[growth_rank_data['Name'] == v]
-        if not row.empty:
-            data[d] = float(row.iloc[0]['Current'])
+        try:
+            row = growth_rank_data[growth_rank_data['Name'] == v]
+            if not row.empty:
+                data[d] = float(row.iloc[0]['Current'])
+        except Exception as e:
+            print(f'Growth rank is missing {v} : {e}')
 
     return data
 
@@ -96,8 +109,10 @@ def gf_value_rank(gf_value_rank_data):
     values = ['PE Ratio', 'PEG Ratio', 'PS Ratio', 'PB Ratio', 'Price-to-Free-Cash-Flow']
 
     for d, v in zip(data.keys(), values):
-        row = gf_value_rank_data[gf_value_rank_data['Name'] == v]
-        if not row.empty:
-            data[d] = float(row.iloc[0]['Current'])
-
+        try:
+            row = gf_value_rank_data[gf_value_rank_data['Name'] == v]
+            if not row.empty:
+                data[d] = float(row.iloc[0]['Current'])
+        except Exception as e:
+            print(f'Gf value rank is missing {v}  : {e}')
     return data
