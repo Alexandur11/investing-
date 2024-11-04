@@ -1,7 +1,6 @@
 import asyncio
 import time
 import random
-
 from app.models.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from app.models.stock_analysis_automation.google_cloud_automation_interactions import \
     collect_unfiltered_symbols_from_google_sheet_cloud, update_filtered_google_sheet_list_with_new_symbols
@@ -10,12 +9,11 @@ from app.models.stock_analysis_automation.stock_analysis_utils.data_validators i
 
 def automated_focus_guru_scrape_orchestrator(columns):
     filtered_data = []
-
     unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(columns)
 
     try:
         for index,symbol in enumerate(unfiltered_symbols):
-            time.sleep(random.uniform(63,303))
+            time.sleep(random.uniform(63,183))
             try:
                 scraped_data = scrape_focus_guru_data(symbol)
                 if scraped_data:
@@ -38,13 +36,18 @@ def automated_focus_guru_scrape_orchestrator(columns):
                     print(f'{index}/{len(unfiltered_symbols)} analysed')
             except Exception as e:
                 print(f'Error {e}')
+
+
     except Exception as e:
         print(f'Error occurred while analysing: {e}')
 
 
-    # send_filtered_data_to_cloud_sheet
-    sheet_to_update = 'US_Unfiltered_stocks'
-    update_filtered_google_sheet_list_with_new_symbols(filtered_data,sheet_to_update)
+    if len(filtered_data) > 0:
+
+        # send_filtered_data_to_cloud_sheet
+        sheet_to_update = 'Filtered_stocks'
+        update_filtered_google_sheet_list_with_new_symbols(filtered_data,sheet_to_update)
+    print('Nothing Found, task completed')
 
 
-automated_focus_guru_scrape_orchestrator(3)
+# automated_focus_guru_scrape_orchestrator(53)

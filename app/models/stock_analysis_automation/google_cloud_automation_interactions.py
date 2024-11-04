@@ -9,7 +9,7 @@ env_vars = dotenv_values()
 
 def authorize_creds_for_google_sheet():
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
+    creds = Credentials.from_service_account_file('app/models/stock_analysis_automation/stocks-439709-358f6c1e35af.json', scopes=SCOPES)
     return  gspread.authorize(creds)
 
 def get_column_letter(column_index):
@@ -36,12 +36,13 @@ def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
     try:
         gc = authorize_creds_for_google_sheet()
         spreadsheet_id = env_vars.get('SPREADSHEETID')
-        worksheet_name = 'US_Unfiltered_stocks'
+        worksheet_name = 'US_Unfiltered_Stocks_Work'
 
         sh = gc.open_by_key(spreadsheet_id)
         worksheet = sh.worksheet(worksheet_name)
         column_data = worksheet.col_values(column)
 
+        print(f'Stocks from Column {column} collected')
         return column_data
     except Exception as e:
         print(f'Error collecting unfiltered symbols list from column {column}')
