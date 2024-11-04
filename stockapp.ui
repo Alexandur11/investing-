@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget</class>
- <widget class="QWidget" name="Widget">
+ <class>stock_app</class>
+ <widget class="QWidget" name="stock_app">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -22,8 +22,12 @@
      <height>601</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: green;  /* Replace #3498db with any color code */
+</string>
+   </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="stock_manual_search_tab">
     <attribute name="title">
@@ -40,12 +44,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="stock_search_manual_bar"/>
+       <widget class="QLineEdit" name="stock_search_manual_bar">
+        <property name="styleSheet">
+         <string notr="true">color: red;  /* Text color */</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="stock_search_manual_button">
         <property name="styleSheet">
-         <string notr="true">color: red;  /* Text color */</string>
+         <string notr="true">color: white;  /* Text color */</string>
         </property>
         <property name="text">
          <string>Search</string>
@@ -68,14 +76,11 @@
        <height>24</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">color: red;  /* Text color */</string>
-     </property>
      <property name="value">
       <number>24</number>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>250</x>
@@ -86,12 +91,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QComboBox" name="stock_search_auto_combo_box"/>
+       <widget class="QComboBox" name="stock_search_auto_combo_box">
+        <property name="styleSheet">
+         <string notr="true">color: white;  /* Text color */</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="stock_search_automation_button">
         <property name="styleSheet">
-         <string notr="true">color: red;  /* Text color */</string>
+         <string notr="true">color: white;  /* Text color */</string>
         </property>
         <property name="text">
          <string>Search</string>
@@ -118,7 +127,7 @@
       <item>
        <widget class="QCheckBox" name="analytics_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Analytics Panel</string>
@@ -128,7 +137,7 @@
       <item>
        <widget class="QCheckBox" name="alpha_spread_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Alpha Spread</string>
@@ -138,7 +147,7 @@
       <item>
        <widget class="QCheckBox" name="focus_guru_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Focus Guru</string>
@@ -148,7 +157,7 @@
       <item>
        <widget class="QCheckBox" name="macro_trends_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Macro Trends</string>
@@ -158,7 +167,7 @@
       <item>
        <widget class="QCheckBox" name="finance_charts_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Finance Charts</string>
@@ -168,7 +177,7 @@
       <item>
        <widget class="QCheckBox" name="companies_market_cap_check_box">
         <property name="styleSheet">
-         <string notr="true">color: red; </string>
+         <string notr="true">color: white; </string>
         </property>
         <property name="text">
          <string>Companies Market Cap</string>

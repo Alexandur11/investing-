@@ -7,6 +7,8 @@ from app.models.stock_analysis_automation.google_cloud_automation_interactions i
 from app.models.stock_analysis_automation.stock_analysis_utils.data_validators import data_validation_orchestrator
 
 
+
+
 def automated_focus_guru_scrape_orchestrator(columns):
     filtered_data = []
     unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(columns)

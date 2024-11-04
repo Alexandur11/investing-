@@ -6,6 +6,7 @@ from app2.event_handlers.event_handlers import close_browser, open_focus_guru, o
 from app2.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from app2.models2.advisor_page import AdvisorPage
 from app2.models2.advisor_page_user_interface import FinancialData
+from app2.utils import MessageDialog
 
 
 class ManualStockSearch:
@@ -20,8 +21,7 @@ class ManualStockSearch:
         entered_symbol = self.text_input.text().strip()
 
         if not entered_symbol:
-            self.feedback_label.setText("Please enter a valid stock symbol.")
-            return
+            MessageDialog.show_message(message = 'Please enter a symbol',title='Warning')
 
         async def async_wrapper():
             pass
