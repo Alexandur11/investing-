@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PySide6.QtCore import QThread, Signal, QObject
 import random
 import time
@@ -7,6 +9,8 @@ from app.automation.google_cloud_automation_interactions import (
     collect_unfiltered_symbols_from_google_sheet_cloud,
     update_filtered_google_sheet_list_with_new_symbols
 )
+from app.models.app_tabs.config_check import save_spreadsheet_activity_history, load_latest_spreadsheet_activity
+from app.utils import MessageDialog
 
 
 class StockSearchWorker(QObject):
@@ -17,12 +21,13 @@ class StockSearchWorker(QObject):
     def __init__(self, column):
         super().__init__()
         self.column = column
+        self.message = MessageDialog()
 
     def run(self):
         filtered_data = []
         try:
             unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(self.column)
-            for index, symbol in enumerate(unfiltered_symbols):
+            for index, symbol in enumerate(unfiltered_symbols[1:2]):
                 time.sleep(random.uniform(63, 183))
                 if automated_focus_guru_scrape_orchestrator(symbol):
                     filtered_data.append(symbol)
@@ -34,10 +39,15 @@ class StockSearchWorker(QObject):
             if filtered_data:
                 sheet_to_update = 'Filtered_stocks'
                 update_filtered_google_sheet_list_with_new_symbols(filtered_data, sheet_to_update)
+                self.message.show_message(title='Search Completed', message='Something was found!')
             else:
-                print('Nothing Found, task completed')
+                self.message.show_message(title='Search Completed', message='Nothing Found :(')
 
             self.finished.emit()
+
+            save_spreadsheet_activity_history(data={"Symbols Found":len(filtered_data),
+                                                    "Time Finished":f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
+                                                    "Latest Column Searched": self.column})
 
         except Exception as e:
             self.error.emit(str(e))
@@ -49,6 +59,7 @@ class AutoStockSearch:
         self.auto_stock_control.stock_search_automation_button.clicked.connect(self.trigger_method)
         self.options_bar = self.auto_stock_control.stock_search_auto_combo_box
         self.options_bar.addItems([str(x) for x in range(1, 60)])
+        self.options_bar.setCurrentIndex(load_latest_spreadsheet_activity())
         self.progress_bar = self.auto_stock_control.stock_auto_search_progress_bar
         self.worker = None
         self.worker_thread = None
