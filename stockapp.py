@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QLineEdit,
-    QProgressBar, QPushButton, QScrollArea, QSizePolicy,
-    QTabWidget, QVBoxLayout, QWidget)
+    QProgressBar, QPushButton, QSizePolicy, QTabWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_stock_app(object):
     def setupUi(self, stock_app):
@@ -39,7 +39,7 @@ class Ui_stock_app(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_manual_bar = QLineEdit(self.layoutWidget)
         self.stock_search_manual_bar.setObjectName(u"stock_search_manual_bar")
-        self.stock_search_manual_bar.setStyleSheet(u"color: red;  /* Text color */")
+        self.stock_search_manual_bar.setStyleSheet(u"color: white;  /* Text color */")
 
         self.verticalLayout.addWidget(self.stock_search_manual_bar)
 
@@ -55,7 +55,7 @@ class Ui_stock_app(object):
         self.stock_auto_search_progress_bar = QProgressBar(self.stock_auto_search_tab)
         self.stock_auto_search_progress_bar.setObjectName(u"stock_auto_search_progress_bar")
         self.stock_auto_search_progress_bar.setGeometry(QRect(250, 510, 259, 24))
-        self.stock_auto_search_progress_bar.setValue(24)
+        self.stock_auto_search_progress_bar.setRange(1,100)
         self.layoutWidget1 = QWidget(self.stock_auto_search_tab)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.layoutWidget1.setGeometry(QRect(250, 450, 261, 56))
@@ -120,21 +120,9 @@ class Ui_stock_app(object):
         self.verticalLayout_3.addWidget(self.companies_market_cap_check_box)
 
         self.tabs_widget.addTab(self.stock_search_settings, "")
-        self.information_tab = QWidget()
-        self.information_tab.setObjectName(u"information_tab")
-        self.information_scroll_area = QScrollArea(self.information_tab)
-        self.information_scroll_area.setObjectName(u"information_scroll_area")
-        self.information_scroll_area.setGeometry(QRect(60, 50, 661, 491))
-        self.information_scroll_area.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 659, 489))
-        self.information_scroll_area.setWidget(self.scrollAreaWidgetContents)
-        self.tabs_widget.addTab(self.information_tab, "")
-
         self.retranslateUi(stock_app)
 
-        self.tabs_widget.setCurrentIndex(0)
+        self.tabs_widget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(stock_app)
@@ -153,6 +141,6 @@ class Ui_stock_app(object):
         self.finance_charts_check_box.setText(QCoreApplication.translate("stock_app", u"Finance Charts", None))
         self.companies_market_cap_check_box.setText(QCoreApplication.translate("stock_app", u"Companies Market Cap", None))
         self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.stock_search_settings), QCoreApplication.translate("stock_app", u"Settings", None))
-        self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.information_tab), QCoreApplication.translate("stock_app", u"Information", None))
+
     # retranslateUi
 

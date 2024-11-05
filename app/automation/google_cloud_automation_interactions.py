@@ -9,7 +9,7 @@ env_vars = dotenv_values()
 
 def authorize_creds_for_google_sheet():
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    creds = Credentials.from_service_account_file('app/models/stock_analysis_automation/stocks-439709-358f6c1e35af.json', scopes=SCOPES)
+    creds = Credentials.from_service_account_file('app/automation/stocks-439709-358f6c1e35af.json', scopes=SCOPES)
     return  gspread.authorize(creds)
 
 def get_column_letter(column_index):

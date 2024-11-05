@@ -1,7 +1,7 @@
 class ConfigCheck:
     CONFIG_FILE = 'checkbox_config.txt'
 
-    def __init__(self,widget):
+    def __init__(self, widget):
         self.analytics_panel = widget.analytics_check_box
         self.alpha_spread = widget.alpha_spread_check_box
         self.focus_guru = widget.focus_guru_check_box
@@ -26,7 +26,7 @@ class ConfigCheck:
         with open(self.CONFIG_FILE, 'w') as f:
             f.write(f"{self.analytics_panel.isChecked()}\n")
             f.write(f"{self.alpha_spread.isChecked()}\n")
-            f.write(f"{ self.focus_guru.isChecked()}\n")
+            f.write(f"{self.focus_guru.isChecked()}\n")
             f.write(f"{self.macro_trends.isChecked()}\n")
             f.write(f"{self.finance_charts.isChecked()}\n")
-            f.write(f"{ self.companies_market_cap.isChecked()}\n")
+            f.write(f"{self.companies_market_cap.isChecked()}\n")

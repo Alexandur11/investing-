@@ -1,22 +1,11 @@
-
-
-
-# app = QApplication(sys.argv)
-# app.setWindowIcon(QIcon("images/search_app.png"))
-#
-# main = Dashboard()
-# main.show()
-# app.exec()
-
-
-
+from app.utils import MessageDialog
 from  stockapp import *
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
-from app2.models2.auto_stock_search import AutoStockSearch
-from app2.models2.manual_stock_search import ManualStockSearch
-from app2.models2.config_check import ConfigCheck
+from app.models.app_tabs.auto_stock_search import AutoStockSearch
+from app.models.app_tabs.manual_stock_search import ManualStockSearch
+from app.models.app_tabs.config_check import ConfigCheck
 
 class MainWindow(QMainWindow):
 
@@ -36,6 +25,11 @@ class MainWindow(QMainWindow):
         self.auto_stock_search_tab = AutoStockSearch(self.ui)
 
     def closeEvent(self, event):
+        if self.auto_stock_search_tab.task_running:
+            MessageDialog().question_message(title='Warning', message='A task is still running. Are you sure you want to exit?',event=event)
+        else:
+            event.accept()  # Close the app if no task is running
+
         self.configs.save_checkbox_config()
         super().closeEvent(event)
 
