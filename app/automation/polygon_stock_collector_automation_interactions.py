@@ -4,8 +4,6 @@ import time
 import requests
 from dotenv import dotenv_values
 import pandas as pd
-from app.models.stock_analysis_automation.google_cloud_automation_interactions import \
-    update_unfiltered_stock_symbols_list
 
 env_vars = dotenv_values()
 

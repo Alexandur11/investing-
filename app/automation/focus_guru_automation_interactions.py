@@ -44,11 +44,31 @@ def automated_focus_guru_scrape_orchestrator(columns):
 
 
     if len(filtered_data) > 0:
-
-        # send_filtered_data_to_cloud_sheet
         sheet_to_update = 'Filtered_stocks'
         update_filtered_google_sheet_list_with_new_symbols(filtered_data,sheet_to_update)
     print('Nothing Found, task completed')
+
+
+def analyse_focus_guru_scraped_data(symbol):
+    try:
+        scraped_data = scrape_focus_guru_data(symbol)
+        if scraped_data:
+            financial_strengths = scraped_data['financial_strengths']
+            growth_rank = scraped_data['growth_rank']
+            liquidity_ratio = scraped_data['liquidity_ratio']
+            profitability_rank = scraped_data['profitability_rank']
+            gf_value_rank = scraped_data['gf_value_rank']
+
+            successful_validation = asyncio.run(data_validation_orchestrator(financial_strengths,
+                                                                             growth_rank,
+                                                                             liquidity_ratio,
+                                                                             profitability_rank,
+                                                                             gf_value_rank))
+
+            if successful_validation:
+                return True
+    except Exception as e:
+        print(e)
 
 
 # automated_focus_guru_scrape_orchestrator(53)

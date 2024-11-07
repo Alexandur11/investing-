@@ -8,10 +8,12 @@ env_vars = dotenv_values()
 
 
 def authorize_creds_for_google_sheet():
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    creds = Credentials.from_service_account_file('app/automation/stocks-439709-358f6c1e35af.json', scopes=SCOPES)
-    return  gspread.authorize(creds)
-
+    try:
+        SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+        creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
+        return  gspread.authorize(creds)
+    except Exception as e:
+        print(f'Error establishing connection: {e}')
 def get_column_letter(column_index):
     """Convert a 1-based column index to an Excel-style column letter (A, B, C, ..., Z, AA, AB, ...)."""
     letter = ""
@@ -34,12 +36,18 @@ def create_new_sheet(sheet_name, num_columns=100):
 
 def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
     try:
+        print(1)
         gc = authorize_creds_for_google_sheet()
+        print(2)
         spreadsheet_id = env_vars.get('SPREADSHEETID')
+        print(3)
         worksheet_name = 'US_Unfiltered_Stocks_Work'
 
+        print(4)
         sh = gc.open_by_key(spreadsheet_id)
+        print(5)
         worksheet = sh.worksheet(worksheet_name)
+        print(6)
         column_data = worksheet.col_values(column)
 
         print(f'Stocks from Column {column} collected')
@@ -62,9 +70,9 @@ def update_filtered_google_sheet_list_with_new_symbols(data_to_append, sheet_to_
         all_values = worksheet.get_all_values()
         last_column = len(all_values[0])
 
-        column_letter = get_column_letter(last_column + 1)  # Get the letter for the next column
-        start_row = 1  # Starting from row 1
-        end_row = start_row + len(data_to_append) - 1  # Define the end row based on data length
+        column_letter = get_column_letter(last_column + 1)
+        start_row = 1
+        end_row = start_row + len(data_to_append) - 1
         range_to_update = f"{column_letter}{start_row}:{column_letter}{end_row}"
 
         cell_list = worksheet.range(range_to_update)
