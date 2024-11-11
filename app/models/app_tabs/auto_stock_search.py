@@ -6,11 +6,11 @@ import time
 
 from app.automation.focus_guru_automation_interactions import analyse_focus_guru_scraped_data
 from app.automation.google_cloud_automation_interactions import (
-    collect_unfiltered_symbols_from_google_sheet_cloud,
-    update_filtered_google_sheet_list_with_new_symbols
+    collect_unfiltered_symbols_from_google_sheet_cloud,update_filtered_stocks_list
 )
 from app.models.app_tabs.config_check import save_spreadsheet_activity_history, load_latest_spreadsheet_activity
 from app.utils import MessageDialog
+
 
 class StockSearchWorker(QObject):
     progress = Signal(int)
@@ -23,26 +23,32 @@ class StockSearchWorker(QObject):
         self.column = column
 
     def run(self):
-        filtered_data = []
+
+        A, B, C = [], [], []  # Stocks tier list related to the spreadsheet
+
+        stocks_found = 0
+
         try:
             unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(self.column)
-            for index, symbol in enumerate(unfiltered_symbols):
+            for index, symbol in enumerate(unfiltered_symbols[10:13]):
                 time.sleep(random.uniform(63, 183))
-                if analyse_focus_guru_scraped_data(symbol):
-                    filtered_data.append(symbol)
-                    print(f'New stock discovered as potential investment {symbol}')
+                result = analyse_focus_guru_scraped_data(symbol)
+
+                if result:
+                    result.append(symbol)
+                    stocks_found += 1
 
                 self.progress.emit(index)
                 print(f'{index}/{len(unfiltered_symbols)} analysed')
 
-            if filtered_data:
-                sheet_to_update = 'Filtered_stocks'
-                update_filtered_google_sheet_list_with_new_symbols(filtered_data, sheet_to_update)
-                self.show_message.emit('Search Completed', 'Something was found!')
-            else:
-                self.show_message.emit('Search Completed', 'Nothing Found :(')
+            for index, data in enumerate([A, B, C]):
+                time.sleep(3)
+                update_filtered_stocks_list(data_to_append=data, sheet_to_update='Filtered_stocks',
+                                            col_to_update=index + 1)
 
-            save_spreadsheet_activity_history(data={"Symbols Found": len(filtered_data),
+            self.show_message.emit('Search Completed', 'Nothing Found' if stocks_found == 0 else 'Something found!')
+
+            save_spreadsheet_activity_history(data={"Symbols Found": stocks_found,
                                                     "Time Finished": f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
                                                     "Latest Column Searched": self.column})
 
@@ -65,6 +71,8 @@ class AutoStockSearch:
 
         self.progress_bar = self.auto_stock_control.stock_auto_search_progress_bar
         self.progress_bar.setVisible(False)
+
+        self.message = MessageDialog()
 
         self.worker = None
         self.worker_thread = None
@@ -100,7 +108,6 @@ class AutoStockSearch:
         self.worker_thread.start()
 
     def show_message_dialog(self, title, message):
-        self.message = MessageDialog()
         self.message.show_message(title=title, message=message)
 
     def task_finished(self):
@@ -112,4 +119,3 @@ class AutoStockSearch:
     def handle_error(self, error_message):
         print(f"An error occurred: {error_message}")
         self.task_running = False
-

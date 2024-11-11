@@ -59,7 +59,7 @@ def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
 
             last_line = lines[-1].strip()
             last_activity = json.loads(last_line)
-            last =  last_activity.get('Latest Column Searched', None)
+            last = last_activity.get('Latest Column Searched', None)
 
             return last if last != 59 else 0
 
@@ -71,5 +71,3 @@ def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
         print(f"An unexpected error occurred: {e}")
 
     return 0
-
-

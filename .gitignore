@@ -163,4 +163,4 @@ cython_debug/
 command_text
 
 app/models/event_handlers/stocks-439709-358f6c1e35af.json
-stocks-439709-358f6c1e35af.json
+app/automation/stocks-439709-358f6c1e35af.json
