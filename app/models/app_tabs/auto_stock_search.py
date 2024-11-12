@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 
 from PySide6.QtCore import QThread, Signal, QObject
@@ -9,8 +10,9 @@ from app.automation.google_cloud_automation_interactions import (
     collect_unfiltered_symbols_from_google_sheet_cloud,update_filtered_stocks_list
 )
 from app.models.app_tabs.config_check import save_spreadsheet_activity_history, load_latest_spreadsheet_activity
-from app.utils import MessageDialog
+from app.utils import MessageDialog, decide_the_stock_column
 
+logger = logging.getLogger(__name__)
 
 class StockSearchWorker(QObject):
     progress = Signal(int)
@@ -30,16 +32,17 @@ class StockSearchWorker(QObject):
 
         try:
             unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(self.column)
-            for index, symbol in enumerate(unfiltered_symbols[10:13]):
+
+            for index, symbol in enumerate(unfiltered_symbols):
                 time.sleep(random.uniform(63, 183))
                 result = analyse_focus_guru_scraped_data(symbol)
 
-                if result:
-                    result.append(symbol)
+                if result > 7:
+                    decide_the_stock_column(A,B,C,symbol,result)
                     stocks_found += 1
 
                 self.progress.emit(index)
-                print(f'{index}/{len(unfiltered_symbols)} analysed')
+                logger.info(f'{index}/{len(unfiltered_symbols)} analysed')
 
             for index, data in enumerate([A, B, C]):
                 time.sleep(3)
@@ -55,6 +58,7 @@ class StockSearchWorker(QObject):
             self.finished.emit()
 
         except Exception as e:
+            logger.exception(e)
             self.error.emit(str(e))
 
 
@@ -81,6 +85,7 @@ class AutoStockSearch:
     def trigger_method(self):
         column = int(self.options_bar.currentText())
         self.progress_bar.setVisible(True)
+        self.progress_bar.setValue(0)
         self.button.setEnabled(False)
         self.options_bar.setEnabled(False)
 
@@ -112,10 +117,10 @@ class AutoStockSearch:
 
     def task_finished(self):
         self.task_running = False
-        self.progress_bar.setVisible(True)
+        self.progress_bar.setVisible(False)
         self.button.setEnabled(True)
         self.options_bar.setEnabled(True)
 
     def handle_error(self, error_message):
-        print(f"An error occurred: {error_message}")
+        logger.exception(f"An error occurred: {error_message}")
         self.task_running = False

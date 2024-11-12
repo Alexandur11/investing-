@@ -1,3 +1,4 @@
+import logging
 import time
 
 from dotenv import dotenv_values
@@ -6,6 +7,7 @@ from google.oauth2.service_account import Credentials
 
 env_vars = dotenv_values()
 
+logger = logging.getLogger(__name__)
 
 def authorize_creds_for_google_sheet():
     try:
@@ -13,7 +15,7 @@ def authorize_creds_for_google_sheet():
         creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
         return gspread.authorize(creds)
     except Exception as e:
-        print(f'Error establishing connection: {e}')
+        logger.exception(f'Error establishing connection: {e}')
 
 
 def get_column_letter(column_index):
@@ -33,7 +35,7 @@ def create_new_sheet(sheet_name, num_columns=100):
     sh = gc.open_by_key(spreadsheet_id)
 
     sh.add_worksheet(title=sheet_name, rows=200, cols=num_columns)
-    print(f"New sheet '{sheet_name}' created with {num_columns} columns.")
+    # print(f"New sheet '{sheet_name}' created with {num_columns} columns.")
 
 
 def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
@@ -46,11 +48,11 @@ def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
         worksheet = sh.worksheet(worksheet_name)
         column_data = worksheet.col_values(column)
 
-        print(f'Stocks from Column {column} collected')
+        logger.info(f'Stocks from Column {column} collected')
         return column_data
     except Exception as e:
-        print(f'Error collecting unfiltered symbols list from column {column}')
-        print(f'Due to following error: {e}')
+        logger.exception(f'Error collecting unfiltered symbols list from column {column}')
+        logger.exception(f'Due to following error: {e}')
 
 
 def update_filtered_google_sheet_list_with_new_symbols(data_to_append, sheet_to_update):
@@ -76,10 +78,9 @@ def update_filtered_google_sheet_list_with_new_symbols(data_to_append, sheet_to_
             cell.value = data_to_append[i]
 
         worksheet.update_cells(cell_list)
-
-        print(f'Sheet updated')
+        logger.info(f'Sheet updated')
     except Exception as e:
-        print(f'Error saving dataframe to Google Sheets: {e}')
+        logger.exception(f'Error saving dataframe to Google Sheets: {e}')
 
 
 def update_filtered_stocks_list(data_to_append, sheet_to_update, col_to_update):
@@ -101,18 +102,18 @@ def update_filtered_stocks_list(data_to_append, sheet_to_update, col_to_update):
             range_to_update = f"{row}{start_row}:{row}{end_row}"
 
             worksheet.update([[x] for x in data_to_append], range_to_update)
+            logger.info(' Filtered Sheet updated')
         except Exception as e:
-            print(e)
-            print('Error updating filtered stocks sheet')
+            logger.exception(f'Error updating filtered stocks sheet: {e}')
 
 
 def rearrange_sheet():
     symbols = []
     for x in range(1, 26):
         time.sleep(10)
-        print('New batch received')
+        # print('New batch received')
         symbols += collect_unfiltered_symbols_from_google_sheet_cloud(x)
-        print('batch appended')
+        # print('batch appended')
 
     new_order = []
     inside_order = []
@@ -123,10 +124,10 @@ def rearrange_sheet():
             inside_order.append(x)
             new_order.append(inside_order.copy())
             inside_order.clear()
-            print('Inside order appended to new order and cleared')
+            # print('Inside order appended to new order and cleared')
 
     for data in new_order:
         time.sleep(20)
         update_filtered_google_sheet_list_with_new_symbols(data, 'US_Unfiltered_Stocks_Work')
 
-    print('Process completed')
+    # print('Process completed')

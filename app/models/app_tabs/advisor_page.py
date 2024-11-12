@@ -1,7 +1,11 @@
+import logging
+
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QLabel, QVBoxLayout, QWidget
+
+logger = logging.getLogger(__name__)
 
 class AdvisorPage(QMainWindow):
     WINDOW_TITLE = "Advisor Page"
@@ -94,4 +98,4 @@ class AdvisorPageInterface(QWidget):
                 LabelStyler.apply_color(label, condition(value))
                 self.layout.addWidget(label)
             except (ValueError, TypeError):
-                print(f'{label_text} is missing')
+                logging.exception(f'{label_text} is missing')

@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import time
 import random
 
@@ -6,6 +7,8 @@ from app.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from app.automation.google_cloud_automation_interactions import \
     collect_unfiltered_symbols_from_google_sheet_cloud, update_filtered_google_sheet_list_with_new_symbols
 from app.automation.stock_analysis_utils.data_validators import data_validation_orchestrator
+
+logger = logging.getLogger(__name__)
 
 
 def automated_focus_guru_scrape_orchestrator(columns):
@@ -32,19 +35,22 @@ def automated_focus_guru_scrape_orchestrator(columns):
 
                     if successful_validation:
                         filtered_data.append(symbol)
-                        print(f'New stock discovered as potential investment {symbol}')
+                        logger.info(f'New stock discovered as potential investment {symbol}')
 
-                    print(f'{index}/{len(unfiltered_symbols)} analysed')
+                    logger.info(f'{index}/{len(unfiltered_symbols)} analysed')
             except Exception as e:
-                print(f'Error {e}')
+
+                logger.exception(f'Error {e}')
 
     except Exception as e:
-        print(f'Error occurred while analysing: {e}')
+        logger.exception('')
+        logger.exception(f'Error occurred while analysing: {e}')
 
     if len(filtered_data) > 0:
         sheet_to_update = 'Filtered_stocks'
         update_filtered_google_sheet_list_with_new_symbols(filtered_data, sheet_to_update)
-    print('Nothing Found, task completed')
+
+    logger.info('Nothing Found, task completed')
 
 
 def analyse_focus_guru_scraped_data(symbol):
@@ -63,14 +69,7 @@ def analyse_focus_guru_scraped_data(symbol):
                                                                              profitability_rank,
                                                                              gf_value_rank))
 
-            results = [x for x in successful_validation if x]
-
-            if len(results) == 12:
-                return 'A'
-            if len(results) in range(9, 11):
-                return 'B'
-            if len(results) == 8:
-                return 'C'
+            return len([x for x in successful_validation if x])
 
     except Exception as e:
-        print(e)
+        logger.exception(e)

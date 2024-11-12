@@ -17,7 +17,7 @@ def stock_collector_orchestrator(url):
         time.sleep(20)
 
         stock_collector_orchestrator(df['next_url'])
-    print(f' Stock collector process completed')
+    # print(f' Stock collector process completed')
 
 
 def fetch_stocks(limit=1000, url=None):
@@ -26,7 +26,7 @@ def fetch_stocks(limit=1000, url=None):
         params = {'limit': limit}
         headers = {'Authorization': f'Bearer {api_key}'}
 
-        print('Data fetched')
+        # print('Data fetched')
         return requests.get(url=url, params=params, headers=headers)
 
     except Exception as e:
@@ -42,7 +42,7 @@ def convert_response_to_dataframe(response):
         df = pd.DataFrame(json_data['results'])
 
         df.dropna()
-        print(f'Data converted {df}')
+        # print(f'Data converted {df}')
 
         return {'df': df.loc[df['market'] == 'stocks', 'ticker'], 'next_url': json_data['next_url']}
     except Exception as e:

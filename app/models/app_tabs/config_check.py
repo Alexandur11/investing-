@@ -1,5 +1,7 @@
 import json
+import logging
 
+logger = logging.getLogger(__name__)
 
 class ConfigCheck:
     CONFIG_FILE = 'checkbox_config.txt'
@@ -24,8 +26,8 @@ class ConfigCheck:
                 self.macro_trends.setChecked(lines[3].strip() == 'True')
                 self.finance_charts.setChecked(lines[4].strip() == 'True')
                 self.companies_market_cap.setChecked(lines[5].strip() == 'True')
-        except FileNotFoundError:
-            pass
+        except FileNotFoundError as e :
+            logger.exception(e)
 
     def save_checkbox_config(self):
         with open(self.CONFIG_FILE, 'w') as f:
@@ -39,14 +41,14 @@ class ConfigCheck:
 
 def save_spreadsheet_activity_history(file='spreadsheet_history.txt', data=None):
     if data is None:
-        print("No data provided to save.")
+        logger.info("No data provided to save.")
     try:
         json_data = json.dumps(data)
 
         with open(file, 'a') as f:
             f.write(f"{json_data}\n")
     except Exception as e:
-        print(f"An error occurred while saving to the file: {e}")
+        logger.exception(f"An error occurred while saving to the file: {e}")
 
 
 def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
@@ -54,7 +56,7 @@ def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
         with open(file, 'r') as f:
             lines = f.readlines()
             if not lines:
-                print("The file is empty.")
+                logger.info("The file is empty.")
                 return 0
 
             last_line = lines[-1].strip()
@@ -64,10 +66,10 @@ def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
             return last if last != 59 else 0
 
     except FileNotFoundError:
-        print(f"Error: The file '{file}' was not found.")
+        logger.exception(f"Error: The file '{file}' was not found.")
     except json.JSONDecodeError as e:
-        print(f"Error: Could not decode the JSON. Details: {e}")
+        logger.exception(f"Error: Could not decode the JSON. Details: {e}")
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        logger.exception(f"An unexpected error occurred: {e}")
 
     return 0

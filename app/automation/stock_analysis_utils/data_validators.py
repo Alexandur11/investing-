@@ -1,4 +1,7 @@
 import asyncio
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 async def data_validation_orchestrator(financial_strengths,
@@ -30,7 +33,7 @@ async def varify_cash_to_debt_ratio(data):
         if data['cash_to_debt'] > 0.20:
             return True
     except Exception as e:
-        print(f'Error obtaining cash to debt: {e}')
+        logger.exception(f'Error obtaining cash to debt: {e}')
 
 
 async def verify_debt_to_equity_ratio(data):
@@ -38,7 +41,7 @@ async def verify_debt_to_equity_ratio(data):
         if data['debt_to_equity'] < 1:
             return True
     except Exception as e:
-        print(f'Error obtaining debt to equity: {e}')
+        logger.exception(f'Error obtaining debt to equity: {e}')
 
 
 async def verify_debt_to_ebitda_ratio(data):
@@ -46,7 +49,7 @@ async def verify_debt_to_ebitda_ratio(data):
         if data['debt_to_ebitda'] < 2.5:
             return True
     except Exception as e:
-        print(f'Error obtaining ebitda: {e}')
+        logger.exception(f'Error obtaining ebitda: {e}')
 
 
 async def verify_interest_coverage_ratio(data):
@@ -54,8 +57,7 @@ async def verify_interest_coverage_ratio(data):
         if data['interest_coverage_ratio'] < 5:
             return False
     except Exception as e:
-        print(f'Error obtaining interest coverage: {e}')
-
+        logger.exception(f'Error obtaining interest coverage: {e}')
     return True
 
 
@@ -64,7 +66,7 @@ async def verify_current_ratio(data):
         if data['current_ratio'] < 1:
             return True
     except Exception as e:
-        print(f'Error obtaining current ratio: {e}')
+        logger.exception(f'Error obtaining current ratio: {e}')
 
 
 async def verify_roe(data):
@@ -72,7 +74,7 @@ async def verify_roe(data):
         if data['roe'] > 12:
             return True
     except Exception as e:
-        print(f'Error obtaining roe: {e}')
+        logger.exception(f'Error obtaining roe: {e}')
 
 
 async def verify_roa(data):
@@ -80,7 +82,7 @@ async def verify_roa(data):
         if data['roa'] > 5:
             return True
     except Exception as e:
-        print(f'Error obtaining roa: {e}')
+        logger.exception(f'Error obtaining roa: {e}')
 
 
 async def verify_roic(data):
@@ -88,7 +90,7 @@ async def verify_roic(data):
         if data['roic'] > 12:
             return True
     except Exception as e:
-        print(f'Error obtaining roic {e}')
+        logger.exception(f'Error obtaining roic {e}')
 
 
 async def verify_price_to_earnings_ratio(gf_data, growth_rank_data):
@@ -105,7 +107,7 @@ async def verify_price_to_earnings_ratio(gf_data, growth_rank_data):
         if revenue in range(10, 13) and pe < 25:
             return True
     except Exception as e:
-        print(f'Error obtaining P/E: {e}')
+        logger.exception(f'Error obtaining P/E: {e}')
 
 
 async def verify_peg_ratio(data):
@@ -113,7 +115,7 @@ async def verify_peg_ratio(data):
         if data['PEG Ratio'] < 1:
             return True
     except Exception as e:
-        print(f'Error obtaining peg: {e}')
+        logger.exception(f'Error obtaining peg: {e}')
 
 
 async def verify_price_to_sales_ratio(data):
@@ -121,7 +123,7 @@ async def verify_price_to_sales_ratio(data):
         if data['PS Ratio'] < 2:
             return True
     except Exception as e:
-        print(f'Error obtaining P/S: {e}')
+        logger.exception(f'Error obtaining P/S: {e}')
 
 
 async def verify_price_to_book_ratio(data):
@@ -129,7 +131,7 @@ async def verify_price_to_book_ratio(data):
         if data['PB Ratio'] < 3:
             return True
     except Exception as e:
-        print(f'Error obtaining P/B: {e}')
+        logger.exception(f'Error obtaining P/B: {e}')
 
 
 async def verify_price_to_free_cash_flow_ratio(data):
@@ -137,4 +139,4 @@ async def verify_price_to_free_cash_flow_ratio(data):
         if data['P FCF'] < 25:
             return True
     except Exception as e:
-        print(f'Error obtaining P/FCF: {e}')
+        logger.exception(f'Error obtaining P/FCF: {e}')

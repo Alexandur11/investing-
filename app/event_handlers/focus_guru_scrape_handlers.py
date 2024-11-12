@@ -1,6 +1,10 @@
+import logging
+
 import pandas as pd
 import requests
 from io import StringIO
+
+logger = logging.getLogger(__name__)
 
 
 def scrape_focus_guru_data(symbol: str):
@@ -10,7 +14,7 @@ def scrape_focus_guru_data(symbol: str):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
 
-    print(f'Requesting data for {symbol}')
+    logger.info(f'Requesting data for {symbol}')
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
@@ -31,13 +35,14 @@ def scrape_focus_guru_data(symbol: str):
                 'profitability_rank': profitability_rank(profitability_rank_data),
                 'gf_value_rank': gf_value_rank(gf_value_rank_data)
             }
-            print(f'Successfully scraped available data for {symbol}')
+            logger.info(f'Successfully scraped available data for {symbol}')
             return results
         except (ValueError, TypeError):
-            print(f'Scraping data failed,potentially due to invalid symbol: {symbol}')
+            logger.exception(f'Scraping data failed,potentially due to invalid symbol: {symbol}')
 
     else:
-        print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+        logger.info(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+
 
 
 def financial_strengths(financial_strength_data):
@@ -50,7 +55,7 @@ def financial_strengths(financial_strength_data):
             if not row.empty:
                 data[d] = float(row.iloc[0]['Current'])
         except Exception as e:
-            print(f'Financial Strengths failed is missing {v}: {e}')
+            logger.exception(f'Financial Strengths failed is missing {v}: {e}')
 
     return data
 
@@ -65,7 +70,7 @@ def liquidity_ratio(liquidity_ratio_data):
             if not row.empty:
                 data[d] = float(row.iloc[0]['Current'])
         except Exception as e:
-            print(f'Liquidity ratio is missing {v} : {e}')
+            logger.exception(f'Liquidity ratio is missing {v} : {e}')
 
     return data
 
@@ -84,7 +89,7 @@ def profitability_rank(profitability_rank_data):
             if not row.empty:
                 data[d] = float(row.iloc[0]['Current'])
         except Exception as e:
-            print(f'Profitability rank is missing {v} : {e}')
+            logger.exception(f'Profitability rank is missing {v} : {e}')
 
     return data
 
@@ -99,7 +104,7 @@ def growth_rank(growth_rank_data):
             if not row.empty:
                 data[d] = float(row.iloc[0]['Current'])
         except Exception as e:
-            print(f'Growth rank is missing {v} : {e}')
+            logger.exception(f'Growth rank is missing {v} : {e}')
 
     return data
 
@@ -114,5 +119,5 @@ def gf_value_rank(gf_value_rank_data):
             if not row.empty:
                 data[d] = float(row.iloc[0]['Current'])
         except Exception as e:
-            print(f'Gf value rank is missing {v}  : {e}')
+            logger.exception(f'Gf value rank is missing {v}  : {e}')
     return data

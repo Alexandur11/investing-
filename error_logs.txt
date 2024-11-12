@@ -1,0 +1,55 @@
+
+--------------------
+Timestamp: 2024-11-12 13:05:48,213
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+    if data['debt_to_equity'] < 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-12 13:05:48,213
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+    if data['roic'] > 12:
+       ^^^^^^^^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-12 13:08:10,638
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+    if data['PEG Ratio'] < 1:
+       ^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-12 13:08:10,638
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+    if data['PS Ratio'] < 2:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-12 13:08:10,638
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+    if data['P FCF'] < 25:
+       ^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
