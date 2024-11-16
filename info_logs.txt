@@ -1,84 +1,63 @@
 
 --------------------
-Timestamp: 2024-11-12 13:05:46,789
-Level: INFO
-Message: Requesting data for BME
---------------------
-
-
---------------------
-Timestamp: 2024-11-12 13:05:46,792
+Timestamp: 2024-11-16 22:01:08,491
 Level: DEBUG
-Message: Starting new HTTPS connection (1): www.gurufocus.com:443
+Message: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:05:47,677
+Timestamp: 2024-11-16 22:01:08,514
 Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/BME/summary HTTP/11" 200 None
+Message: Making request: POST https://oauth2.googleapis.com/token
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:05:48,211
-Level: INFO
-Message: Successfully scraped available data for BME
---------------------
-
-
---------------------
-Timestamp: 2024-11-12 13:05:48,212
+Timestamp: 2024-11-16 22:01:08,515
 Level: DEBUG
-Message: Using proactor: IocpProactor
+Message: Starting new HTTPS connection (1): oauth2.googleapis.com:443
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:05:48,214
-Level: INFO
-Message: 0/100 analysed
---------------------
-
-
---------------------
-Timestamp: 2024-11-12 13:08:09,234
-Level: INFO
-Message: Requesting data for BMEA
---------------------
-
-
---------------------
-Timestamp: 2024-11-12 13:08:09,238
+Timestamp: 2024-11-16 22:01:08,642
 Level: DEBUG
-Message: Starting new HTTPS connection (1): www.gurufocus.com:443
+Message: https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:08:10,117
+Timestamp: 2024-11-16 22:01:08,646
 Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/BMEA/summary HTTP/11" 200 None
+Message: Starting new HTTPS connection (1): sheets.googleapis.com:443
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:08:10,637
-Level: INFO
-Message: Successfully scraped available data for BMEA
---------------------
-
-
---------------------
-Timestamp: 2024-11-12 13:08:10,637
+Timestamp: 2024-11-16 22:01:08,965
 Level: DEBUG
-Message: Using proactor: IocpProactor
+Message: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y?includeGridData=false HTTP/11" 200 None
 --------------------
 
 
 --------------------
-Timestamp: 2024-11-12 13:08:10,639
+Timestamp: 2024-11-16 22:01:09,219
+Level: DEBUG
+Message: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y?includeGridData=false HTTP/11" 200 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-11-16 22:01:09,487
+Level: DEBUG
+Message: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y/values/%27US_Unfiltered_Stocks_Work%27%21R1%3AR?valueRenderOption=FORMATTED_VALUE&majorDimension=COLUMNS HTTP/11" 200 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-11-16 22:01:09,488
 Level: INFO
-Message: 1/100 analysed
+Message: Stocks from Column 18 collected
 --------------------
 

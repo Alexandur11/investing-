@@ -24,6 +24,17 @@ class StockSearchWorker(QObject):
         super().__init__()
         self.column = column
 
+    def update_stock_list(self,stock_data_list):
+        try:
+            for index, data in enumerate(stock_data_list):
+                time.sleep(3)
+                update_filtered_stocks_list(data_to_append=data, sheet_to_update='Filtered_stocks',
+                                            col_to_update=index + 1)
+        except Exception as e:
+            logger.exception(e)
+
+
+
     def run(self):
 
         A, B, C = [], [], []  # Stocks tier list related to the spreadsheet
@@ -34,20 +45,20 @@ class StockSearchWorker(QObject):
             unfiltered_symbols = collect_unfiltered_symbols_from_google_sheet_cloud(self.column)
 
             for index, symbol in enumerate(unfiltered_symbols):
-                time.sleep(random.uniform(63, 183))
-                result = analyse_focus_guru_scraped_data(symbol)
+                try:
+                    time.sleep(random.uniform(63, 183))
+                    result = analyse_focus_guru_scraped_data(symbol)
 
-                if result > 7:
-                    decide_the_stock_column(A,B,C,symbol,result)
-                    stocks_found += 1
+                    if result > 7:
+                        decide_the_stock_column(A,B,C,symbol,result)
+                        stocks_found += 1
 
-                self.progress.emit(index)
-                logger.info(f'{index}/{len(unfiltered_symbols)} analysed')
+                    self.progress.emit(index)
+                    logger.info(f'{index}/{len(unfiltered_symbols)} analysed')
+                except Exception as e:
+                    logger.exception(e)
 
-            for index, data in enumerate([A, B, C]):
-                time.sleep(3)
-                update_filtered_stocks_list(data_to_append=data, sheet_to_update='Filtered_stocks',
-                                            col_to_update=index + 1)
+            self.update_stock_list([A,B,C])
 
             self.show_message.emit('Search Completed', 'Nothing Found' if stocks_found == 0 else 'Something found!')
 

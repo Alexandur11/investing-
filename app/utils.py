@@ -17,16 +17,18 @@ class MessageDialog:
         reply = QMessageBox.question(None,title, message,QMessageBox.Yes | QMessageBox.No,QMessageBox.No)
         if reply == QMessageBox.Yes:
             event.accept()  # Close the app or proceed with action
+            return True
         else:
             event.ignore()  # Cancel the close event
 
 
 def decide_the_stock_column(column_A,column_B,column_C,symbol,value):
-    if value == 12:
+
+    if value in range(11,13):
         column_A.append(symbol)
     if value in range(9,12):
         column_B.append(symbol)
-    if value == 8:
+    if value in range(7,9):
         column_C.append(symbol)
 
 
