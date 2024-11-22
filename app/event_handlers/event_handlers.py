@@ -22,7 +22,7 @@ def get_cookies_location():
             return cookies_location
     else:
         logger.info("Cookies location file not found.")
-        return None
+
 
 
 def clean_cookies():

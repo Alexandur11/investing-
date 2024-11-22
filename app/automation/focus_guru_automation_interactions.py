@@ -43,7 +43,6 @@ def automated_focus_guru_scrape_orchestrator(columns):
                 logger.exception(f'Error {e}')
 
     except Exception as e:
-        logger.exception('')
         logger.exception(f'Error occurred while analysing: {e}')
 
     if len(filtered_data) > 0:

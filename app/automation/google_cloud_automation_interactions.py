@@ -9,6 +9,7 @@ env_vars = dotenv_values()
 
 logger = logging.getLogger(__name__)
 
+
 def authorize_creds_for_google_sheet():
     try:
         SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -35,7 +36,6 @@ def create_new_sheet(sheet_name, num_columns=100):
     sh = gc.open_by_key(spreadsheet_id)
 
     sh.add_worksheet(title=sheet_name, rows=200, cols=num_columns)
-    # print(f"New sheet '{sheet_name}' created with {num_columns} columns.")
 
 
 def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
@@ -96,8 +96,8 @@ def update_filtered_stocks_list(data_to_append, sheet_to_update, col_to_update):
             existing_values = worksheet.col_values(col_to_update)
             size = len(existing_values)
 
-            start_row = size + 1  # First empty row
-            end_row = size + len(data_to_append)  # Last row to update
+            start_row = size + 1
+            end_row = size + len(data_to_append)
 
             range_to_update = f"{row}{start_row}:{row}{end_row}"
 
@@ -111,9 +111,8 @@ def rearrange_sheet():
     symbols = []
     for x in range(1, 26):
         time.sleep(10)
-        # print('New batch received')
+
         symbols += collect_unfiltered_symbols_from_google_sheet_cloud(x)
-        # print('batch appended')
 
     new_order = []
     inside_order = []
@@ -124,10 +123,7 @@ def rearrange_sheet():
             inside_order.append(x)
             new_order.append(inside_order.copy())
             inside_order.clear()
-            # print('Inside order appended to new order and cleared')
 
     for data in new_order:
         time.sleep(20)
         update_filtered_google_sheet_list_with_new_symbols(data, 'US_Unfiltered_Stocks_Work')
-
-    # print('Process completed')

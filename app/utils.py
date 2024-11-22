@@ -8,9 +8,9 @@ class MessageDialog:
         msg_box = QMessageBox()
         msg_box.setWindowTitle(title)
         msg_box.setText(message)
-        msg_box.setIcon(QMessageBox.Warning)  # You can use different icons
-        msg_box.setStandardButtons(QMessageBox.Ok)  # Add OK button
-        msg_box.exec()  # Display the message box
+        msg_box.setIcon(QMessageBox.Warning)
+        msg_box.setStandardButtons(QMessageBox.Ok)
+        msg_box.exec()
 
     @staticmethod
     def question_message(title: str, message: str, event):
@@ -24,11 +24,14 @@ class MessageDialog:
 
 def decide_the_stock_column(column_A,column_B,column_C,symbol,value):
 
-    if value in range(11,13):
+    if value > 10:
         column_A.append(symbol)
-    if value in range(9,12):
+        return
+    if value > 8:
         column_B.append(symbol)
-    if value in range(7,9):
+        return
+    if value >= 7:
         column_C.append(symbol)
+
 
 

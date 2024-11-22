@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class ConfigCheck:
     CONFIG_FILE = 'checkbox_config.txt'
     SPREADSHEET_HISTORY = 'spreadsheet_history.txt'
@@ -26,7 +27,7 @@ class ConfigCheck:
                 self.macro_trends.setChecked(lines[3].strip() == 'True')
                 self.finance_charts.setChecked(lines[4].strip() == 'True')
                 self.companies_market_cap.setChecked(lines[5].strip() == 'True')
-        except FileNotFoundError as e :
+        except FileNotFoundError as e:
             logger.exception(e)
 
     def save_checkbox_config(self):

@@ -26,15 +26,14 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         if self.auto_stock_search_tab.task_running:
             if MessageDialog().question_message(title='Warning',
-                                             message='A task is still running. Are you sure you want to exit?',
-                                             event=event):
+                                                message='A task is still running. Are you sure you want to exit?',
+                                                event=event):
                 super().closeEvent(event)
         else:
             event.accept()
             super().closeEvent(event)
 
         self.configs.save_checkbox_config()
-
 
     def setup_window(self):
         self.setWindowTitle(self.WINDOW_TITLE)

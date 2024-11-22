@@ -44,7 +44,6 @@ def scrape_focus_guru_data(symbol: str):
         logger.info(f"Failed to retrieve the webpage. Status code: {response.status_code}")
 
 
-
 def financial_strengths(financial_strength_data):
     data = {'cash_to_debt': None, 'debt_to_equity': None, 'debt_to_ebitda': None, 'interest_coverage_ratio': None}
     values = ['Cash-To-Debt', 'Debt-to-Equity', 'Debt-to-EBITDA', 'Interest Coverage']
