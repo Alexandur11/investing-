@@ -1,0 +1,2254 @@
+
+--------------------
+Timestamp: 2024-11-23 10:21:06,776
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:21:06,776
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:21:06,777
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:23:35,020
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:23:35,020
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:25:48,420
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,704
+Level: ERROR
+Message: Financial Strengths failed is missing Cash-To-Debt: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,705
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-Equity: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,706
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-EBITDA: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,706
+Level: ERROR
+Message: Financial Strengths failed is missing Interest Coverage: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,707
+Level: ERROR
+Message: Growth rank is missing 3-Year Revenue Growth Rate : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 103, in growth_rank
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,707
+Level: ERROR
+Message: Liquidity ratio is missing Current Ratio : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 69, in liquidity_ratio
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,710
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,710
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,710
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining roa: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 82, in verify_roa
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,711
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,712
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:27:02,712
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:32:27,790
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:32:27,790
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:33:38,706
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:33:38,707
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,088
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,088
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,088
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,088
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining roa: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 82, in verify_roa
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,089
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:35:34,090
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:36:54,195
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:36:54,196
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:36:54,196
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,314
+Level: ERROR
+Message: Financial Strengths failed is missing Cash-To-Debt: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,314
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-Equity: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,315
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-EBITDA: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,315
+Level: ERROR
+Message: Financial Strengths failed is missing Interest Coverage: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,316
+Level: ERROR
+Message: Growth rank is missing 3-Year Revenue Growth Rate : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 103, in growth_rank
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,317
+Level: ERROR
+Message: Liquidity ratio is missing Current Ratio : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 69, in liquidity_ratio
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,319
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining roa: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 82, in verify_roa
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,320
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,321
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,321
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,321
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:40:17,321
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:42:46,197
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:45:03,462
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:45:03,462
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:45:03,462
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:45:03,462
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:47:58,028
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:47:58,028
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:47:58,028
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:47:58,028
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:49:22,530
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:49:22,530
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:49:22,530
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:49:22,530
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:51:48,045
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:51:48,045
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:51:48,045
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:56:34,948
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 10:58:14,433
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,248
+Level: ERROR
+Message: Financial Strengths failed is missing Cash-To-Debt: could not convert string to float: 'No Debt'
+--------------------
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 56, in financial_strengths
+ValueError: could not convert string to float: 'No Debt'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,249
+Level: ERROR
+Message: Financial Strengths failed is missing Interest Coverage: could not convert string to float: 'No Debt'
+--------------------
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 56, in financial_strengths
+ValueError: could not convert string to float: 'No Debt'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,252
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,253
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,253
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,253
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,253
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:01:11,253
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:03:50,218
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:05:12,740
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:14:56,753
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:16:27,312
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:18:20,373
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:20:21,448
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:20:21,448
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:20:21,448
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:22:33,155
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:22:33,156
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:22:33,156
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:25:37,151
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:25:37,151
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,659
+Level: ERROR
+Message: Financial Strengths failed is missing Cash-To-Debt: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 175, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,659
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-Equity: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 175, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,660
+Level: ERROR
+Message: Financial Strengths failed is missing Debt-to-EBITDA: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 175, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,661
+Level: ERROR
+Message: Financial Strengths failed is missing Interest Coverage: 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 175, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 54, in financial_strengths
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,661
+Level: ERROR
+Message: Growth rank is missing 3-Year Revenue Growth Rate : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 103, in growth_rank
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,662
+Level: ERROR
+Message: Liquidity ratio is missing Current Ratio : 'Name'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 69, in liquidity_ratio
+  File "pandas\core\frame.py", line 4102, in __getitem__
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Name'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,663
+Level: ERROR
+Message: Gf value rank is missing PE Ratio  : 'Current'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Current'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 120, in gf_value_rank
+  File "pandas\core\series.py", line 1121, in __getitem__
+  File "pandas\core\series.py", line 1237, in _get_value
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Current'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,664
+Level: ERROR
+Message: Gf value rank is missing PB Ratio  : 'Current'
+--------------------
+Traceback (most recent call last):
+  File "pandas\core\indexes\base.py", line 3805, in get_loc
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Current'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 120, in gf_value_rank
+  File "pandas\core\series.py", line 1121, in __getitem__
+  File "pandas\core\series.py", line 1237, in _get_value
+  File "pandas\core\indexes\base.py", line 3812, in get_loc
+KeyError: 'Current'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,666
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining roa: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 82, in verify_roa
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,667
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,668
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,668
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,668
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:28:37,668
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:29:51,435
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:32:40,982
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:32:40,983
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:32:40,983
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:40:05,926
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:42:36,903
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:42:36,903
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:42:36,903
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:42:36,904
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:45:30,323
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:45:30,324
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:48:01,189
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:48:01,190
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:50:24,511
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:50:24,512
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:50:24,512
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:50:24,512
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:52:24,197
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:52:24,198
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:52:24,198
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:52:24,198
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:53:43,849
+Level: ERROR
+Message: Error obtaining cash to debt: '>' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 33, in varify_cash_to_debt_ratio
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 11:53:43,849
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:53:43,849
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:55:45,079
+Level: ERROR
+Message: Profitability rank is missing ROE % : could not convert string to float: 'Neg. Equity'
+--------------------
+Traceback (most recent call last):
+  File "app\event_handlers\focus_guru_scrape_handlers.py", line 90, in profitability_rank
+ValueError: could not convert string to float: 'Neg. Equity'
+
+--------------------
+Timestamp: 2024-11-23 11:55:45,081
+Level: ERROR
+Message: Error obtaining roe: '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 74, in verify_roe
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:55:45,082
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:57:12,475
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:59:38,020
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 11:59:38,021
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:02:11,131
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:02:11,131
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:02:11,133
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:02:11,133
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:03:52,566
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:03:52,566
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:05:31,085
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:10:25,523
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:12:54,859
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:14:54,232
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:14:54,232
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:16:58,279
+Level: ERROR
+Message: Error obtaining ebitda: '<' not supported between instances of 'NoneType' and 'float'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 49, in verify_debt_to_ebitda_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+--------------------
+Timestamp: 2024-11-23 12:16:58,279
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:16:58,279
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:16:58,279
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:18:06,532
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:18:06,532
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:20:44,598
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:20:44,598
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:20:44,598
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:20:44,598
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:23:01,424
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:23:01,424
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:23:01,425
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:24:54,772
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:24:54,772
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:27:13,740
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:27:13,741
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:27:13,741
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:27:13,741
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:29:54,759
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:29:54,759
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:29:54,759
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:29:54,759
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:31:22,236
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:31:22,237
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:33:43,186
+Level: ERROR
+Message: Error obtaining debt to equity: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 41, in verify_debt_to_equity_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:33:43,186
+Level: ERROR
+Message: Error obtaining roic '>' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 90, in verify_roic
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:33:43,186
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:33:43,186
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:36:09,088
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:36:09,088
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:36:09,088
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:38:19,353
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:38:19,353
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:38:19,354
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:40:04,855
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:40:04,855
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:40:04,856
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:40:04,856
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:42:10,900
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:42:10,900
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:48:09,247
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:48:09,248
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:48:09,248
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:48:09,248
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:51:13,535
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:51:13,535
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:51:13,535
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:53:20,119
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:53:20,119
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:53:20,119
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:59:18,030
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:59:18,030
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 12:59:18,030
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:01:38,861
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:01:38,861
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:01:38,862
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:01:38,862
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:01:38,862
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:03:33,343
+Level: ERROR
+Message: Error obtaining interest coverage: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 57, in verify_interest_coverage_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:03:33,343
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:03:33,343
+Level: ERROR
+Message: Error obtaining P/S: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 123, in verify_price_to_sales_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:03:33,343
+Level: ERROR
+Message: Error obtaining P/B: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 131, in verify_price_to_book_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:03:33,344
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:05:58,401
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:05:58,401
+Level: ERROR
+Message: Error obtaining P/FCF: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 139, in verify_price_to_free_cash_flow_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+--------------------
+Timestamp: 2024-11-23 13:07:19,355
+Level: ERROR
+Message: Error obtaining peg: '<' not supported between instances of 'NoneType' and 'int'
+--------------------
+Traceback (most recent call last):
+  File "app\automation\stock_analysis_utils\data_validators.py", line 115, in verify_peg_ratio
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
