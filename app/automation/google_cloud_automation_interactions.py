@@ -6,6 +6,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 env_vars = dotenv_values()
+spreadsheet_id = env_vars.get('SPREADSHEETID')
+creds_file = 'creds.json'
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +15,7 @@ logger = logging.getLogger(__name__)
 def authorize_creds_for_google_sheet():
     try:
         SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-        creds = Credentials.from_service_account_file('stocks-439709-358f6c1e35af.json', scopes=SCOPES)
+        creds = Credentials.from_service_account_file(creds_file, scopes=SCOPES)
         return gspread.authorize(creds)
     except Exception as e:
         logger.exception(f'Error establishing connection: {e}')
@@ -32,7 +34,6 @@ def get_column_letter(column_index):
 def create_new_sheet(sheet_name, num_columns=100):
     gc = authorize_creds_for_google_sheet()
 
-    spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
     sh = gc.open_by_key(spreadsheet_id)
 
     sh.add_worksheet(title=sheet_name, rows=200, cols=num_columns)
@@ -41,7 +42,7 @@ def create_new_sheet(sheet_name, num_columns=100):
 def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
     try:
         gc = authorize_creds_for_google_sheet()
-        spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
+
         worksheet_name = 'US_Unfiltered_Stocks_Work'
 
         sh = gc.open_by_key(spreadsheet_id)
@@ -58,7 +59,6 @@ def collect_unfiltered_symbols_from_google_sheet_cloud(column: int):
 def update_filtered_google_sheet_list_with_new_symbols(data_to_append, sheet_to_update):
     try:
         gc = authorize_creds_for_google_sheet()
-        spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
         worksheet_name = sheet_to_update
 
         sh = gc.open_by_key(spreadsheet_id)
@@ -88,7 +88,6 @@ def update_filtered_stocks_list(data_to_append, sheet_to_update, col_to_update):
         try:
             row = get_column_letter(col_to_update)
             gc = authorize_creds_for_google_sheet()
-            spreadsheet_id = '1Hien8Dr0zsu3aorg2-UhuI0w1rmjIdcb5QAqExnyG3Y'
             worksheet_name = sheet_to_update
             sh = gc.open_by_key(spreadsheet_id)
             worksheet = sh.worksheet(worksheet_name)
