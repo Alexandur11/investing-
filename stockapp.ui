@@ -22,14 +22,20 @@
      <height>601</height>
     </rect>
    </property>
+   <property name="accessibleName">
+    <string>app_tabs_widget</string>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: green;  /* Replace #3498db with any color code */
 </string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="stock_manual_search_tab">
+    <property name="accessibleName">
+     <string>manual_search_tab_widget</string>
+    </property>
     <attribute name="title">
      <string>Stock Search</string>
     </attribute>
@@ -42,11 +48,11 @@
        <height>56</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="stock_manual_search_vertical_layout">
       <item>
        <widget class="QLineEdit" name="stock_search_manual_bar">
         <property name="styleSheet">
-         <string notr="true">color: red;  /* Text color */</string>
+         <string notr="true">color: white;  /* Text color */</string>
         </property>
        </widget>
       </item>
@@ -64,6 +70,9 @@
     </widget>
    </widget>
    <widget class="QWidget" name="stock_auto_search_tab">
+    <property name="accessibleName">
+     <string>auto_search_tab_widget</string>
+    </property>
     <attribute name="title">
      <string>Auto Stock Search</string>
     </attribute>
@@ -75,6 +84,9 @@
        <width>259</width>
        <height>24</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white;</string>
      </property>
      <property name="value">
       <number>24</number>
@@ -89,7 +101,7 @@
        <height>56</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="stock_auto_search_vertical_layout">
       <item>
        <widget class="QComboBox" name="stock_search_auto_combo_box">
         <property name="styleSheet">
@@ -110,7 +122,1260 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QWidget" name="stock_comparison_tab">
+    <property name="accessibleName">
+     <string>comparison_search_tab_widget</string>
+    </property>
+    <attribute name="title">
+     <string>Stock Comparison</string>
+    </attribute>
+    <widget class="QFrame" name="stock_a_frame">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>371</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="accessibleName">
+      <string>stock_a_frame_widget</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QLabel" name="debt_management_a">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>99</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Debt Management</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>216</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="stock_a_horizontal_layout">
+       <item>
+        <widget class="QLineEdit" name="stock_search_a_bar"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stock_search_a_button">
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Compare</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="stock_a_efficiency">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>30</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Efficiency</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_a_price_estimates">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>30</y>
+        <width>79</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Price Estimates</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>50</y>
+        <width>34</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_a_price_estimates_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_a_pe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/E</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_peg">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>PEG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_ps">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/S</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_pfcf">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/FCF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>94</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_a_debt_management_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_a_cash_to_debt">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Cash to Debt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_debt_to_equity">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/Equity Ratio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_debt_to_ebitda">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/EBITDA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_interest_coverage">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Interest Coverage</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_current_ratio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Current</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>50</y>
+        <width>31</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_a_efficiency_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_a_roa">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_roe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROE</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_a_roic">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROIC</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="stock_c_frame">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>290</y>
+       <width>371</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="accessibleName">
+      <string>stock_c_frame_widget</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>216</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="stock_c_horizontal_layout">
+       <item>
+        <widget class="QLineEdit" name="stock_search_c_bar"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stock_search_c_button">
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Compare</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="debt_management_c">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>99</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Debt Management</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_c_efficiency">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>30</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Efficiency</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_c_price_estimates">
+      <property name="geometry">
+       <rect>
+        <x>287</x>
+        <y>30</y>
+        <width>79</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Price Estimates</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>94</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_c_debt_management_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_c_cash_to_debt">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Cash to Debt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_debt_to_equity">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/Equity Ratio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_debt_to_ebitda">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/EBITDA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_interest_coverage">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Interest Coverage</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_current_ratio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Current</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>60</y>
+        <width>31</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_c_efficiency_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_c_roa">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_roe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROE</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_roic">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROIC</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_12">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>60</y>
+        <width>34</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_c_price_estimates_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_c_pe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/E</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_peg">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>PEG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_ps">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/S</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_c_pfcf">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/FCF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="stock_b_frame">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>0</y>
+       <width>381</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="accessibleName">
+      <string>stock_b_frame_widget</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>216</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="stock_b_horizontal_layout">
+       <item>
+        <widget class="QLineEdit" name="stock_search_b_bar"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stock_search_b_button">
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Compare</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="debt_management_b">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>99</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Debt Management</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_b_efficiency">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>30</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Efficiency</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_b_price_estimates">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>30</y>
+        <width>79</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Price Estimates</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>94</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_b_debt_management_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_b_cash_to_debt">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Cash to Debt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_debt_to_equity">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/Equity Ratio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_debt_to_ebitda">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/EBITDA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_interest_coverage">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Interest Coverage</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_current_ratio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Current</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>50</y>
+        <width>31</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_b_efficiency_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_b_roa">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_roe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROE</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_roic">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROIC</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>45</y>
+        <width>34</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_b_price_estimates_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_b_pe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/E</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_peg">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>PEG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_ps">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/S</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_b_pfcf">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/FCF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="stock_d_frame">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>290</y>
+       <width>381</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="accessibleName">
+      <string>stock_d_frame_widget</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>216</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="stock_d_horizontal_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="stock_search_d_bar"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stock_search_d_button">
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Compare</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="debt_management_d">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>99</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Debt Management</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_d_efficiency">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>30</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Efficiency</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="stock_d_price_estimates">
+      <property name="geometry">
+       <rect>
+        <x>299</x>
+        <y>30</y>
+        <width>79</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;  /* Text color */</string>
+      </property>
+      <property name="text">
+       <string>Price Estimates</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>94</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_d_debt_management_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_d_cash_to_debt">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Cash to Debt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_debt_to_equity">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/Equity Ratio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_debt_to_ebitda">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>D/EBITDA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_interest_coverage">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Interest Coverage</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_current_ratio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>Current</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>60</y>
+        <width>31</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_d_efficiency_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_d_roa">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROA</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_roe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROE</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_roic">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>ROIC</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_13">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>60</y>
+        <width>34</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="stock_d_price_estimates_vertical_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="stock_d_pe">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/E</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_peg">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>PEG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_ps">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/S</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stock_d_pfcf">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;  /* Text color */</string>
+         </property>
+         <property name="text">
+          <string>P/FCF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
    <widget class="QWidget" name="stock_search_settings">
+    <property name="accessibleName">
+     <string>settings_search_tab_widget</string>
+    </property>
     <attribute name="title">
      <string>Settings</string>
     </attribute>
@@ -123,7 +1388,7 @@
        <height>164</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QVBoxLayout" name="stock_search_settings_vertical_layout">
       <item>
        <widget class="QCheckBox" name="analytics_check_box">
         <property name="styleSheet">
@@ -186,11 +1451,6 @@
       </item>
      </layout>
     </widget>
-   </widget>
-   <widget class="QWidget" name="information_tab">
-    <attribute name="title">
-     <string>Information</string>
-    </attribute>
    </widget>
   </widget>
  </widget>

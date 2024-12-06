@@ -1,3 +1,4 @@
+from app.models.app_tabs.stock_comparison import StockComparison
 from app.utils import MessageDialog
 from stockapp import *
 from PySide6.QtWidgets import QMainWindow
@@ -22,6 +23,7 @@ class MainWindow(QMainWindow):
         self.configs.load_checkbox_config()
         self.manual_stock_search_tab = ManualStockSearch(self.ui, self.configs)
         self.auto_stock_search_tab = AutoStockSearch(self.ui)
+        self.stock_comparison_tab = StockComparison(self.ui)
 
     def closeEvent(self, event):
         if self.auto_stock_search_tab.task_running:

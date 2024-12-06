@@ -7,7 +7,7 @@ from app.event_handlers.event_handlers import close_browser, open_focus_guru, op
 from app.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from app.models.app_tabs.advisor_page import AdvisorPage, FinancialData
 
-from app.utils import MessageDialog
+from app.utils import MessageDialog, parse_scraped_data
 
 
 class ManualStockSearch(QWidget):
@@ -42,18 +42,7 @@ class ManualStockSearch(QWidget):
         if advisor_method_status:
             data = scrape_focus_guru_data(symbol)
             if data:
-                financial_strengths_data = data['financial_strengths']
-                growth_rank_data = data['growth_rank']
-                liquidity_ratio_data = data['liquidity_ratio']
-                profitability_rank_data = data['profitability_rank']
-                gf_value_rank_data = data['gf_value_rank']
-
-                financial_data = FinancialData(financial_strength_data=financial_strengths_data,
-                                               growth_rank_data=growth_rank_data,
-                                               liquidity_ratio_data=liquidity_ratio_data,
-                                               profitability_rank_data=profitability_rank_data,
-                                               gf_value_rank_data=gf_value_rank_data)
-
+                financial_data = parse_scraped_data(data)
                 self.advisor_page = AdvisorPage(financial_data)
                 self.advisor_page.setup_layout()
 
