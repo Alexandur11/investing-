@@ -97,6 +97,7 @@ class Ui_stock_app(object):
         self.stock_a_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_a_bar = QLineEdit(self.layoutWidget2)
         self.stock_search_a_bar.setObjectName(u"stock_search_a_bar")
+        self.stock_search_a_bar.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_horizontal_layout.addWidget(self.stock_search_a_bar)
 
@@ -123,7 +124,7 @@ class Ui_stock_app(object):
         self.stock_a_price_estimates_vertical_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_a_pe = QLabel(self.layoutWidget_11)
         self.stock_a_pe.setObjectName(u"stock_a_pe")
-        self.stock_a_pe.setEnabled(False)
+        self.stock_a_pe.setEnabled(True)
         self.stock_a_pe.setVisible(False)
         self.stock_a_pe.setStyleSheet(u"color: white;  /* Text color */")
 
@@ -253,6 +254,7 @@ class Ui_stock_app(object):
         self.stock_c_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_c_bar = QLineEdit(self.layoutWidget_3)
         self.stock_search_c_bar.setObjectName(u"stock_search_c_bar")
+        self.stock_search_c_bar.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_horizontal_layout.addWidget(self.stock_search_c_bar)
 
@@ -413,6 +415,7 @@ class Ui_stock_app(object):
         self.stock_b_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_b_bar = QLineEdit(self.layoutWidget_2)
         self.stock_search_b_bar.setObjectName(u"stock_search_b_bar")
+        self.stock_search_b_bar.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_horizontal_layout.addWidget(self.stock_search_b_bar)
 
@@ -574,6 +577,7 @@ class Ui_stock_app(object):
         self.stock_d_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_d_bar = QLineEdit(self.layoutWidget_4)
         self.stock_search_d_bar.setObjectName(u"stock_search_d_bar")
+        self.stock_search_d_bar.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_horizontal_layout.addWidget(self.stock_search_d_bar)
 

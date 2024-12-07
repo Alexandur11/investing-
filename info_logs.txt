@@ -1,70 +1,35 @@
 
 --------------------
-Timestamp: 2024-12-06 14:27:53,370
+Timestamp: 2024-12-07 13:53:25,747
 Level: INFO
-Message: Requesting data for aapl
+Message: Requesting data for g
 --------------------
 
 
 --------------------
-Timestamp: 2024-12-06 14:27:53,373
+Timestamp: 2024-12-07 13:53:25,749
 Level: DEBUG
 Message: Starting new HTTPS connection (1): www.gurufocus.com:443
 --------------------
 
 
 --------------------
-Timestamp: 2024-12-06 14:27:53,750
+Timestamp: 2024-12-07 13:53:26,112
 Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/aapl/summary HTTP/11" 301 None
+Message: https://www.gurufocus.com:443 "GET /stock/g/summary HTTP/11" 301 None
 --------------------
 
 
 --------------------
-Timestamp: 2024-12-06 14:27:54,603
+Timestamp: 2024-12-07 13:53:27,138
 Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/AAPL/summary HTTP/11" 200 None
+Message: https://www.gurufocus.com:443 "GET /stock/G/summary HTTP/11" 200 None
 --------------------
 
 
 --------------------
-Timestamp: 2024-12-06 14:27:55,180
+Timestamp: 2024-12-07 13:53:27,703
 Level: INFO
-Message: Successfully scraped available data for aapl
---------------------
-
-
---------------------
-Timestamp: 2024-12-06 14:28:07,985
-Level: INFO
-Message: Requesting data for dhi
---------------------
-
-
---------------------
-Timestamp: 2024-12-06 14:28:07,986
-Level: DEBUG
-Message: Starting new HTTPS connection (1): www.gurufocus.com:443
---------------------
-
-
---------------------
-Timestamp: 2024-12-06 14:28:08,425
-Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/dhi/summary HTTP/11" 301 None
---------------------
-
-
---------------------
-Timestamp: 2024-12-06 14:28:09,240
-Level: DEBUG
-Message: https://www.gurufocus.com:443 "GET /stock/DHI/summary HTTP/11" 200 None
---------------------
-
-
---------------------
-Timestamp: 2024-12-06 14:28:09,761
-Level: INFO
-Message: Successfully scraped available data for dhi
+Message: Successfully scraped available data for g
 --------------------
 

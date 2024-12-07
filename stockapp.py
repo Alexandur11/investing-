@@ -82,7 +82,7 @@ class Ui_stock_app(object):
         self.stock_a_frame = QFrame(self.stock_comparison_tab)
         self.stock_a_frame.setObjectName(u"stock_a_frame")
         self.stock_a_frame.setGeometry(QRect(0, 0, 371, 271))
-        self.stock_a_frame.setStyleSheet(u"background: transparent;")
+        self.stock_a_frame.setStyleSheet(u"background: black;")
         self.stock_a_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.stock_a_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.debt_management_a = QLabel(self.stock_a_frame)
@@ -97,13 +97,26 @@ class Ui_stock_app(object):
         self.stock_a_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_a_bar = QLineEdit(self.layoutWidget2)
         self.stock_search_a_bar.setObjectName(u"stock_search_a_bar")
-        self.stock_search_a_bar.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_a_bar.setStyleSheet('color:white;')
 
         self.stock_a_horizontal_layout.addWidget(self.stock_search_a_bar)
 
         self.stock_search_a_button = QPushButton(self.layoutWidget2)
         self.stock_search_a_button.setObjectName(u"stock_search_a_button")
-        self.stock_search_a_button.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_a_button.setStyleSheet(u"QPushButton {\n"
+"    border: 2px solid black;         /* Default border */\n"
+"    border-radius: 5px;              /* Rounded corners */\n"
+"    background-color: lightgray;     /* Default background color */\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    border: 3px solid red;           /* Thicker border when clicked */\n"
+"    background-color: lightblue;     /* Background color when pressed */\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px dashed blue;         /* Dashed border on hover */\n"
+"    background-color: lightgreen;    /* Background color when hovered */\n"
+"}\n"
+"")
 
         self.stock_a_horizontal_layout.addWidget(self.stock_search_a_button)
 
@@ -117,7 +130,7 @@ class Ui_stock_app(object):
         self.stock_a_price_estimates.setStyleSheet(u"color: white;  /* Text color */")
         self.layoutWidget_11 = QWidget(self.stock_a_frame)
         self.layoutWidget_11.setObjectName(u"layoutWidget_11")
-        self.layoutWidget_11.setGeometry(QRect(290, 50, 34, 221))
+        self.layoutWidget_11.setGeometry(QRect(290, 50, 81, 221))
         self.stock_a_price_estimates_vertical_layout = QVBoxLayout(self.layoutWidget_11)
         self.stock_a_price_estimates_vertical_layout.setSpacing(0)
         self.stock_a_price_estimates_vertical_layout.setObjectName(u"stock_a_price_estimates_vertical_layout")
@@ -164,7 +177,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget3 = QWidget(self.stock_a_frame)
         self.layoutWidget3.setObjectName(u"layoutWidget3")
-        self.layoutWidget3.setGeometry(QRect(0, 50, 94, 221))
+        self.layoutWidget3.setGeometry(QRect(0, 50, 161, 221))
         self.stock_a_debt_management_vertical_layout = QVBoxLayout(self.layoutWidget3)
         self.stock_a_debt_management_vertical_layout.setSpacing(0)
         self.stock_a_debt_management_vertical_layout.setObjectName(u"stock_a_debt_management_vertical_layout")
@@ -211,7 +224,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget4 = QWidget(self.stock_a_frame)
         self.layoutWidget4.setObjectName(u"layoutWidget4")
-        self.layoutWidget4.setGeometry(QRect(170, 50, 31, 221))
+        self.layoutWidget4.setGeometry(QRect(170, 50, 111, 221))
         self.stock_a_efficiency_vertical_layout = QVBoxLayout(self.layoutWidget4)
         self.stock_a_efficiency_vertical_layout.setSpacing(0)
         self.stock_a_efficiency_vertical_layout.setObjectName(u"stock_a_efficiency_vertical_layout")
@@ -243,7 +256,7 @@ class Ui_stock_app(object):
         self.stock_c_frame = QFrame(self.stock_comparison_tab)
         self.stock_c_frame.setObjectName(u"stock_c_frame")
         self.stock_c_frame.setGeometry(QRect(0, 290, 371, 281))
-        self.stock_c_frame.setStyleSheet(u"background: transparent;")
+        self.stock_c_frame.setStyleSheet(u"background: black;")
         self.stock_c_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.stock_c_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.layoutWidget_3 = QWidget(self.stock_c_frame)
@@ -260,7 +273,20 @@ class Ui_stock_app(object):
 
         self.stock_search_c_button = QPushButton(self.layoutWidget_3)
         self.stock_search_c_button.setObjectName(u"stock_search_c_button")
-        self.stock_search_c_button.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_c_button.setStyleSheet(u"QPushButton {\n"
+"    border: 2px solid black;         /* Default border */\n"
+"    border-radius: 5px;              /* Rounded corners */\n"
+"    background-color: lightgray;     /* Default background color */\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    border: 3px solid red;           /* Thicker border when clicked */\n"
+"    background-color: lightblue;     /* Background color when pressed */\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px dashed blue;         /* Dashed border on hover */\n"
+"    background-color: lightgreen;    /* Background color when hovered */\n"
+"}\n"
+"")
 
         self.stock_c_horizontal_layout.addWidget(self.stock_search_c_button)
 
@@ -278,7 +304,7 @@ class Ui_stock_app(object):
         self.stock_c_price_estimates.setStyleSheet(u"color: white;  /* Text color */")
         self.layoutWidget_5 = QWidget(self.stock_c_frame)
         self.layoutWidget_5.setObjectName(u"layoutWidget_5")
-        self.layoutWidget_5.setGeometry(QRect(0, 50, 94, 231))
+        self.layoutWidget_5.setGeometry(QRect(0, 50, 161, 231))
         self.stock_c_debt_management_vertical_layout = QVBoxLayout(self.layoutWidget_5)
         self.stock_c_debt_management_vertical_layout.setSpacing(0)
         self.stock_c_debt_management_vertical_layout.setObjectName(u"stock_c_debt_management_vertical_layout")
@@ -325,7 +351,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget_8 = QWidget(self.stock_c_frame)
         self.layoutWidget_8.setObjectName(u"layoutWidget_8")
-        self.layoutWidget_8.setGeometry(QRect(170, 60, 31, 221))
+        self.layoutWidget_8.setGeometry(QRect(170, 60, 101, 221))
         self.stock_c_efficiency_vertical_layout = QVBoxLayout(self.layoutWidget_8)
         self.stock_c_efficiency_vertical_layout.setSpacing(0)
         self.stock_c_efficiency_vertical_layout.setObjectName(u"stock_c_efficiency_vertical_layout")
@@ -356,7 +382,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget_12 = QWidget(self.stock_c_frame)
         self.layoutWidget_12.setObjectName(u"layoutWidget_12")
-        self.layoutWidget_12.setGeometry(QRect(290, 60, 34, 221))
+        self.layoutWidget_12.setGeometry(QRect(290, 60, 81, 221))
         self.stock_c_price_estimates_vertical_layout = QVBoxLayout(self.layoutWidget_12)
         self.stock_c_price_estimates_vertical_layout.setSpacing(0)
         self.stock_c_price_estimates_vertical_layout.setObjectName(u"stock_c_price_estimates_vertical_layout")
@@ -404,7 +430,7 @@ class Ui_stock_app(object):
         self.stock_b_frame = QFrame(self.stock_comparison_tab)
         self.stock_b_frame.setObjectName(u"stock_b_frame")
         self.stock_b_frame.setGeometry(QRect(410, 0, 381, 271))
-        self.stock_b_frame.setStyleSheet(u"background: transparent;")
+        self.stock_b_frame.setStyleSheet(u"background: black;")
         self.stock_b_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.stock_b_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.layoutWidget_2 = QWidget(self.stock_b_frame)
@@ -415,13 +441,27 @@ class Ui_stock_app(object):
         self.stock_b_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_b_bar = QLineEdit(self.layoutWidget_2)
         self.stock_search_b_bar.setObjectName(u"stock_search_b_bar")
-        self.stock_search_b_bar.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_b_bar.setStyleSheet('color:white;')
 
         self.stock_b_horizontal_layout.addWidget(self.stock_search_b_bar)
 
         self.stock_search_b_button = QPushButton(self.layoutWidget_2)
         self.stock_search_b_button.setObjectName(u"stock_search_b_button")
-        self.stock_search_b_button.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_b_button.setStyleSheet(u"QPushButton {\n"
+"    border: 2px solid black;         /* Default border */\n"
+"    border-radius: 5px;              /* Rounded corners */\n"
+"    background-color: lightgray;     /* Default background color */\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    border: 3px solid red;           /* Thicker border when clicked */\n"
+"    background-color: lightblue;     /* Background color when pressed */\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px dashed blue;         /* Dashed border on hover */\n"
+"    background-color: lightgreen;    /* Background color when hovered */\n"
+"}\n"
+"")
+
 
         self.stock_b_horizontal_layout.addWidget(self.stock_search_b_button)
 
@@ -439,7 +479,7 @@ class Ui_stock_app(object):
         self.stock_b_price_estimates.setStyleSheet(u"color: white;  /* Text color */")
         self.layoutWidget_7 = QWidget(self.stock_b_frame)
         self.layoutWidget_7.setObjectName(u"layoutWidget_7")
-        self.layoutWidget_7.setGeometry(QRect(0, 50, 94, 221))
+        self.layoutWidget_7.setGeometry(QRect(0, 50, 151, 221))
         self.stock_b_debt_management_vertical_layout = QVBoxLayout(self.layoutWidget_7)
         self.stock_b_debt_management_vertical_layout.setSpacing(0)
         self.stock_b_debt_management_vertical_layout.setObjectName(u"stock_b_debt_management_vertical_layout")
@@ -486,7 +526,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget_9 = QWidget(self.stock_b_frame)
         self.layoutWidget_9.setObjectName(u"layoutWidget_9")
-        self.layoutWidget_9.setGeometry(QRect(170, 50, 31, 221))
+        self.layoutWidget_9.setGeometry(QRect(170, 50, 111, 221))
         self.stock_b_efficiency_vertical_layout = QVBoxLayout(self.layoutWidget_9)
         self.stock_b_efficiency_vertical_layout.setSpacing(0)
         self.stock_b_efficiency_vertical_layout.setObjectName(u"stock_b_efficiency_vertical_layout")
@@ -517,7 +557,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget5 = QWidget(self.stock_b_frame)
         self.layoutWidget5.setObjectName(u"layoutWidget5")
-        self.layoutWidget5.setGeometry(QRect(310, 45, 34, 221))
+        self.layoutWidget5.setGeometry(QRect(310, 45, 61, 221))
         self.stock_b_price_estimates_vertical_layout = QVBoxLayout(self.layoutWidget5)
         self.stock_b_price_estimates_vertical_layout.setSpacing(0)
         self.stock_b_price_estimates_vertical_layout.setObjectName(u"stock_b_price_estimates_vertical_layout")
@@ -565,7 +605,7 @@ class Ui_stock_app(object):
         self.stock_d_frame = QFrame(self.stock_comparison_tab)
         self.stock_d_frame.setObjectName(u"stock_d_frame")
         self.stock_d_frame.setGeometry(QRect(410, 290, 381, 281))
-        self.stock_d_frame.setStyleSheet(u"background: transparent;")
+        self.stock_d_frame.setStyleSheet(u"background: black;")
         self.stock_d_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.stock_d_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.layoutWidget_4 = QWidget(self.stock_d_frame)
@@ -577,13 +617,26 @@ class Ui_stock_app(object):
         self.stock_d_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_d_bar = QLineEdit(self.layoutWidget_4)
         self.stock_search_d_bar.setObjectName(u"stock_search_d_bar")
-        self.stock_search_d_bar.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_d_bar.setStyleSheet('color:white;')
 
         self.stock_d_horizontal_layout.addWidget(self.stock_search_d_bar)
 
         self.stock_search_d_button = QPushButton(self.layoutWidget_4)
         self.stock_search_d_button.setObjectName(u"stock_search_d_button")
-        self.stock_search_d_button.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_d_button.setStyleSheet(u"QPushButton {\n"
+"    border: 2px solid black;         /* Default border */\n"
+"    border-radius: 5px;              /* Rounded corners */\n"
+"    background-color: lightgray;     /* Default background color */\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    border: 3px solid red;           /* Thicker border when clicked */\n"
+"    background-color: lightblue;     /* Background color when pressed */\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px dashed blue;         /* Dashed border on hover */\n"
+"    background-color: lightgreen;    /* Background color when hovered */\n"
+"}\n"
+"")
 
         self.stock_d_horizontal_layout.addWidget(self.stock_search_d_button)
 
@@ -601,7 +654,7 @@ class Ui_stock_app(object):
         self.stock_d_price_estimates.setStyleSheet(u"color: white;  /* Text color */")
         self.layoutWidget_6 = QWidget(self.stock_d_frame)
         self.layoutWidget_6.setObjectName(u"layoutWidget_6")
-        self.layoutWidget_6.setGeometry(QRect(0, 50, 94, 231))
+        self.layoutWidget_6.setGeometry(QRect(0, 50, 151, 231))
         self.stock_d_debt_management_vertical_layout = QVBoxLayout(self.layoutWidget_6)
         self.stock_d_debt_management_vertical_layout.setSpacing(0)
         self.stock_d_debt_management_vertical_layout.setObjectName(u"stock_d_debt_management_vertical_layout")
@@ -648,7 +701,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget_10 = QWidget(self.stock_d_frame)
         self.layoutWidget_10.setObjectName(u"layoutWidget_10")
-        self.layoutWidget_10.setGeometry(QRect(170, 60, 31, 221))
+        self.layoutWidget_10.setGeometry(QRect(170, 60, 101, 221))
         self.stock_d_efficiency_vertical_layout = QVBoxLayout(self.layoutWidget_10)
         self.stock_d_efficiency_vertical_layout.setSpacing(0)
         self.stock_d_efficiency_vertical_layout.setObjectName(u"stock_d_efficiency_vertical_layout")
@@ -679,7 +732,7 @@ class Ui_stock_app(object):
 
         self.layoutWidget_13 = QWidget(self.stock_d_frame)
         self.layoutWidget_13.setObjectName(u"layoutWidget_13")
-        self.layoutWidget_13.setGeometry(QRect(300, 60, 34, 221))
+        self.layoutWidget_13.setGeometry(QRect(300, 60, 71, 221))
         self.stock_d_price_estimates_vertical_layout = QVBoxLayout(self.layoutWidget_13)
         self.stock_d_price_estimates_vertical_layout.setSpacing(0)
         self.stock_d_price_estimates_vertical_layout.setObjectName(u"stock_d_price_estimates_vertical_layout")

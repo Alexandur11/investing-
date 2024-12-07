@@ -2,6 +2,8 @@ import logging
 
 from PySide6.QtWidgets import QMessageBox
 
+logger = logging.getLogger(__name__)
+
 class FinancialData:
     def __init__(self, financial_strength_data, growth_rank_data, liquidity_ratio_data,
                  profitability_rank_data, gf_value_rank_data):
@@ -56,3 +58,48 @@ def parse_scraped_data(data):
                          gf_value_rank_data=gf_value_rank_data)
 
 
+class LabelStyler:
+    GREEN = "color: rgb(50, 205, 50);"
+    RED = "color: rgb(255, 0, 0);"
+    BLACK = "color: rgb(0, 0, 0);"
+    YELLOW = 'COLOR: rgb(255, 255, 0)'
+
+    @staticmethod
+    def apply_style_filtering(object, information, condition):
+        try:
+            value = float(information.split(':')[1].strip())
+            object.setText(information)
+            object.setStyleSheet(LabelStyler.GREEN if condition(value) else LabelStyler.RED)
+            object.setVisible(True)
+        except Exception as e:
+            logger.exception(e)
+
+def prepare_values(data):
+    try:
+        return [
+            (f'P/E: {data.gf_value_rank["P/E Ratio"]}', lambda x: x <= 23),
+            (f'PEG: {data.gf_value_rank["PEG Ratio"]}', lambda x: x <= 1),
+            (f'P/S: {data.gf_value_rank["PS Ratio"]}', lambda x: x <= 2),
+            (f'P/B: {data.gf_value_rank["PB Ratio"]}', lambda x: x <= 3),
+            (f'P/FCF: {data.gf_value_rank["P FCF"]}', lambda x: x <= 25),
+            (f'C/D: {data.financial_strength["cash_to_debt"]}', lambda x: x >= 0.20),
+            (f'D/E: {data.financial_strength["debt_to_equity"]}', lambda x: x <= 1),
+            (f'D/EBITDA: {data.financial_strength["debt_to_ebitda"]}', lambda x: x <= 2.5),
+            (f'IC: {data.financial_strength["interest_coverage_ratio"]}', lambda x: x >= 5),
+            (f'CR: {data.liquidity_ratio["current_ratio"]}', lambda x: x >= 1),
+            (f'ROA: {data.profitability_rank["roa"]}', lambda x: x >= 12),
+            (f'ROE: {data.profitability_rank["roe"]}', lambda x: x >= 5),
+            (f'ROIC: {data.profitability_rank["roic"]}', lambda x: x >= 12)
+        ]
+    except Exception as e:
+        logger.exception(e)
+
+def prepare_objects(comparison_tab, stock_frame):
+    labels = [f'{stock_frame}_pe', f'{stock_frame}_peg',
+              f'{stock_frame}_ps', f'{stock_frame}_pb',
+              f'{stock_frame}_pfcf', f'{stock_frame}_cash_to_debt',
+              f'{stock_frame}_debt_to_equity', f'{stock_frame}_debt_to_ebitda',
+              f'{stock_frame}_interest_coverage', f'{stock_frame}_current_ratio',
+              f'{stock_frame}_roa', f'{stock_frame}_roe', f'{stock_frame}_roic']
+
+    return [getattr(comparison_tab, x, None) for x in labels]
