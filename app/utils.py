@@ -1,7 +1,15 @@
 import logging
+import os
 
+from PySide6.QtCore import Signal, QObject
 from PySide6.QtWidgets import QMessageBox
 
+from dotenv import load_dotenv
+load_dotenv()
+from openai import OpenAI
+client = OpenAI()
+
+import google.generativeai as genai
 logger = logging.getLogger(__name__)
 
 class FinancialData:
@@ -103,3 +111,53 @@ def prepare_objects(comparison_tab, stock_frame):
               f'{stock_frame}_roa', f'{stock_frame}_roe', f'{stock_frame}_roic']
 
     return [getattr(comparison_tab, x, None) for x in labels]
+
+
+class GeminiWorker(QObject):
+    finished = Signal(str)
+
+    def __init__(self, prompt):
+        super().__init__()
+        self.prompt = prompt
+
+    def run(self):
+        result = self.gemini_request(self.prompt)
+        self.finished.emit(result)
+
+    def gemini_request(self, prompt):
+        try:
+            genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            response = model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            logging.exception(e)
+
+
+class OpenAIWorker(QObject):
+    finished = Signal(str)
+
+    def __init__(self, prompt):
+        super().__init__()
+        self.prompt = prompt
+
+    def run(self):
+        result = self.open_ai_request(self.prompt)
+        self.finished.emit(result)
+
+    def open_ai_request(self, prompt):
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "user",
+                     "content": prompt}
+                ]
+            )
+
+            result = response.choices[0].message.content
+            cleaned = result.strip('```json\n').strip('\n```')
+            return cleaned
+
+        except Exception as e:
+            logging.exception(e)

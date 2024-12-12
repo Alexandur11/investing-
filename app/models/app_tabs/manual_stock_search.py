@@ -56,7 +56,7 @@ class ManualStockSearch(QWidget):
         if any([focus_guru_status, alpha_spread_status, finance_charts_status,
                 macro_trends_status, companies_market_cap_status]):
             close_browser()
-            clean_cookies()
+            # clean_cookies()
 
             if focus_guru_status:
                 open_focus_guru(entered_symbol)

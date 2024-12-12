@@ -1,3 +1,4 @@
+from app.models.app_tabs.chat_bot import ChatBot
 from app.models.app_tabs.stock_comparison import StockComparison
 from app.utils import MessageDialog
 from stockapp import *
@@ -24,6 +25,7 @@ class MainWindow(QMainWindow):
         self.manual_stock_search_tab = ManualStockSearch(self.ui, self.configs)
         self.auto_stock_search_tab = AutoStockSearch(self.ui)
         self.stock_comparison_tab = StockComparison(self.ui)
+        self.chat_bot_tab = ChatBot(self.ui)
 
     def closeEvent(self, event):
         if self.auto_stock_search_tab.task_running:

@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
     QHBoxLayout, QLabel, QLineEdit, QProgressBar,
-    QPushButton, QSizePolicy, QTabWidget, QVBoxLayout,
-    QWidget)
+    QPushButton, QSizePolicy, QTabWidget, QTextBrowser,
+    QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_stock_app(object):
     def setupUi(self, stock_app):
@@ -56,8 +56,9 @@ class Ui_stock_app(object):
         self.stock_auto_search_progress_bar = QProgressBar(self.stock_auto_search_tab)
         self.stock_auto_search_progress_bar.setObjectName(u"stock_auto_search_progress_bar")
         self.stock_auto_search_progress_bar.setGeometry(QRect(250, 510, 259, 24))
-        self.stock_auto_search_progress_bar.setStyleSheet(u"color: white;  /* Text color */")
-        self.stock_auto_search_progress_bar.setRange(0, 99)
+        self.stock_auto_search_progress_bar.setStyleSheet(u"color: white;")
+        self.stock_auto_search_progress_bar.setMaximum(99)
+        self.stock_auto_search_progress_bar.setValue(1)
         self.layoutWidget1 = QWidget(self.stock_auto_search_tab)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.layoutWidget1.setGeometry(QRect(250, 450, 261, 56))
@@ -97,7 +98,7 @@ class Ui_stock_app(object):
         self.stock_a_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_a_bar = QLineEdit(self.layoutWidget2)
         self.stock_search_a_bar.setObjectName(u"stock_search_a_bar")
-        self.stock_search_a_bar.setStyleSheet('color:white;')
+        self.stock_search_a_bar.setStyleSheet(u"color: white;")
 
         self.stock_a_horizontal_layout.addWidget(self.stock_search_a_bar)
 
@@ -138,7 +139,6 @@ class Ui_stock_app(object):
         self.stock_a_pe = QLabel(self.layoutWidget_11)
         self.stock_a_pe.setObjectName(u"stock_a_pe")
         self.stock_a_pe.setEnabled(False)
-        self.stock_a_pe.setVisible(False)
         self.stock_a_pe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_price_estimates_vertical_layout.addWidget(self.stock_a_pe)
@@ -146,7 +146,6 @@ class Ui_stock_app(object):
         self.stock_a_peg = QLabel(self.layoutWidget_11)
         self.stock_a_peg.setObjectName(u"stock_a_peg")
         self.stock_a_peg.setEnabled(False)
-        self.stock_a_peg.setVisible(False)
         self.stock_a_peg.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_price_estimates_vertical_layout.addWidget(self.stock_a_peg)
@@ -154,7 +153,6 @@ class Ui_stock_app(object):
         self.stock_a_ps = QLabel(self.layoutWidget_11)
         self.stock_a_ps.setObjectName(u"stock_a_ps")
         self.stock_a_ps.setEnabled(False)
-        self.stock_a_ps.setVisible(False)
         self.stock_a_ps.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_price_estimates_vertical_layout.addWidget(self.stock_a_ps)
@@ -162,7 +160,6 @@ class Ui_stock_app(object):
         self.stock_a_pb = QLabel(self.layoutWidget_11)
         self.stock_a_pb.setObjectName(u"stock_a_pb")
         self.stock_a_pb.setEnabled(False)
-        self.stock_a_pb.setVisible(False)
         self.stock_a_pb.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_price_estimates_vertical_layout.addWidget(self.stock_a_pb)
@@ -170,7 +167,6 @@ class Ui_stock_app(object):
         self.stock_a_pfcf = QLabel(self.layoutWidget_11)
         self.stock_a_pfcf.setObjectName(u"stock_a_pfcf")
         self.stock_a_pfcf.setEnabled(False)
-        self.stock_a_pfcf.setVisible(False)
         self.stock_a_pfcf.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_price_estimates_vertical_layout.addWidget(self.stock_a_pfcf)
@@ -185,7 +181,6 @@ class Ui_stock_app(object):
         self.stock_a_cash_to_debt = QLabel(self.layoutWidget3)
         self.stock_a_cash_to_debt.setObjectName(u"stock_a_cash_to_debt")
         self.stock_a_cash_to_debt.setEnabled(False)
-        self.stock_a_cash_to_debt.setVisible(False)
         self.stock_a_cash_to_debt.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_debt_management_vertical_layout.addWidget(self.stock_a_cash_to_debt)
@@ -193,7 +188,6 @@ class Ui_stock_app(object):
         self.stock_a_debt_to_equity = QLabel(self.layoutWidget3)
         self.stock_a_debt_to_equity.setObjectName(u"stock_a_debt_to_equity")
         self.stock_a_debt_to_equity.setEnabled(False)
-        self.stock_a_debt_to_equity.setVisible(False)
         self.stock_a_debt_to_equity.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_debt_management_vertical_layout.addWidget(self.stock_a_debt_to_equity)
@@ -201,7 +195,6 @@ class Ui_stock_app(object):
         self.stock_a_debt_to_ebitda = QLabel(self.layoutWidget3)
         self.stock_a_debt_to_ebitda.setObjectName(u"stock_a_debt_to_ebitda")
         self.stock_a_debt_to_ebitda.setEnabled(False)
-        self.stock_a_debt_to_ebitda.setVisible(False)
         self.stock_a_debt_to_ebitda.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_debt_management_vertical_layout.addWidget(self.stock_a_debt_to_ebitda)
@@ -209,7 +202,6 @@ class Ui_stock_app(object):
         self.stock_a_interest_coverage = QLabel(self.layoutWidget3)
         self.stock_a_interest_coverage.setObjectName(u"stock_a_interest_coverage")
         self.stock_a_interest_coverage.setEnabled(False)
-        self.stock_a_interest_coverage.setVisible(False)
         self.stock_a_interest_coverage.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_debt_management_vertical_layout.addWidget(self.stock_a_interest_coverage)
@@ -217,7 +209,6 @@ class Ui_stock_app(object):
         self.stock_a_current_ratio = QLabel(self.layoutWidget3)
         self.stock_a_current_ratio.setObjectName(u"stock_a_current_ratio")
         self.stock_a_current_ratio.setEnabled(False)
-        self.stock_a_current_ratio.setVisible(False)
         self.stock_a_current_ratio.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_debt_management_vertical_layout.addWidget(self.stock_a_current_ratio)
@@ -232,7 +223,6 @@ class Ui_stock_app(object):
         self.stock_a_roa = QLabel(self.layoutWidget4)
         self.stock_a_roa.setObjectName(u"stock_a_roa")
         self.stock_a_roa.setEnabled(False)
-        self.stock_a_roa.setVisible(False)
         self.stock_a_roa.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_efficiency_vertical_layout.addWidget(self.stock_a_roa)
@@ -240,7 +230,6 @@ class Ui_stock_app(object):
         self.stock_a_roe = QLabel(self.layoutWidget4)
         self.stock_a_roe.setObjectName(u"stock_a_roe")
         self.stock_a_roe.setEnabled(False)
-        self.stock_a_roe.setVisible(False)
         self.stock_a_roe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_efficiency_vertical_layout.addWidget(self.stock_a_roe)
@@ -248,7 +237,6 @@ class Ui_stock_app(object):
         self.stock_a_roic = QLabel(self.layoutWidget4)
         self.stock_a_roic.setObjectName(u"stock_a_roic")
         self.stock_a_roic.setEnabled(False)
-        self.stock_a_roic.setVisible(False)
         self.stock_a_roic.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_a_efficiency_vertical_layout.addWidget(self.stock_a_roic)
@@ -267,7 +255,7 @@ class Ui_stock_app(object):
         self.stock_c_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_c_bar = QLineEdit(self.layoutWidget_3)
         self.stock_search_c_bar.setObjectName(u"stock_search_c_bar")
-        self.stock_search_c_bar.setStyleSheet(u"color: white;  /* Text color */")
+        self.stock_search_c_bar.setStyleSheet(u"color: white;")
 
         self.stock_c_horizontal_layout.addWidget(self.stock_search_c_bar)
 
@@ -312,7 +300,6 @@ class Ui_stock_app(object):
         self.stock_c_cash_to_debt = QLabel(self.layoutWidget_5)
         self.stock_c_cash_to_debt.setObjectName(u"stock_c_cash_to_debt")
         self.stock_c_cash_to_debt.setEnabled(False)
-        self.stock_c_cash_to_debt.setVisible(False)
         self.stock_c_cash_to_debt.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_debt_management_vertical_layout.addWidget(self.stock_c_cash_to_debt)
@@ -320,7 +307,6 @@ class Ui_stock_app(object):
         self.stock_c_debt_to_equity = QLabel(self.layoutWidget_5)
         self.stock_c_debt_to_equity.setObjectName(u"stock_c_debt_to_equity")
         self.stock_c_debt_to_equity.setEnabled(False)
-        self.stock_c_debt_to_equity.setVisible(False)
         self.stock_c_debt_to_equity.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_debt_management_vertical_layout.addWidget(self.stock_c_debt_to_equity)
@@ -328,7 +314,6 @@ class Ui_stock_app(object):
         self.stock_c_debt_to_ebitda = QLabel(self.layoutWidget_5)
         self.stock_c_debt_to_ebitda.setObjectName(u"stock_c_debt_to_ebitda")
         self.stock_c_debt_to_ebitda.setEnabled(False)
-        self.stock_c_debt_to_ebitda.setVisible(False)
         self.stock_c_debt_to_ebitda.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_debt_management_vertical_layout.addWidget(self.stock_c_debt_to_ebitda)
@@ -336,7 +321,6 @@ class Ui_stock_app(object):
         self.stock_c_interest_coverage = QLabel(self.layoutWidget_5)
         self.stock_c_interest_coverage.setObjectName(u"stock_c_interest_coverage")
         self.stock_c_interest_coverage.setEnabled(False)
-        self.stock_c_interest_coverage.setVisible(False)
         self.stock_c_interest_coverage.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_debt_management_vertical_layout.addWidget(self.stock_c_interest_coverage)
@@ -344,7 +328,6 @@ class Ui_stock_app(object):
         self.stock_c_current_ratio = QLabel(self.layoutWidget_5)
         self.stock_c_current_ratio.setObjectName(u"stock_c_current_ratio")
         self.stock_c_current_ratio.setEnabled(False)
-        self.stock_c_current_ratio.setVisible(False)
         self.stock_c_current_ratio.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_debt_management_vertical_layout.addWidget(self.stock_c_current_ratio)
@@ -359,7 +342,6 @@ class Ui_stock_app(object):
         self.stock_c_roa = QLabel(self.layoutWidget_8)
         self.stock_c_roa.setObjectName(u"stock_c_roa")
         self.stock_c_roa.setEnabled(False)
-        self.stock_c_roa.setVisible(False)
         self.stock_c_roa.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_efficiency_vertical_layout.addWidget(self.stock_c_roa)
@@ -367,7 +349,6 @@ class Ui_stock_app(object):
         self.stock_c_roe = QLabel(self.layoutWidget_8)
         self.stock_c_roe.setObjectName(u"stock_c_roe")
         self.stock_c_roe.setEnabled(False)
-        self.stock_c_roe.setVisible(False)
         self.stock_c_roe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_efficiency_vertical_layout.addWidget(self.stock_c_roe)
@@ -375,7 +356,6 @@ class Ui_stock_app(object):
         self.stock_c_roic = QLabel(self.layoutWidget_8)
         self.stock_c_roic.setObjectName(u"stock_c_roic")
         self.stock_c_roic.setEnabled(False)
-        self.stock_c_roic.setVisible(False)
         self.stock_c_roic.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_efficiency_vertical_layout.addWidget(self.stock_c_roic)
@@ -390,7 +370,6 @@ class Ui_stock_app(object):
         self.stock_c_pe = QLabel(self.layoutWidget_12)
         self.stock_c_pe.setObjectName(u"stock_c_pe")
         self.stock_c_pe.setEnabled(False)
-        self.stock_c_pe.setVisible(False)
         self.stock_c_pe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_price_estimates_vertical_layout.addWidget(self.stock_c_pe)
@@ -398,7 +377,6 @@ class Ui_stock_app(object):
         self.stock_c_peg = QLabel(self.layoutWidget_12)
         self.stock_c_peg.setObjectName(u"stock_c_peg")
         self.stock_c_peg.setEnabled(False)
-        self.stock_c_peg.setVisible(False)
         self.stock_c_peg.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_price_estimates_vertical_layout.addWidget(self.stock_c_peg)
@@ -406,7 +384,6 @@ class Ui_stock_app(object):
         self.stock_c_ps = QLabel(self.layoutWidget_12)
         self.stock_c_ps.setObjectName(u"stock_c_ps")
         self.stock_c_ps.setEnabled(False)
-        self.stock_c_ps.setVisible(False)
         self.stock_c_ps.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_price_estimates_vertical_layout.addWidget(self.stock_c_ps)
@@ -414,7 +391,6 @@ class Ui_stock_app(object):
         self.stock_c_pb = QLabel(self.layoutWidget_12)
         self.stock_c_pb.setObjectName(u"stock_c_pb")
         self.stock_c_pb.setEnabled(False)
-        self.stock_c_pb.setVisible(False)
         self.stock_c_pb.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_price_estimates_vertical_layout.addWidget(self.stock_c_pb)
@@ -422,7 +398,6 @@ class Ui_stock_app(object):
         self.stock_c_pfcf = QLabel(self.layoutWidget_12)
         self.stock_c_pfcf.setObjectName(u"stock_c_pfcf")
         self.stock_c_pfcf.setEnabled(False)
-        self.stock_c_pfcf.setVisible(False)
         self.stock_c_pfcf.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_c_price_estimates_vertical_layout.addWidget(self.stock_c_pfcf)
@@ -441,7 +416,7 @@ class Ui_stock_app(object):
         self.stock_b_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_b_bar = QLineEdit(self.layoutWidget_2)
         self.stock_search_b_bar.setObjectName(u"stock_search_b_bar")
-        self.stock_search_b_bar.setStyleSheet('color:white;')
+        self.stock_search_b_bar.setStyleSheet(u"color: white;")
 
         self.stock_b_horizontal_layout.addWidget(self.stock_search_b_bar)
 
@@ -461,7 +436,6 @@ class Ui_stock_app(object):
 "    background-color: lightgreen;    /* Background color when hovered */\n"
 "}\n"
 "")
-
 
         self.stock_b_horizontal_layout.addWidget(self.stock_search_b_button)
 
@@ -487,7 +461,6 @@ class Ui_stock_app(object):
         self.stock_b_cash_to_debt = QLabel(self.layoutWidget_7)
         self.stock_b_cash_to_debt.setObjectName(u"stock_b_cash_to_debt")
         self.stock_b_cash_to_debt.setEnabled(False)
-        self.stock_b_cash_to_debt.setVisible(False)
         self.stock_b_cash_to_debt.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_debt_management_vertical_layout.addWidget(self.stock_b_cash_to_debt)
@@ -495,7 +468,6 @@ class Ui_stock_app(object):
         self.stock_b_debt_to_equity = QLabel(self.layoutWidget_7)
         self.stock_b_debt_to_equity.setObjectName(u"stock_b_debt_to_equity")
         self.stock_b_debt_to_equity.setEnabled(False)
-        self.stock_b_debt_to_equity.setVisible(False)
         self.stock_b_debt_to_equity.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_debt_management_vertical_layout.addWidget(self.stock_b_debt_to_equity)
@@ -503,7 +475,6 @@ class Ui_stock_app(object):
         self.stock_b_debt_to_ebitda = QLabel(self.layoutWidget_7)
         self.stock_b_debt_to_ebitda.setObjectName(u"stock_b_debt_to_ebitda")
         self.stock_b_debt_to_ebitda.setEnabled(False)
-        self.stock_b_debt_to_ebitda.setVisible(False)
         self.stock_b_debt_to_ebitda.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_debt_management_vertical_layout.addWidget(self.stock_b_debt_to_ebitda)
@@ -511,7 +482,6 @@ class Ui_stock_app(object):
         self.stock_b_interest_coverage = QLabel(self.layoutWidget_7)
         self.stock_b_interest_coverage.setObjectName(u"stock_b_interest_coverage")
         self.stock_b_interest_coverage.setEnabled(False)
-        self.stock_b_interest_coverage.setVisible(False)
         self.stock_b_interest_coverage.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_debt_management_vertical_layout.addWidget(self.stock_b_interest_coverage)
@@ -519,7 +489,6 @@ class Ui_stock_app(object):
         self.stock_b_current_ratio = QLabel(self.layoutWidget_7)
         self.stock_b_current_ratio.setObjectName(u"stock_b_current_ratio")
         self.stock_b_current_ratio.setEnabled(False)
-        self.stock_b_current_ratio.setVisible(False)
         self.stock_b_current_ratio.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_debt_management_vertical_layout.addWidget(self.stock_b_current_ratio)
@@ -534,7 +503,6 @@ class Ui_stock_app(object):
         self.stock_b_roa = QLabel(self.layoutWidget_9)
         self.stock_b_roa.setObjectName(u"stock_b_roa")
         self.stock_b_roa.setEnabled(False)
-        self.stock_b_roa.setVisible(False)
         self.stock_b_roa.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_efficiency_vertical_layout.addWidget(self.stock_b_roa)
@@ -542,7 +510,6 @@ class Ui_stock_app(object):
         self.stock_b_roe = QLabel(self.layoutWidget_9)
         self.stock_b_roe.setObjectName(u"stock_b_roe")
         self.stock_b_roe.setEnabled(False)
-        self.stock_b_roe.setVisible(False)
         self.stock_b_roe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_efficiency_vertical_layout.addWidget(self.stock_b_roe)
@@ -550,7 +517,6 @@ class Ui_stock_app(object):
         self.stock_b_roic = QLabel(self.layoutWidget_9)
         self.stock_b_roic.setObjectName(u"stock_b_roic")
         self.stock_b_roic.setEnabled(False)
-        self.stock_b_roic.setVisible(False)
         self.stock_b_roic.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_efficiency_vertical_layout.addWidget(self.stock_b_roic)
@@ -565,7 +531,6 @@ class Ui_stock_app(object):
         self.stock_b_pe = QLabel(self.layoutWidget5)
         self.stock_b_pe.setObjectName(u"stock_b_pe")
         self.stock_b_pe.setEnabled(False)
-        self.stock_b_pe.setVisible(False)
         self.stock_b_pe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_price_estimates_vertical_layout.addWidget(self.stock_b_pe)
@@ -573,7 +538,6 @@ class Ui_stock_app(object):
         self.stock_b_peg = QLabel(self.layoutWidget5)
         self.stock_b_peg.setObjectName(u"stock_b_peg")
         self.stock_b_peg.setEnabled(False)
-        self.stock_b_peg.setVisible(False)
         self.stock_b_peg.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_price_estimates_vertical_layout.addWidget(self.stock_b_peg)
@@ -581,7 +545,6 @@ class Ui_stock_app(object):
         self.stock_b_ps = QLabel(self.layoutWidget5)
         self.stock_b_ps.setObjectName(u"stock_b_ps")
         self.stock_b_ps.setEnabled(False)
-        self.stock_b_ps.setVisible(False)
         self.stock_b_ps.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_price_estimates_vertical_layout.addWidget(self.stock_b_ps)
@@ -589,7 +552,6 @@ class Ui_stock_app(object):
         self.stock_b_pb = QLabel(self.layoutWidget5)
         self.stock_b_pb.setObjectName(u"stock_b_pb")
         self.stock_b_pb.setEnabled(False)
-        self.stock_b_pb.setVisible(False)
         self.stock_b_pb.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_price_estimates_vertical_layout.addWidget(self.stock_b_pb)
@@ -597,7 +559,6 @@ class Ui_stock_app(object):
         self.stock_b_pfcf = QLabel(self.layoutWidget5)
         self.stock_b_pfcf.setObjectName(u"stock_b_pfcf")
         self.stock_b_pfcf.setEnabled(False)
-        self.stock_b_pfcf.setVisible(False)
         self.stock_b_pfcf.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_b_price_estimates_vertical_layout.addWidget(self.stock_b_pfcf)
@@ -617,7 +578,7 @@ class Ui_stock_app(object):
         self.stock_d_horizontal_layout.setContentsMargins(0, 0, 0, 0)
         self.stock_search_d_bar = QLineEdit(self.layoutWidget_4)
         self.stock_search_d_bar.setObjectName(u"stock_search_d_bar")
-        self.stock_search_d_bar.setStyleSheet('color:white;')
+        self.stock_search_d_bar.setStyleSheet(u"color: white;")
 
         self.stock_d_horizontal_layout.addWidget(self.stock_search_d_bar)
 
@@ -662,7 +623,6 @@ class Ui_stock_app(object):
         self.stock_d_cash_to_debt = QLabel(self.layoutWidget_6)
         self.stock_d_cash_to_debt.setObjectName(u"stock_d_cash_to_debt")
         self.stock_d_cash_to_debt.setEnabled(False)
-        self.stock_d_cash_to_debt.setVisible(False)
         self.stock_d_cash_to_debt.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_debt_management_vertical_layout.addWidget(self.stock_d_cash_to_debt)
@@ -670,7 +630,6 @@ class Ui_stock_app(object):
         self.stock_d_debt_to_equity = QLabel(self.layoutWidget_6)
         self.stock_d_debt_to_equity.setObjectName(u"stock_d_debt_to_equity")
         self.stock_d_debt_to_equity.setEnabled(False)
-        self.stock_d_debt_to_equity.setVisible(False)
         self.stock_d_debt_to_equity.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_debt_management_vertical_layout.addWidget(self.stock_d_debt_to_equity)
@@ -678,7 +637,6 @@ class Ui_stock_app(object):
         self.stock_d_debt_to_ebitda = QLabel(self.layoutWidget_6)
         self.stock_d_debt_to_ebitda.setObjectName(u"stock_d_debt_to_ebitda")
         self.stock_d_debt_to_ebitda.setEnabled(False)
-        self.stock_d_debt_to_ebitda.setVisible(False)
         self.stock_d_debt_to_ebitda.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_debt_management_vertical_layout.addWidget(self.stock_d_debt_to_ebitda)
@@ -686,7 +644,6 @@ class Ui_stock_app(object):
         self.stock_d_interest_coverage = QLabel(self.layoutWidget_6)
         self.stock_d_interest_coverage.setObjectName(u"stock_d_interest_coverage")
         self.stock_d_interest_coverage.setEnabled(False)
-        self.stock_d_interest_coverage.setVisible(False)
         self.stock_d_interest_coverage.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_debt_management_vertical_layout.addWidget(self.stock_d_interest_coverage)
@@ -694,7 +651,6 @@ class Ui_stock_app(object):
         self.stock_d_current_ratio = QLabel(self.layoutWidget_6)
         self.stock_d_current_ratio.setObjectName(u"stock_d_current_ratio")
         self.stock_d_current_ratio.setEnabled(False)
-        self.stock_d_current_ratio.setVisible(False)
         self.stock_d_current_ratio.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_debt_management_vertical_layout.addWidget(self.stock_d_current_ratio)
@@ -709,7 +665,6 @@ class Ui_stock_app(object):
         self.stock_d_roa = QLabel(self.layoutWidget_10)
         self.stock_d_roa.setObjectName(u"stock_d_roa")
         self.stock_d_roa.setEnabled(False)
-        self.stock_d_roa.setVisible(False)
         self.stock_d_roa.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_efficiency_vertical_layout.addWidget(self.stock_d_roa)
@@ -717,7 +672,6 @@ class Ui_stock_app(object):
         self.stock_d_roe = QLabel(self.layoutWidget_10)
         self.stock_d_roe.setObjectName(u"stock_d_roe")
         self.stock_d_roe.setEnabled(False)
-        self.stock_d_roe.setVisible(False)
         self.stock_d_roe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_efficiency_vertical_layout.addWidget(self.stock_d_roe)
@@ -725,7 +679,6 @@ class Ui_stock_app(object):
         self.stock_d_roic = QLabel(self.layoutWidget_10)
         self.stock_d_roic.setObjectName(u"stock_d_roic")
         self.stock_d_roic.setEnabled(False)
-        self.stock_d_roic.setVisible(False)
         self.stock_d_roic.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_efficiency_vertical_layout.addWidget(self.stock_d_roic)
@@ -740,7 +693,6 @@ class Ui_stock_app(object):
         self.stock_d_pe = QLabel(self.layoutWidget_13)
         self.stock_d_pe.setObjectName(u"stock_d_pe")
         self.stock_d_pe.setEnabled(False)
-        self.stock_d_pe.setVisible(False)
         self.stock_d_pe.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_pe)
@@ -748,7 +700,6 @@ class Ui_stock_app(object):
         self.stock_d_peg = QLabel(self.layoutWidget_13)
         self.stock_d_peg.setObjectName(u"stock_d_peg")
         self.stock_d_peg.setEnabled(False)
-        self.stock_d_peg.setVisible(False)
         self.stock_d_peg.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_peg)
@@ -756,7 +707,6 @@ class Ui_stock_app(object):
         self.stock_d_ps = QLabel(self.layoutWidget_13)
         self.stock_d_ps.setObjectName(u"stock_d_ps")
         self.stock_d_ps.setEnabled(False)
-        self.stock_d_ps.setVisible(False)
         self.stock_d_ps.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_ps)
@@ -764,7 +714,6 @@ class Ui_stock_app(object):
         self.stock_d_pb = QLabel(self.layoutWidget_13)
         self.stock_d_pb.setObjectName(u"stock_d_pb")
         self.stock_d_pb.setEnabled(False)
-        self.stock_d_pb.setVisible(False)
         self.stock_d_pb.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_pb)
@@ -772,7 +721,6 @@ class Ui_stock_app(object):
         self.stock_d_pfcf = QLabel(self.layoutWidget_13)
         self.stock_d_pfcf.setObjectName(u"stock_d_pfcf")
         self.stock_d_pfcf.setEnabled(False)
-        self.stock_d_pfcf.setVisible(False)
         self.stock_d_pfcf.setStyleSheet(u"color: white;  /* Text color */")
 
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_pfcf)
@@ -823,6 +771,108 @@ class Ui_stock_app(object):
         self.stock_search_settings_vertical_layout.addWidget(self.companies_market_cap_check_box)
 
         self.tabs_widget.addTab(self.stock_search_settings, "")
+        self.educational_tab = QWidget()
+        self.educational_tab.setObjectName(u"educational_tab")
+        self.debt_management_label = QLabel(self.educational_tab)
+        self.debt_management_label.setObjectName(u"debt_management_label")
+        self.debt_management_label.setGeometry(QRect(290, 10, 111, 16))
+        self.debt_management_label.setStyleSheet(u"color: white;")
+        self.de_label = QLabel(self.educational_tab)
+        self.de_label.setObjectName(u"de_label")
+        self.de_label.setGeometry(QRect(10, 40, 171, 16))
+        self.de_label.setStyleSheet(u"color: white;")
+        self.de_label.setOpenExternalLinks(False)
+        self.d_eb_label = QLabel(self.educational_tab)
+        self.d_eb_label.setObjectName(u"d_eb_label")
+        self.d_eb_label.setGeometry(QRect(10, 60, 161, 16))
+        self.d_eb_label.setStyleSheet(u"color: white;")
+        self.cr_label = QLabel(self.educational_tab)
+        self.cr_label.setObjectName(u"cr_label")
+        self.cr_label.setGeometry(QRect(10, 100, 171, 16))
+        self.cr_label.setStyleSheet(u"color: white;")
+        self.ctdr_label = QLabel(self.educational_tab)
+        self.ctdr_label.setObjectName(u"ctdr_label")
+        self.ctdr_label.setGeometry(QRect(10, 120, 201, 16))
+        self.ctdr_label.setStyleSheet(u"color: white;")
+        self.effectiveness_label = QLabel(self.educational_tab)
+        self.effectiveness_label.setObjectName(u"effectiveness_label")
+        self.effectiveness_label.setGeometry(QRect(290, 150, 71, 16))
+        self.effectiveness_label.setStyleSheet(u"color: white;")
+        self.roic_label = QLabel(self.educational_tab)
+        self.roic_label.setObjectName(u"roic_label")
+        self.roic_label.setGeometry(QRect(10, 180, 141, 16))
+        self.roic_label.setStyleSheet(u"color: white;")
+        self.profit_margins_label = QLabel(self.educational_tab)
+        self.profit_margins_label.setObjectName(u"profit_margins_label")
+        self.profit_margins_label.setGeometry(QRect(10, 200, 81, 16))
+        self.profit_margins_label.setStyleSheet(u"color: white;")
+        self.roe_label = QLabel(self.educational_tab)
+        self.roe_label.setObjectName(u"roe_label")
+        self.roe_label.setGeometry(QRect(10, 220, 131, 16))
+        self.roe_label.setStyleSheet(u"color: white;")
+        self.roa_label = QLabel(self.educational_tab)
+        self.roa_label.setObjectName(u"roa_label")
+        self.roa_label.setGeometry(QRect(10, 240, 131, 16))
+        self.roa_label.setStyleSheet(u"color: white;")
+        self.net_assets_label = QLabel(self.educational_tab)
+        self.net_assets_label.setObjectName(u"net_assets_label")
+        self.net_assets_label.setGeometry(QRect(10, 260, 151, 16))
+        self.net_assets_label.setStyleSheet(u"color: white;")
+        self.price_estimates_label = QLabel(self.educational_tab)
+        self.price_estimates_label.setObjectName(u"price_estimates_label")
+        self.price_estimates_label.setGeometry(QRect(290, 290, 81, 16))
+        self.price_estimates_label.setStyleSheet(u"color: white;")
+        self.pe_label = QLabel(self.educational_tab)
+        self.pe_label.setObjectName(u"pe_label")
+        self.pe_label.setGeometry(QRect(10, 320, 191, 16))
+        self.pe_label.setStyleSheet(u"color: white;")
+        self.pe_label_2 = QLabel(self.educational_tab)
+        self.pe_label_2.setObjectName(u"pe_label_2")
+        self.pe_label_2.setGeometry(QRect(10, 340, 271, 16))
+        self.pe_label_2.setStyleSheet(u"color: white;")
+        self.pe_label_3 = QLabel(self.educational_tab)
+        self.pe_label_3.setObjectName(u"pe_label_3")
+        self.pe_label_3.setGeometry(QRect(10, 360, 281, 16))
+        self.pe_label_3.setStyleSheet(u"color: white;")
+        self.icr_label = QLabel(self.educational_tab)
+        self.icr_label.setObjectName(u"icr_label")
+        self.icr_label.setGeometry(QRect(10, 80, 221, 16))
+        self.icr_label.setStyleSheet(u"color: white;")
+        self.p_fcf_label = QLabel(self.educational_tab)
+        self.p_fcf_label.setObjectName(u"p_fcf_label")
+        self.p_fcf_label.setGeometry(QRect(10, 390, 171, 16))
+        self.p_fcf_label.setStyleSheet(u"color: white;")
+        self.peg_label = QLabel(self.educational_tab)
+        self.peg_label.setObjectName(u"peg_label")
+        self.peg_label.setGeometry(QRect(10, 410, 151, 16))
+        self.peg_label.setStyleSheet(u"color: white;")
+        self.ps_label = QLabel(self.educational_tab)
+        self.ps_label.setObjectName(u"ps_label")
+        self.ps_label.setGeometry(QRect(10, 430, 141, 16))
+        self.ps_label.setStyleSheet(u"color: white;")
+        self.pb_label = QLabel(self.educational_tab)
+        self.pb_label.setObjectName(u"pb_label")
+        self.pb_label.setGeometry(QRect(10, 450, 151, 16))
+        self.pb_label.setStyleSheet(u"color: white;")
+        self.tabs_widget.addTab(self.educational_tab, "")
+        self.chat_bot_tab = QWidget()
+        self.chat_bot_tab.setObjectName(u"chat_bot_tab")
+        self.text_browser = QTextBrowser(self.chat_bot_tab)
+        self.text_browser.setObjectName(u"text_browser")
+        self.text_browser.setGeometry(QRect(10, 10, 771, 471))
+        self.text_browser.setStyleSheet(u"background: black;\n"
+"color: white;")
+        self.chat_bot_search_button = QPushButton(self.chat_bot_tab)
+        self.chat_bot_search_button.setObjectName(u"chat_bot_search_button")
+        self.chat_bot_search_button.setGeometry(QRect(560, 490, 75, 71))
+        self.chat_bot_search_button.setStyleSheet(u"background: transparent;\n"
+"color:white;")
+        self.chat_bot_text_edit = QTextEdit(self.chat_bot_tab)
+        self.chat_bot_text_edit.setObjectName(u"chat_bot_text_edit")
+        self.chat_bot_text_edit.setGeometry(QRect(150, 490, 411, 71))
+        self.chat_bot_text_edit.setStyleSheet(u"background: transparent;\n"
+"color: black;")
+        self.tabs_widget.addTab(self.chat_bot_tab, "")
 
         self.retranslateUi(stock_app)
 
@@ -944,5 +994,34 @@ class Ui_stock_app(object):
         self.finance_charts_check_box.setText(QCoreApplication.translate("stock_app", u"Finance Charts", None))
         self.companies_market_cap_check_box.setText(QCoreApplication.translate("stock_app", u"Companies Market Cap", None))
         self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.stock_search_settings), QCoreApplication.translate("stock_app", u"Settings", None))
+#if QT_CONFIG(accessibility)
+        self.educational_tab.setAccessibleName(QCoreApplication.translate("stock_app", u"educational_tab_widget", None))
+#endif // QT_CONFIG(accessibility)
+        self.debt_management_label.setText(QCoreApplication.translate("stock_app", u"Debt Management", None))
+        self.de_label.setText(QCoreApplication.translate("stock_app", u"D/E Ratio : Optimal under 1/0.5", None))
+        self.d_eb_label.setText(QCoreApplication.translate("stock_app", u"D/EBITDA : Optimal under 2.5", None))
+        self.cr_label.setText(QCoreApplication.translate("stock_app", u"Current Ratio : Optimal over 1.0", None))
+        self.ctdr_label.setText(QCoreApplication.translate("stock_app", u"Cash To Debt Ratio : Optimal over 0.20", None))
+        self.effectiveness_label.setText(QCoreApplication.translate("stock_app", u"Effectiveness", None))
+        self.roic_label.setText(QCoreApplication.translate("stock_app", u"ROIC : Optimal over 12 %", None))
+        self.profit_margins_label.setText(QCoreApplication.translate("stock_app", u"Profit Margins", None))
+        self.roe_label.setText(QCoreApplication.translate("stock_app", u"ROE : Optimal over 12 %", None))
+        self.roa_label.setText(QCoreApplication.translate("stock_app", u"ROA : Optimal over 5 %", None))
+        self.net_assets_label.setText(QCoreApplication.translate("stock_app", u"Net Assets long-term chart", None))
+        self.price_estimates_label.setText(QCoreApplication.translate("stock_app", u"Price Estimates", None))
+        self.pe_label.setText(QCoreApplication.translate("stock_app", u"P/E : 10/11 if Company Growth <= 0", None))
+        self.pe_label_2.setText(QCoreApplication.translate("stock_app", u"P/E : 15/17 if Company Growth between 5 and 7 %", None))
+        self.pe_label_3.setText(QCoreApplication.translate("stock_app", u"P/E : 20/25 if Company Growth between 10 and 12 %", None))
+        self.icr_label.setText(QCoreApplication.translate("stock_app", u"Interest Coverage Ration : Optimal over 5", None))
+        self.p_fcf_label.setText(QCoreApplication.translate("stock_app", u"P/FCF Ratio : Optimal under 25", None))
+        self.peg_label.setText(QCoreApplication.translate("stock_app", u"PEG Ratio : Optimal under 1", None))
+        self.ps_label.setText(QCoreApplication.translate("stock_app", u"P/S Ratio: Optimal under 2", None))
+        self.pb_label.setText(QCoreApplication.translate("stock_app", u"P/B Ratio : Optimal under 3", None))
+        self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.educational_tab), QCoreApplication.translate("stock_app", u"Educational", None))
+#if QT_CONFIG(accessibility)
+        self.chat_bot_tab.setAccessibleName(QCoreApplication.translate("stock_app", u"chat_bot_widget", None))
+#endif // QT_CONFIG(accessibility)
+        self.chat_bot_search_button.setText(QCoreApplication.translate("stock_app", u"Search", None))
+        self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.chat_bot_tab), QCoreApplication.translate("stock_app", u"Chat Bot", None))
     # retranslateUi
 

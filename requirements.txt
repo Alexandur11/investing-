@@ -12,3 +12,5 @@ yfinance~=0.2.48
 finnhub-python
 google-auth
 google-auth-oauthlib
+openai
+google-generativeai
