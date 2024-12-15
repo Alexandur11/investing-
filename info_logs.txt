@@ -1,0 +1,70 @@
+
+--------------------
+Timestamp: 2024-12-15 11:52:39,637
+Level: INFO
+Message: Requesting data for g
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:39,643
+Level: DEBUG
+Message: Starting new HTTPS connection (1): www.gurufocus.com:443
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:40,012
+Level: DEBUG
+Message: https://www.gurufocus.com:443 "GET /stock/g/summary HTTP/11" 301 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:41,031
+Level: DEBUG
+Message: https://www.gurufocus.com:443 "GET /stock/G/summary HTTP/11" 200 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:41,645
+Level: INFO
+Message: Successfully scraped available data for g
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:53,967
+Level: INFO
+Message: Requesting data for aapl
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:53,970
+Level: DEBUG
+Message: Starting new HTTPS connection (1): www.gurufocus.com:443
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:54,474
+Level: DEBUG
+Message: https://www.gurufocus.com:443 "GET /stock/aapl/summary HTTP/11" 301 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:55,332
+Level: DEBUG
+Message: https://www.gurufocus.com:443 "GET /stock/AAPL/summary HTTP/11" 200 None
+--------------------
+
+
+--------------------
+Timestamp: 2024-12-15 11:52:55,911
+Level: INFO
+Message: Successfully scraped available data for aapl
+--------------------
+

@@ -1474,7 +1474,7 @@ color: white;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: transperant;
+      <string notr="true">background: transparent;
 color:white;</string>
      </property>
      <property name="text">
@@ -1493,6 +1493,71 @@ color:white;</string>
      <property name="styleSheet">
       <string notr="true">background: white;</string>
      </property>
+    </widget>
+    <widget class="QGroupBox" name="chat_bot_settings">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>489</y>
+       <width>151</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="gemini_flash_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
+      <property name="text">
+       <string>gemini-1.5-flash</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="gemini_pro_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;
+</string>
+      </property>
+      <property name="text">
+       <string>gemini-1.5-pro</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="gpt_4o_mini_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>89</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
+      <property name="text">
+       <string>gpt-4o-mini</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="stock_search_settings">

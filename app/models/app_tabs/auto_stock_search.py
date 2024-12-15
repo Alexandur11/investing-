@@ -1,3 +1,19 @@
+"""
+Module for automating stock search processes and handling related background tasks.
+
+This module leverages PySide6 to integrate a graphical user interface for stock search automation. It defines classes to manage stock search tasks, communicate progress, handle errors, and update data in Google Sheets. The main components include worker threads for long-running tasks, interactive UI elements for initiating stock searches, and methods to update progress and manage state.
+
+Dependencies:
+- PySide6
+- logging
+- random
+- time
+
+Logging:
+Logs informational messages for successful operations and exceptions for failed attempts.
+
+"""
+
 import logging
 from datetime import datetime
 
@@ -7,7 +23,7 @@ import time
 
 from app.automation.focus_guru_automation_interactions import analyse_focus_guru_scraped_data
 from app.automation.google_cloud_automation_interactions import (
-    collect_unfiltered_symbols_from_google_sheet_cloud,update_filtered_stocks_list
+    collect_unfiltered_symbols_from_google_sheet_cloud, update_filtered_stocks_list
 )
 from app.models.app_tabs.config_check import save_spreadsheet_activity_history, load_latest_spreadsheet_activity
 from app.utils import MessageDialog, decide_the_stock_column
@@ -20,11 +36,20 @@ class StockSearchWorker(QObject):
     finished = Signal()
     show_message = Signal(str, str)
 
-    def __init__(self, column):
+    def __init__(self, column: int):
         super().__init__()
         self.column = column
 
-    def update_stock_list(self,stock_data_list):
+    def update_stock_list(self, stock_data_list):
+        """
+        Updates the filtered stocks list in Google Sheets with the categorized stock data.
+
+        Args:
+            stock_data_list (list): A list of stock data categorized into tiers.
+
+        Logs:
+            - Exception details if the update fails.
+        """
         try:
             for index, data in enumerate(stock_data_list):
                 time.sleep(3)
@@ -33,12 +58,16 @@ class StockSearchWorker(QObject):
         except Exception as e:
             logger.exception(e)
 
-
-
     def run(self):
+        """
+        Runs the stock search process. Fetches unfiltered stock symbols, analyzes data, and categorizes results.
 
+        Logs:
+            - Progress updates.
+            - Informational messages for successful operations.
+            - Exception details for failed operations.
+        """
         A, B, C = [], [], []  # Stocks tier list related to the spreadsheet
-
         stocks_found = 0
 
         try:
@@ -50,15 +79,16 @@ class StockSearchWorker(QObject):
                     result = analyse_focus_guru_scraped_data(symbol)
 
                     if result > 7:
-                        decide_the_stock_column(A,B,C,symbol,result)
+                        decide_the_stock_column(A, B, C, symbol, result)
                         stocks_found += 1
 
                     self.progress.emit(index)
                     logger.info(f'{index}/{len(unfiltered_symbols)} analysed')
+
                 except Exception as e:
                     logger.exception(e)
 
-            self.update_stock_list([A,B,C])
+            self.update_stock_list([A, B, C])
 
             self.show_message.emit('Search Completed', 'Nothing Found' if stocks_found == 0 else 'Something found!')
 
@@ -76,7 +106,6 @@ class StockSearchWorker(QObject):
 class AutoStockSearch:
     def __init__(self, widget):
         self.auto_stock_control = widget
-
         self.button = self.auto_stock_control.stock_search_automation_button
         self.button.clicked.connect(self.trigger_method)
 
@@ -94,21 +123,25 @@ class AutoStockSearch:
         self.task_running = False
 
     def trigger_method(self):
+        """
+        Initiates the stock search automation process.
+
+        Logs:
+            - Progress updates.
+            - Error handling and cleanup when the task finishes or fails.
+        """
         column = int(self.options_bar.currentText())
         self.progress_bar.setVisible(True)
         self.progress_bar.setValue(0)
         self.button.setEnabled(False)
         self.options_bar.setEnabled(False)
 
-        # Set task as running
         self.task_running = True
 
-        # Create and start the worker thread
         self.worker = StockSearchWorker(column)
         self.worker_thread = QThread()
         self.worker.moveToThread(self.worker_thread)
 
-        # Connect signals
         self.worker.progress.connect(self.progress_bar.setValue)
         self.worker.error.connect(self.handle_error)
         self.worker.finished.connect(self.task_finished)
@@ -116,22 +149,45 @@ class AutoStockSearch:
         self.worker.finished.connect(self.worker.deleteLater)
         self.worker_thread.finished.connect(self.worker_thread.deleteLater)
 
-        # Connect the message signal
         self.worker.show_message.connect(self.show_message_dialog)
 
-        # Start the worker thread
         self.worker_thread.started.connect(self.worker.run)
         self.worker_thread.start()
 
     def show_message_dialog(self, title, message):
+        """
+        Displays a message dialog with the given title and message.
+
+        Args:
+            title (str): The title of the message dialog.
+            message (str): The message content to display.
+
+        Logs:
+            - Informational messages when displaying the message dialog.
+        """
         self.message.show_message(title=title, message=message)
 
     def task_finished(self):
+        """
+        Handles the cleanup after the stock search task finishes.
+
+        Logs:
+            - Informational messages indicating task completion.
+        """
         self.task_running = False
         self.progress_bar.setVisible(False)
         self.button.setEnabled(True)
         self.options_bar.setEnabled(True)
 
     def handle_error(self, error_message):
+        """
+        Logs and handles errors that occur during the stock search task.
+
+        Args:
+            error_message (str): The error message received from the worker.
+
+        Logs:
+            - Exception details if an error occurs.
+        """
         logger.exception(f"An error occurred: {error_message}")
         self.task_running = False

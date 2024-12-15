@@ -116,9 +116,10 @@ def prepare_objects(comparison_tab, stock_frame):
 class GeminiWorker(QObject):
     finished = Signal(str)
 
-    def __init__(self, prompt):
+    def __init__(self, prompt,model):
         super().__init__()
         self.prompt = prompt
+        self.model=model
 
     def run(self):
         result = self.gemini_request(self.prompt)
@@ -127,7 +128,7 @@ class GeminiWorker(QObject):
     def gemini_request(self, prompt):
         try:
             genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-            model = genai.GenerativeModel("gemini-1.5-flash")
+            model = genai.GenerativeModel(self.model)
             response = model.generate_content(prompt)
             return response.text
         except Exception as e:
@@ -137,18 +138,20 @@ class GeminiWorker(QObject):
 class OpenAIWorker(QObject):
     finished = Signal(str)
 
-    def __init__(self, prompt):
+    def __init__(self, prompt,model):
         super().__init__()
         self.prompt = prompt
+        self.model = model
 
     def run(self):
         result = self.open_ai_request(self.prompt)
         self.finished.emit(result)
 
+
     def open_ai_request(self, prompt):
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=self.model,
                 messages=[
                     {"role": "user",
                      "content": prompt}

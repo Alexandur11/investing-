@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QHBoxLayout, QLabel, QLineEdit, QProgressBar,
-    QPushButton, QSizePolicy, QTabWidget, QTextBrowser,
-    QTextEdit, QVBoxLayout, QWidget)
+    QGroupBox, QHBoxLayout, QLabel, QLineEdit,
+    QProgressBar, QPushButton, QRadioButton, QSizePolicy,
+    QTabWidget, QTextBrowser, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_stock_app(object):
     def setupUi(self, stock_app):
@@ -726,6 +727,40 @@ class Ui_stock_app(object):
         self.stock_d_price_estimates_vertical_layout.addWidget(self.stock_d_pfcf)
 
         self.tabs_widget.addTab(self.stock_comparison_tab, "")
+        self.chat_bot_tab = QWidget()
+        self.chat_bot_tab.setObjectName(u"chat_bot_tab")
+        self.text_browser = QTextBrowser(self.chat_bot_tab)
+        self.text_browser.setObjectName(u"text_browser")
+        self.text_browser.setGeometry(QRect(10, 10, 771, 471))
+        self.text_browser.setStyleSheet(u"background: black;\n"
+"color: white;")
+        self.chat_bot_search_button = QPushButton(self.chat_bot_tab)
+        self.chat_bot_search_button.setObjectName(u"chat_bot_search_button")
+        self.chat_bot_search_button.setGeometry(QRect(560, 490, 75, 71))
+        self.chat_bot_search_button.setStyleSheet(u"background: transparent;\n"
+"color:white;")
+        self.chat_bot_text_edit = QTextEdit(self.chat_bot_tab)
+        self.chat_bot_text_edit.setObjectName(u"chat_bot_text_edit")
+        self.chat_bot_text_edit.setGeometry(QRect(150, 490, 411, 71))
+        self.chat_bot_text_edit.setStyleSheet(u"background: white;")
+        self.chat_bot_settings = QGroupBox(self.chat_bot_tab)
+        self.chat_bot_settings.setObjectName(u"chat_bot_settings")
+        self.chat_bot_settings.setGeometry(QRect(640, 489, 151, 81))
+        self.chat_bot_settings.setStyleSheet(u"background:transparent;")
+        self.gemini_flash_button = QRadioButton(self.chat_bot_settings)
+        self.gemini_flash_button.setObjectName(u"gemini_flash_button")
+        self.gemini_flash_button.setGeometry(QRect(10, 10, 111, 20))
+        self.gemini_flash_button.setStyleSheet(u"color:white;")
+        self.gemini_pro_button = QRadioButton(self.chat_bot_settings)
+        self.gemini_pro_button.setObjectName(u"gemini_pro_button")
+        self.gemini_pro_button.setGeometry(QRect(10, 30, 101, 20))
+        self.gemini_pro_button.setStyleSheet(u"color:white;\n"
+"")
+        self.gpt_4o_mini_button = QRadioButton(self.chat_bot_settings)
+        self.gpt_4o_mini_button.setObjectName(u"gpt_4o_mini_button")
+        self.gpt_4o_mini_button.setGeometry(QRect(10, 50, 89, 20))
+        self.gpt_4o_mini_button.setStyleSheet(u"color:white;")
+        self.tabs_widget.addTab(self.chat_bot_tab, "")
         self.stock_search_settings = QWidget()
         self.stock_search_settings.setObjectName(u"stock_search_settings")
         self.layoutWidget6 = QWidget(self.stock_search_settings)
@@ -855,24 +890,6 @@ class Ui_stock_app(object):
         self.pb_label.setGeometry(QRect(10, 450, 151, 16))
         self.pb_label.setStyleSheet(u"color: white;")
         self.tabs_widget.addTab(self.educational_tab, "")
-        self.chat_bot_tab = QWidget()
-        self.chat_bot_tab.setObjectName(u"chat_bot_tab")
-        self.text_browser = QTextBrowser(self.chat_bot_tab)
-        self.text_browser.setObjectName(u"text_browser")
-        self.text_browser.setGeometry(QRect(10, 10, 771, 471))
-        self.text_browser.setStyleSheet(u"background: black;\n"
-"color: white;")
-        self.chat_bot_search_button = QPushButton(self.chat_bot_tab)
-        self.chat_bot_search_button.setObjectName(u"chat_bot_search_button")
-        self.chat_bot_search_button.setGeometry(QRect(560, 490, 75, 71))
-        self.chat_bot_search_button.setStyleSheet(u"background: transparent;\n"
-"color:white;")
-        self.chat_bot_text_edit = QTextEdit(self.chat_bot_tab)
-        self.chat_bot_text_edit.setObjectName(u"chat_bot_text_edit")
-        self.chat_bot_text_edit.setGeometry(QRect(150, 490, 411, 71))
-        self.chat_bot_text_edit.setStyleSheet(u"background: transparent;\n"
-"color: black;")
-        self.tabs_widget.addTab(self.chat_bot_tab, "")
 
         self.retranslateUi(stock_app)
 
@@ -985,6 +1002,15 @@ class Ui_stock_app(object):
         self.stock_d_pfcf.setText(QCoreApplication.translate("stock_app", u"P/FCF", None))
         self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.stock_comparison_tab), QCoreApplication.translate("stock_app", u"Stock Comparison", None))
 #if QT_CONFIG(accessibility)
+        self.chat_bot_tab.setAccessibleName(QCoreApplication.translate("stock_app", u"chat_bot_widget", None))
+#endif // QT_CONFIG(accessibility)
+        self.chat_bot_search_button.setText(QCoreApplication.translate("stock_app", u"Search", None))
+        self.chat_bot_settings.setTitle("")
+        self.gemini_flash_button.setText(QCoreApplication.translate("stock_app", u"gemini-1.5-flash", None))
+        self.gemini_pro_button.setText(QCoreApplication.translate("stock_app", u"gemini-1.5-pro", None))
+        self.gpt_4o_mini_button.setText(QCoreApplication.translate("stock_app", u"gpt-4o-mini", None))
+        self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.chat_bot_tab), QCoreApplication.translate("stock_app", u"Chat Bot", None))
+#if QT_CONFIG(accessibility)
         self.stock_search_settings.setAccessibleName(QCoreApplication.translate("stock_app", u"settings_search_tab_widget", None))
 #endif // QT_CONFIG(accessibility)
         self.analytics_check_box.setText(QCoreApplication.translate("stock_app", u"Analytics Panel", None))
@@ -1018,10 +1044,5 @@ class Ui_stock_app(object):
         self.ps_label.setText(QCoreApplication.translate("stock_app", u"P/S Ratio: Optimal under 2", None))
         self.pb_label.setText(QCoreApplication.translate("stock_app", u"P/B Ratio : Optimal under 3", None))
         self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.educational_tab), QCoreApplication.translate("stock_app", u"Educational", None))
-#if QT_CONFIG(accessibility)
-        self.chat_bot_tab.setAccessibleName(QCoreApplication.translate("stock_app", u"chat_bot_widget", None))
-#endif // QT_CONFIG(accessibility)
-        self.chat_bot_search_button.setText(QCoreApplication.translate("stock_app", u"Search", None))
-        self.tabs_widget.setTabText(self.tabs_widget.indexOf(self.chat_bot_tab), QCoreApplication.translate("stock_app", u"Chat Bot", None))
     # retranslateUi
 
