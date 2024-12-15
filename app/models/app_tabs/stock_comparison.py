@@ -1,13 +1,10 @@
 import logging
-
-from PySide6.QtCore import QThread, QObject, Signal
+from PySide6.QtCore import QThread, QObject, Signal, QThreadPool, QRunnable
 from PySide6.QtWidgets import QWidget
-
 from app.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
 from app.utils import parse_scraped_data, MessageDialog, LabelStyler, prepare_values, prepare_objects
 
 logger = logging.getLogger(__name__)
-
 
 class StockComparison(QWidget):
     def __init__(self, widget):
@@ -16,8 +13,9 @@ class StockComparison(QWidget):
         self.message = MessageDialog()
         self.label_styler = LabelStyler()
 
-        self.threads = []
+        self.setup_ui()
 
+    def setup_ui(self):
         self.comparison_tab.stock_search_a_button.clicked.connect(
             lambda: self.trigger_method(self.comparison_tab.stock_search_a_bar, 'stock_a'))
 
@@ -31,31 +29,24 @@ class StockComparison(QWidget):
             lambda: self.trigger_method(self.comparison_tab.stock_search_d_bar, 'stock_d'))
 
     def trigger_method(self, symbol, stock_frame):
+        try:
+            logger.info(f"Triggering comparison for symbol: {symbol}")
 
-        worker = ComparisonWorker(
-            symbol=symbol,
-            stock_frame=stock_frame,
-            comparison_widget=self.comparison_tab,
-            message=self.message,
-            label_styler=self.label_styler
-        )
-        worker_thread = QThread()
+            runnable = ComparisonWorkerRunnable(
+                symbol=symbol,
+                stock_frame=stock_frame,
+                comparison_widget=self.comparison_tab,
+                message=self.message,
+                label_styler=self.label_styler
+            )
 
+            QThreadPool.globalInstance().start(runnable)
 
-        worker.moveToThread(worker_thread)
+        except Exception as e:
+            logger.exception("Exception in trigger_method:", exc_info=e)
+            self.message.show_message(title='Error', message='An error occurred while processing the request.')
 
-
-        worker_thread.started.connect(worker.collect_data)
-        worker.finished.connect(worker.display_data)
-        worker.finished.connect(worker.deleteLater)
-        worker_thread.finished.connect(worker_thread.deleteLater)
-
-        worker_thread.start()
-
-        self.threads.append(worker_thread)
-
-
-class ComparisonWorker(QObject):
+class ComparisonWorker(QWidget):
     progress = Signal(int)
     error = Signal(str)
     finished = Signal()
@@ -63,37 +54,54 @@ class ComparisonWorker(QObject):
 
     def __init__(self, symbol, stock_frame, comparison_widget, message, label_styler):
         super().__init__()
-
-        self.message = message
-        self.comparison_widget = comparison_widget
-        self.label_styler = label_styler
-
         self.symbol = symbol.text()
         self.stock_frame = stock_frame
-
+        self.comparison_widget = comparison_widget
+        self.message = message
+        self.label_styler = label_styler
         self.data = None
 
     def collect_data(self):
-        print('Collect')
+        try:
+            logger.info(f"Collecting data for symbol: {self.symbol}")
+            data = scrape_focus_guru_data(self.symbol)
 
-        data = scrape_focus_guru_data(self.symbol)
-        print(data)
-        if data:
-            self.data = parse_scraped_data(data)
-            self.finished.emit()
-        else:
-            self.message.show_message(title='Error',
-                                      message=f'No data found found{self.symbol}')
+            if data:
+                self.data = parse_scraped_data(data)
+                self.finished.emit()
+            else:
+                self.message.show_message(title='Error',
+                                          message=f'No data found for {self.symbol}')
+                logger.warning(f"No data found for {self.symbol}")
+
+        except Exception as e:
+            logger.exception(f"Error while collecting data for symbol: {self.symbol}", exc_info=e)
+            self.error.emit(f"Error collecting data: {str(e)}")
 
     def display_data(self):
+        try:
+            logger.info(f"Displaying data for symbol: {self.symbol}")
+            dynamic_objects = prepare_objects(self.comparison_widget, self.stock_frame)
+            values = prepare_values(self.data)
 
-        print('Display')
+            for o, v in zip(dynamic_objects, values):
+                try:
+                    self.label_styler.apply_style_filtering(o, v[0], v[1])
+                except Exception as e:
+                    logger.exception(f"Error applying style for object: {o}", exc_info=e)
 
-        dynamic_objects = prepare_objects(self.comparison_widget, self.stock_frame)
-        values = prepare_values(self.data)
+            self.finished.emit()
 
-        for o, v in zip(dynamic_objects, values):
-            try:
-                self.label_styler.apply_style_filtering(o, v[0], v[1])
-            except Exception as e:
-                logger.exception(e)
+        except Exception as e:
+            logger.exception(f"Error while displaying data for symbol: {self.symbol}", exc_info=e)
+            self.error.emit(f"Error displaying data: {str(e)}")
+
+class ComparisonWorkerRunnable(QRunnable):
+    def __init__(self, symbol, stock_frame, comparison_widget, message, label_styler):
+        super().__init__()
+        self.worker = ComparisonWorker(symbol, stock_frame, comparison_widget, message, label_styler)
+
+    def run(self):
+        self.worker.collect_data()
+        if self.worker.data is not None:
+            self.worker.display_data()

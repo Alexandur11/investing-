@@ -59,11 +59,15 @@ def parse_scraped_data(data):
     profitability_rank_data = data['profitability_rank']
     gf_value_rank_data = data['gf_value_rank']
 
+
+    logger.info('Scraped Data Parsed')
     return FinancialData(financial_strength_data=financial_strengths_data,
                          growth_rank_data=growth_rank_data,
                          liquidity_ratio_data=liquidity_ratio_data,
                          profitability_rank_data=profitability_rank_data,
                          gf_value_rank_data=gf_value_rank_data)
+
+
 
 
 class LabelStyler:
@@ -103,15 +107,17 @@ def prepare_values(data):
         logger.exception(e)
 
 def prepare_objects(comparison_tab, stock_frame):
-    labels = [f'{stock_frame}_pe', f'{stock_frame}_peg',
-              f'{stock_frame}_ps', f'{stock_frame}_pb',
-              f'{stock_frame}_pfcf', f'{stock_frame}_cash_to_debt',
-              f'{stock_frame}_debt_to_equity', f'{stock_frame}_debt_to_ebitda',
-              f'{stock_frame}_interest_coverage', f'{stock_frame}_current_ratio',
-              f'{stock_frame}_roa', f'{stock_frame}_roe', f'{stock_frame}_roic']
+    try:
+        labels = [f'{stock_frame}_pe', f'{stock_frame}_peg',
+                  f'{stock_frame}_ps', f'{stock_frame}_pb',
+                  f'{stock_frame}_pfcf', f'{stock_frame}_cash_to_debt',
+                  f'{stock_frame}_debt_to_equity', f'{stock_frame}_debt_to_ebitda',
+                  f'{stock_frame}_interest_coverage', f'{stock_frame}_current_ratio',
+                  f'{stock_frame}_roa', f'{stock_frame}_roe', f'{stock_frame}_roic']
 
-    return [getattr(comparison_tab, x, None) for x in labels]
-
+        return [getattr(comparison_tab, x, None) for x in labels]
+    except Exception as e:
+        logger.exception(e)
 
 class GeminiWorker(QObject):
     finished = Signal(str)
