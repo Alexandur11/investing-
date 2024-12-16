@@ -2,7 +2,7 @@ import logging
 from PySide6.QtCore import QThread
 from PySide6.QtWidgets import QButtonGroup, QWidget
 
-from app.utils import GeminiWorker, OpenAIWorker, MessageDialog
+from app.utils import GeminiWorker, OpenAIWorker, MessageDialog, LabelStyler
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +15,7 @@ class ChatBot(QWidget):
     def __init__(self, widget):
         super().__init__()
         self.chat_bot_tab = widget
+        self.styler = LabelStyler()
 
         self.worker = None
         self.worker_thread = None
@@ -59,24 +60,24 @@ class ChatBot(QWidget):
         if model:
             model_version = model.text()
             if prompt:
-                self.chat_bot_tab.text_browser.append('-' * 120)
-                self.chat_bot_tab.text_browser.append(f'Searching for {prompt}')
-                self.chat_bot_tab.text_browser.append('-' * 120)
+                self.chat_bot_tab.text_browser.append(self.styler.modify_text(text='-' * 120,
+                                                                                      underline=False,
+                                                                                      bold=False,
+                                                                                      color=self.styler.GREEN))
+
+                self.chat_bot_tab.text_browser.append(self.styler.modify_text(text=f'Searching for: {prompt}',
+                                                                              underline=False,
+                                                                              bold=True,
+                                                                              color=self.styler.GREEN))
+
+                self.chat_bot_tab.text_browser.append(self.styler.modify_text(text='-' * 120,
+                                                                              underline=False,
+                                                                              bold=False,
+                                                                              color=self.styler.GREEN))
 
                 self.worker = self.models[model_version](prompt=prompt, model=model_version)
 
-                self.worker_thread = QThread()
-                self.worker.moveToThread(self.worker_thread)
-
-                # Connect signals
-                self.worker_thread.started.connect(self.worker.run)  # Start the worker's run method
-                self.worker.finished.connect(self.handle_response)  # When the worker finishes
-                self.worker.finished.connect(self.worker_thread.quit)  # Stop the thread when done
-                self.worker.finished.connect(self.worker.deleteLater)  # Clean up worker
-                self.worker_thread.finished.connect(self.worker_thread.deleteLater)  # Clean up thread
-
-                # Start the thread
-                self.worker_thread.start()
+                self.setup_and_start_thread_worker()
 
                 self.chat_bot_tab.chat_bot_text_edit.clear()
 
@@ -88,3 +89,17 @@ class ChatBot(QWidget):
         """Handles the response from the worker and appends it to the text browser."""
 
         self.chat_bot_tab.text_browser.append(response)
+
+    def setup_and_start_thread_worker(self):
+        self.worker_thread = QThread()
+        self.worker.moveToThread(self.worker_thread)
+
+        # Connect signals
+        self.worker_thread.started.connect(self.worker.run)  # Start the worker's run method
+        self.worker.finished.connect(self.handle_response)  # When the worker finishes
+        self.worker.finished.connect(self.worker_thread.quit)  # Stop the thread when done
+        self.worker.finished.connect(self.worker.deleteLater)  # Clean up worker
+        self.worker_thread.finished.connect(self.worker_thread.deleteLater)  # Clean up thread
+
+        # Start the thread
+        self.worker_thread.start()

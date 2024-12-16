@@ -1443,203 +1443,6 @@ QPushButton:hover {
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="chat_bot_tab">
-    <property name="accessibleName">
-     <string>chat_bot_widget</string>
-    </property>
-    <attribute name="title">
-     <string>Chat Bot</string>
-    </attribute>
-    <widget class="QTextBrowser" name="text_browser">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>771</width>
-       <height>471</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: black;
-color: white;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="chat_bot_search_button">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>490</y>
-       <width>75</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: transparent;
-color:white;</string>
-     </property>
-     <property name="text">
-      <string>Search</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="chat_bot_text_edit">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>490</y>
-       <width>411</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: white;</string>
-     </property>
-    </widget>
-    <widget class="QGroupBox" name="chat_bot_settings">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>489</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background:transparent;</string>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QRadioButton" name="gemini_flash_button">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>111</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:white;</string>
-      </property>
-      <property name="text">
-       <string>gemini-1.5-flash</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="gemini_pro_button">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:white;
-</string>
-      </property>
-      <property name="text">
-       <string>gemini-1.5-pro</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="gpt_4o_mini_button">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>89</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:white;</string>
-      </property>
-      <property name="text">
-       <string>gpt-4o-mini</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="stock_search_settings">
-    <property name="accessibleName">
-     <string>settings_search_tab_widget</string>
-    </property>
-    <attribute name="title">
-     <string>Settings</string>
-    </attribute>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>151</width>
-       <height>164</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="stock_search_settings_vertical_layout">
-      <item>
-       <widget class="QCheckBox" name="analytics_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Analytics Panel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="alpha_spread_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Alpha Spread</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="focus_guru_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Focus Guru</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="macro_trends_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Macro Trends</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="finance_charts_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Finance Charts</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="companies_market_cap_check_box">
-        <property name="styleSheet">
-         <string notr="true">color: white; </string>
-        </property>
-        <property name="text">
-         <string>Companies Market Cap</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
    <widget class="QWidget" name="educational_tab">
     <property name="accessibleName">
      <string>educational_tab_widget</string>
@@ -1969,6 +1772,203 @@ color:white;</string>
      <property name="text">
       <string>P/B Ratio : Optimal under 3</string>
      </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="chat_bot_tab">
+    <property name="accessibleName">
+     <string>chat_bot_widget</string>
+    </property>
+    <attribute name="title">
+     <string>Chat Bot</string>
+    </attribute>
+    <widget class="QTextBrowser" name="text_browser">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>771</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: black;
+color: white;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="chat_bot_search_button">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>490</y>
+       <width>75</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="chat_bot_text_edit">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>490</y>
+       <width>411</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: white;</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="chat_bot_settings">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>489</y>
+       <width>151</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="gemini_flash_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
+      <property name="text">
+       <string>gemini-1.5-flash</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="gemini_pro_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;
+</string>
+      </property>
+      <property name="text">
+       <string>gemini-1.5-pro</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="gpt_4o_mini_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>89</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
+      <property name="text">
+       <string>gpt-4o-mini</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="stock_search_settings">
+    <property name="accessibleName">
+     <string>settings_search_tab_widget</string>
+    </property>
+    <attribute name="title">
+     <string>Settings</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>151</width>
+       <height>164</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="stock_search_settings_vertical_layout">
+      <item>
+       <widget class="QCheckBox" name="analytics_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Analytics Panel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="alpha_spread_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Alpha Spread</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="focus_guru_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Focus Guru</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="macro_trends_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Macro Trends</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="finance_charts_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Finance Charts</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="companies_market_cap_check_box">
+        <property name="styleSheet">
+         <string notr="true">color: white; </string>
+        </property>
+        <property name="text">
+         <string>Companies Market Cap</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

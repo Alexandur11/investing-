@@ -85,6 +85,11 @@ class LabelStyler:
         except Exception as e:
             logger.exception(e)
 
+    @staticmethod
+    def modify_text(text,underline,bold,color):
+        underline_style = "text-decoration: underline;" if underline else ""
+        bold_style = "font-weight: bold;" if bold else ""
+        return f"<p style='{color} {underline_style} {bold_style}'>{text}</p>"
 
 def prepare_values(data):
     try:
