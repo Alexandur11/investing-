@@ -74,4 +74,3 @@ def load_latest_spreadsheet_activity(file='spreadsheet_history.txt'):
         logger.exception(f"An unexpected error occurred: {e}")
 
     return 0
-

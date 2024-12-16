@@ -36,7 +36,6 @@ Functions:
 """
 
 
-
 def authorize_creds_for_google_sheet():
     """
        Authorize credentials for accessing Google Sheets using a service account.
@@ -66,7 +65,6 @@ def get_column_letter(column_index):
         Returns:
             str: The corresponding Excel-style column letter.
     """
-
 
     """Convert a 1-based column index to an Excel-style column letter (A, B, C, ..., Z, AA, AB, ...)."""
     letter = ""

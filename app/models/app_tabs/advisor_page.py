@@ -5,6 +5,9 @@ from PySide6.QtWidgets import QMainWindow
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
+
+"""This module will be deprecated, at some point"""
+
 logger = logging.getLogger(__name__)
 
 class AdvisorPage(QMainWindow):

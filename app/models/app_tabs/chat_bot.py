@@ -8,6 +8,10 @@ logger = logging.getLogger(__name__)
 
 
 class ChatBot(QWidget):
+    """A widget that integrates with multiple chatbot models to process user prompts
+        and display results asynchronously.
+    """
+
     def __init__(self, widget):
         super().__init__()
         self.chat_bot_tab = widget
@@ -31,6 +35,25 @@ class ChatBot(QWidget):
         )
 
     def trigger_method(self, prompt):
+
+        """
+               Triggers the chatbot functionality with the provided prompt.
+
+               Parameters:
+               -----------
+               prompt : str
+                   The user-provided input text to be processed by the selected chatbot model.
+
+               Behavior:
+               ---------
+               1. Retrieves the selected chatbot model from the button group.
+               2. Validates the prompt and model selection.
+               3. Initializes the corresponding worker and runs it in a separate thread.
+               4. Connects worker signals for processing and cleanup.
+               5. Displays a message if no model is selected.
+
+               """
+
         model = self.settings_group.checkedButton()
 
         if model:
@@ -61,4 +84,7 @@ class ChatBot(QWidget):
             self.message.show_message(title='Model Choice', message='Choose a model before prompting the Chat Bot')
 
     def handle_response(self, response):
+
+        """Handles the response from the worker and appends it to the text browser."""
+
         self.chat_bot_tab.text_browser.append(response)

@@ -8,6 +8,7 @@ firefox = webbrowser.get('firefox')
 cookies_location_file = "cookies_location.txt"
 logger = logging.getLogger(__name__)
 
+
 def close_browser():
     os.system("taskkill /IM firefox.exe")
 
@@ -22,7 +23,6 @@ def get_cookies_location():
             return cookies_location
     else:
         logger.info("Cookies location file not found.")
-
 
 
 def clean_cookies():

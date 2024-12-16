@@ -1,16 +1,17 @@
 import logging
 import os
-
 from PySide6.QtCore import Signal, QObject
 from PySide6.QtWidgets import QMessageBox
-
 from dotenv import load_dotenv
-load_dotenv()
 from openai import OpenAI
+import google.generativeai as genai
+
+load_dotenv()
+
 client = OpenAI()
 
-import google.generativeai as genai
 logger = logging.getLogger(__name__)
+
 
 class FinancialData:
     def __init__(self, financial_strength_data, growth_rank_data, liquidity_ratio_data,
@@ -20,6 +21,7 @@ class FinancialData:
         self.liquidity_ratio = liquidity_ratio_data
         self.profitability_rank = profitability_rank_data
         self.gf_value_rank = gf_value_rank_data
+
 
 class MessageDialog:
     @staticmethod
@@ -33,7 +35,7 @@ class MessageDialog:
 
     @staticmethod
     def question_message(title: str, message: str, event):
-        reply = QMessageBox.question(None,title, message,QMessageBox.Yes | QMessageBox.No,QMessageBox.No)
+        reply = QMessageBox.question(None, title, message, QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             event.accept()  # Close the app or proceed with action
             return True
@@ -41,8 +43,7 @@ class MessageDialog:
             event.ignore()  # Cancel the close event
 
 
-def decide_the_stock_column(column_A,column_B,column_C,symbol,value):
-
+def decide_the_stock_column(column_A, column_B, column_C, symbol, value):
     if value > 10:
         column_A.append(symbol)
         return
@@ -52,13 +53,13 @@ def decide_the_stock_column(column_A,column_B,column_C,symbol,value):
     if value >= 7:
         column_C.append(symbol)
 
+
 def parse_scraped_data(data):
     financial_strengths_data = data['financial_strengths']
     growth_rank_data = data['growth_rank']
     liquidity_ratio_data = data['liquidity_ratio']
     profitability_rank_data = data['profitability_rank']
     gf_value_rank_data = data['gf_value_rank']
-
 
     logger.info('Scraped Data Parsed')
     return FinancialData(financial_strength_data=financial_strengths_data,
@@ -68,8 +69,6 @@ def parse_scraped_data(data):
                          gf_value_rank_data=gf_value_rank_data)
 
 
-
-
 class LabelStyler:
     GREEN = "color: rgb(50, 205, 50);"
     RED = "color: rgb(255, 0, 0);"
@@ -77,14 +76,15 @@ class LabelStyler:
     YELLOW = 'COLOR: rgb(255, 255, 0)'
 
     @staticmethod
-    def apply_style_filtering(object, information, condition):
+    def apply_style_filtering(object_to_modify, information, condition):
         try:
             value = float(information.split(':')[1].strip())
-            object.setText(information)
-            object.setStyleSheet(LabelStyler.GREEN if condition(value) else LabelStyler.RED)
-            object.setVisible(True)
+            object_to_modify.setText(information)
+            object_to_modify.setStyleSheet(LabelStyler.GREEN if condition(value) else LabelStyler.RED)
+            object_to_modify.setVisible(True)
         except Exception as e:
             logger.exception(e)
+
 
 def prepare_values(data):
     try:
@@ -106,6 +106,7 @@ def prepare_values(data):
     except Exception as e:
         logger.exception(e)
 
+
 def prepare_objects(comparison_tab, stock_frame):
     try:
         labels = [f'{stock_frame}_pe', f'{stock_frame}_peg',
@@ -119,13 +120,14 @@ def prepare_objects(comparison_tab, stock_frame):
     except Exception as e:
         logger.exception(e)
 
+
 class GeminiWorker(QObject):
     finished = Signal(str)
 
-    def __init__(self, prompt,model):
+    def __init__(self, prompt, model):
         super().__init__()
         self.prompt = prompt
-        self.model=model
+        self.model = model
 
     def run(self):
         result = self.gemini_request(self.prompt)
@@ -144,7 +146,7 @@ class GeminiWorker(QObject):
 class OpenAIWorker(QObject):
     finished = Signal(str)
 
-    def __init__(self, prompt,model):
+    def __init__(self, prompt, model):
         super().__init__()
         self.prompt = prompt
         self.model = model
@@ -152,7 +154,6 @@ class OpenAIWorker(QObject):
     def run(self):
         result = self.open_ai_request(self.prompt)
         self.finished.emit(result)
-
 
     def open_ai_request(self, prompt):
         try:

@@ -32,7 +32,6 @@ Functions:
 """
 
 
-
 def automated_focus_guru_scrape_orchestrator(columns):
     """
         Orchestrates the automated process of scraping stock data from Focus Guru, validating it,
@@ -94,7 +93,6 @@ def automated_focus_guru_scrape_orchestrator(columns):
 
 
 def analyse_focus_guru_scraped_data(symbol):
-
     """
     Analyzes and validates financial data for a single stock symbol scraped from Focus Guru.
 

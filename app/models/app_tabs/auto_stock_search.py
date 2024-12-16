@@ -1,7 +1,10 @@
 """
 Module for automating stock search processes and handling related background tasks.
 
-This module leverages PySide6 to integrate a graphical user interface for stock search automation. It defines classes to manage stock search tasks, communicate progress, handle errors, and update data in Google Sheets. The main components include worker threads for long-running tasks, interactive UI elements for initiating stock searches, and methods to update progress and manage state.
+This module leverages PySide6 to integrate a graphical user interface for stock search automation. It defines classes
+to manage stock search tasks, communicate progress, handle errors, and update data in Google Sheets. The main
+components include worker threads for long-running tasks, interactive UI elements for initiating stock searches,
+and methods to update progress and manage state.
 
 Dependencies:
 - PySide6

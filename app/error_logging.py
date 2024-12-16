@@ -43,5 +43,5 @@ def setup_logging():
 
 
 def file_cleanup(file):
-    with open(file, 'w') as f:
+    with open(file, 'w'):
         pass

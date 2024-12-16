@@ -50,7 +50,8 @@ def scrape_focus_guru_data(symbol: str):
     url = f'https://www.gurufocus.com/stock/{symbol}/summary'
 
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) '
+                      'Chrome/91.0.4472.124 Safari/537.36'
     }
 
     logger.info(f'Requesting data for {symbol}')

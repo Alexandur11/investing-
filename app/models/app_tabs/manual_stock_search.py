@@ -5,12 +5,13 @@ from PySide6.QtWidgets import QWidget
 from app.event_handlers.event_handlers import close_browser, open_focus_guru, open_alpha_spread, open_finance_charts, \
     open_macro_trends, open_companies_market_cap, clean_cookies
 from app.event_handlers.focus_guru_scrape_handlers import scrape_focus_guru_data
-from app.models.app_tabs.advisor_page import AdvisorPage, FinancialData
+from app.models.app_tabs.advisor_page import AdvisorPage
 
 from app.utils import MessageDialog, parse_scraped_data
 
 
 class ManualStockSearch(QWidget):
+    """A widget for performing manual stock searches, opening relevant financial websites."""
 
     def __init__(self, widget, configs):
         super().__init__()
@@ -21,6 +22,16 @@ class ManualStockSearch(QWidget):
         self.advisor_page = None
 
     def trigger_method(self):
+        """
+               Triggers the stock search process based on the entered symbol.
+
+               Behavior:
+               ---------
+               - Validates the user input.
+               - If input is valid, executes `advisor_method` and `browser_methods` asynchronously.
+               - Clears the input field after processing.
+        """
+
         entered_symbol = self.text_input.text().strip()
 
         if not entered_symbol:
@@ -38,6 +49,9 @@ class ManualStockSearch(QWidget):
             self.text_input.clear()
 
     async def advisor_method(self, symbol):
+
+        """This will be deprecated, at some point"""
+
         advisor_method_status = self.configs.analytics_panel.isChecked()
         if advisor_method_status:
             data = scrape_focus_guru_data(symbol)
@@ -47,6 +61,22 @@ class ManualStockSearch(QWidget):
                 self.advisor_page.setup_layout()
 
     async def browser_methods(self, entered_symbol):
+
+        """
+               Asynchronously opens financial websites for the given stock symbol.
+
+               Parameters:
+               -----------
+               entered_symbol : str
+                   The stock symbol entered by the user.
+
+               Behavior:
+               ---------
+               - Checks which websites are enabled via the configuration settings.
+               - Closes any existing browser session.
+               - Opens the selected financial websites for the provided stock symbol, at the convenient endpoint.
+        """
+
         focus_guru_status = self.configs.focus_guru.isChecked()
         alpha_spread_status = self.configs.alpha_spread.isChecked()
         finance_charts_status = self.configs.finance_charts.isChecked()
@@ -56,7 +86,7 @@ class ManualStockSearch(QWidget):
         if any([focus_guru_status, alpha_spread_status, finance_charts_status,
                 macro_trends_status, companies_market_cap_status]):
             close_browser()
-            # clean_cookies()
+            clean_cookies()
 
             if focus_guru_status:
                 open_focus_guru(entered_symbol)
@@ -70,5 +100,8 @@ class ManualStockSearch(QWidget):
                 open_companies_market_cap()
 
     async def analytics_method(self, entered_symbol):
+
+        """Asynchronously executes the advisor method if the analytics panel is enabled."""
+
         if self.configs.analytics_panel.isChecked():
             await self.advisor_method(entered_symbol)
