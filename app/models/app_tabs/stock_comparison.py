@@ -80,6 +80,7 @@ class StockComparison(QWidget):
             )
 
             QThreadPool.globalInstance().start(runnable)
+            runnable.run()
 
         except Exception as e:
             logger.exception("Exception in trigger_method:", exc_info=e)

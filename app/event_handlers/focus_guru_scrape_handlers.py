@@ -14,16 +14,33 @@ Dependencies:
 
 Logging:
 Logs informative messages for successful operations and exceptions for failed attempts.
-
-Author: [Your Name]
 """
 
 import logging
-import pandas as pd
-import requests
-from io import StringIO
+from selenium import webdriver
+from selenium.common import NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
+from app.event_handlers.focus_guru_xpaths import (
+    cash_to_debt,
+    debt_to_equity,
+    debt_to_ebitda,
+    interest_coverage,
+    three_year_revenue_growth_rate,
+    current_ration,
+    roe,
+    roa,
+    roic,
+    pe_ratio,
+    peg_ratio,
+    ps_ratio,
+    pb_ratio,
+    p_to_fcf,
+)
 
 logger = logging.getLogger(__name__)
+
 
 def scrape_focus_guru_data(symbol: str):
     """
@@ -47,45 +64,38 @@ def scrape_focus_guru_data(symbol: str):
     Example:
         results = scrape_focus_guru_data("AAPL")
     """
-    url = f'https://www.gurufocus.com/stock/{symbol}/summary'
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) '
-                      'Chrome/91.0.4472.124 Safari/537.36'
-    }
+    options = Options()
+    driver = webdriver.Chrome(options=options)
+    url = f"https://www.gurufocus.com/stock/{symbol}/summary"
+    driver.get(url)
 
-    logger.info(f'Requesting data for {symbol}')
-    response = requests.get(url, headers=headers)
+    logger.info(f"Requesting data for {symbol}")
 
-    if response.status_code == 200:
-        try:
-            tables = pd.read_html(StringIO(response.text))
-            financial_strength_data = tables[0]
-            growth_rank_data = tables[1]
-            liquidity_ratio_data = tables[3]
-            profitability_rank_data = tables[5]
-            gf_value_rank_data = tables[6]
+    try:
+        results = {
+            "financial_strengths": financial_strengths(driver),
+            "growth_rank": growth_rank(driver),
+            "liquidity_ratio": liquidity_ratio(driver),
+            "profitability_rank": profitability_rank(driver),
+            "gf_value_rank": gf_value_rank(driver),
+        }
+        logger.info(f"Successfully scraped available data for {symbol}")
+        return results
+    except (ValueError, TypeError):
+        logger.exception(
+            f"Scraping data failed, potentially due to invalid symbol: {symbol}"
+        )
 
-            results = {
-                'financial_strengths': financial_strengths(financial_strength_data),
-                'growth_rank': growth_rank(growth_rank_data),
-                'liquidity_ratio': liquidity_ratio(liquidity_ratio_data),
-                'profitability_rank': profitability_rank(profitability_rank_data),
-                'gf_value_rank': gf_value_rank(gf_value_rank_data)
-            }
-            logger.info(f'Successfully scraped available data for {symbol}')
-            return results
-        except (ValueError, TypeError):
-            logger.exception(f"Scraping data failed, potentially due to invalid symbol: {symbol}")
-    else:
-        logger.info(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+    driver.quit()
 
-def financial_strengths(financial_strength_data):
+
+def financial_strengths(driver):
     """
     Parses financial strength metrics from the financial strength table.
 
     Args:
-        financial_strength_data (DataFrame): DataFrame containing financial strength data.
+           Selenium driver: Selenium webdriver instance.
 
     Returns:
         dict: A dictionary containing the metrics:
@@ -97,25 +107,26 @@ def financial_strengths(financial_strength_data):
     Logs:
         - Exception details if any metric is missing or cannot be parsed.
     """
-    data = {'cash_to_debt': None, 'debt_to_equity': None, 'debt_to_ebitda': None, 'interest_coverage_ratio': None}
-    values = ['Cash-To-Debt', 'Debt-to-Equity', 'Debt-to-EBITDA', 'Interest Coverage']
+    try:
+        data = {
+            "cash_to_debt": driver.find_element(By.XPATH, cash_to_debt).text,
+            "debt_to_equity": driver.find_element(By.XPATH, debt_to_equity).text,
+            "debt_to_ebitda": driver.find_element(By.XPATH, debt_to_ebitda).text,
+            "interest_coverage_ratio": driver.find_element(
+                By.XPATH, interest_coverage
+            ).text,
+        }
+        return data
+    except NoSuchElementException:
+        logger.error("Failed to parse financial strength metrics")
 
-    for d, v in zip(data.keys(), values):
-        try:
-            row = financial_strength_data[financial_strength_data['Name'] == v]
-            if not row.empty:
-                data[d] = float(row.iloc[0]['Current'])
-        except Exception as e:
-            logger.exception(f'Financial Strengths failed, missing {v}: {e}')
 
-    return data
-
-def liquidity_ratio(liquidity_ratio_data):
+def liquidity_ratio(driver):
     """
     Parses liquidity ratio metrics from the liquidity ratio table.
 
     Args:
-        liquidity_ratio_data (DataFrame): DataFrame containing liquidity ratio data.
+        Selenium driver: Selenium webdriver instance.
 
     Returns:
         dict: A dictionary containing the metric:
@@ -124,25 +135,20 @@ def liquidity_ratio(liquidity_ratio_data):
     Logs:
         - Exception details if the metric is missing or cannot be parsed.
     """
-    data = {'current_ratio': None}
-    values = ['Current Ratio']
 
-    for d, v in zip(data.keys(), values):
-        try:
-            row = liquidity_ratio_data[liquidity_ratio_data['Name'] == v]
-            if not row.empty:
-                data[d] = float(row.iloc[0]['Current'])
-        except Exception as e:
-            logger.exception(f'Liquidity ratio is missing {v}: {e}')
+    try:
+        data = {"current_ratio": driver.find_element(By.XPATH, current_ration).text}
+        return data
+    except NoSuchElementException:
+        logger.error("Failed to parse liquidity ratio metrics")
 
-    return data
 
-def profitability_rank(profitability_rank_data):
+def profitability_rank(driver):
     """
     Parses profitability rank metrics from the profitability rank table.
 
     Args:
-        profitability_rank_data (DataFrame): DataFrame containing profitability rank data.
+        Selenium driver: Selenium webdriver instance.
 
     Returns:
         dict: A dictionary containing metrics:
@@ -153,25 +159,23 @@ def profitability_rank(profitability_rank_data):
     Logs:
         - Exception details if any metric is missing or cannot be parsed.
     """
-    data = {'roe': None, 'roa': None, 'roic': None}
-    values = ['ROE %', 'ROA %', 'ROIC %']
+    try:
+        data = {
+            "roe": driver.find_element(By.XPATH, roe).text,
+            "roa": driver.find_element(By.XPATH, roa).text,
+            "roic": driver.find_element(By.XPATH, roic).text,
+        }
+        return data
+    except NoSuchElementException:
+        logger.error("Failed to parse profitability rank metrics")
 
-    for d, v in zip(data.keys(), values):
-        try:
-            row = profitability_rank_data[profitability_rank_data['Name'] == v]
-            if not row.empty:
-                data[d] = float(row.iloc[0]['Current'])
-        except Exception as e:
-            logger.exception(f'Profitability rank is missing {v}: {e}')
 
-    return data
-
-def growth_rank(growth_rank_data):
+def growth_rank(driver):
     """
     Parses growth rank metrics from the growth rank table.
 
     Args:
-        growth_rank_data (DataFrame): DataFrame containing growth rank data.
+        driver (WebDriver): Selenium webdriver instance.
 
     Returns:
         dict: A dictionary containing the metric:
@@ -180,25 +184,24 @@ def growth_rank(growth_rank_data):
     Logs:
         - Exception details if the metric is missing or cannot be parsed.
     """
-    data = {'3-Year Revenue Growth Rate': None}
-    values = ['3-Year Revenue Growth Rate']
 
-    for d, v in zip(data.keys(), values):
-        try:
-            row = growth_rank_data[growth_rank_data['Name'] == v]
-            if not row.empty:
-                data[d] = float(row.iloc[0]['Current'])
-        except Exception as e:
-            logger.exception(f'Growth rank is missing {v}: {e}')
+    try:
+        data = {
+            "3-Year Revenue Growth Rate": driver.find_element(
+                By.XPATH, three_year_revenue_growth_rate
+            ).text
+        }
+        return data
+    except NoSuchElementException:
+        logger.error("Failed to parse growth rank metrics")
 
-    return data
 
-def gf_value_rank(gf_value_rank_data):
+def gf_value_rank(driver):
     """
     Parses GuruFocus value rank metrics from the GF value rank table.
 
     Args:
-        gf_value_rank_data (DataFrame): DataFrame containing GF value rank data.
+        Selenium driver: Selenium webdriver instance.
 
     Returns:
         dict: A dictionary containing metrics:
@@ -211,14 +214,16 @@ def gf_value_rank(gf_value_rank_data):
     Logs:
         - Exception details if any metric is missing or cannot be parsed.
     """
-    data = {'P/E Ratio': None, 'PEG Ratio': None, 'PS Ratio': None, 'PB Ratio': None, 'P FCF': None}
-    values = ['PE Ratio', 'PEG Ratio', 'PS Ratio', 'PB Ratio', 'Price-to-Free-Cash-Flow']
 
-    for d, v in zip(data.keys(), values):
-        try:
-            row = gf_value_rank_data[gf_value_rank_data['Name'] == v]
-            if not row.empty:
-                data[d] = float(row.iloc[0]['Current'])
-        except Exception as e:
-            logger.exception(f'GF value rank is missing {v}: {e}')
-    return data
+    try:
+        data = {
+            "P/E Ratio": driver.find_element(By.XPATH, pe_ratio).text,
+            "PEG Ratio": driver.find_element(By.XPATH, peg_ratio).text,
+            "PS Ratio": driver.find_element(By.XPATH, ps_ratio).text,
+            "PB Ratio": driver.find_element(By.XPATH, pb_ratio).text,
+            "P FCF": driver.find_element(By.XPATH, p_to_fcf).text,
+        }
+
+        return data
+    except NoSuchElementException:
+        logger.error("Failed to parse GuruFocus value rank metrics")

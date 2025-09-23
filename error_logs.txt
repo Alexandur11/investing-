@@ -1,0 +1,54 @@
+
+--------------------
+Timestamp: 2025-09-23 11:34:38,185
+Level: ERROR
+Message: Error while collecting data for symbol: vts
+--------------------
+Traceback (most recent call last):
+  File "C:\Python Projects\investing-\app\models\app_tabs\stock_comparison.py", line 110, in collect_data
+    data = scrape_focus_guru_data(self.symbol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python Projects\investing-\app\event_handlers\focus_guru_scrape_handlers.py", line 77, in scrape_focus_guru_data
+    "financial_strengths": financial_strengths(driver),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python Projects\investing-\app\event_handlers\focus_guru_scrape_handlers.py", line 112, in financial_strengths
+    "cash_to_debt": driver.find_element(By.XPATH, cash_to_debt).text,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python Projects\Alpha-Finance-Tracker\investing-\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 110, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python Projects\Alpha-Finance-Tracker\investing-\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 573, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python Projects\Alpha-Finance-Tracker\investing-\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python Projects\Alpha-Finance-Tracker\investing-\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68a6f30f5+79493]
+	GetHandleVerifier [0x0x7ff68a6f3150+79584]
+	(No symbol) [0x0x7ff68a4701ba]
+	(No symbol) [0x0x7ff68a477cfe]
+	(No symbol) [0x0x7ff68a47adef]
+	(No symbol) [0x0x7ff68a47aeaf]
+	(No symbol) [0x0x7ff68a4c1a46]
+	(No symbol) [0x0x7ff68a4f070a]
+	(No symbol) [0x0x7ff68a4ba7e6]
+	(No symbol) [0x0x7ff68a4f0920]
+	(No symbol) [0x0x7ff68a518b8b]
+	(No symbol) [0x0x7ff68a4f04e3]
+	(No symbol) [0x0x7ff68a4b8e92]
+	(No symbol) [0x0x7ff68a4b9c63]
+	GetHandleVerifier [0x0x7ff68a9b0dbd+2954061]
+	GetHandleVerifier [0x0x7ff68a9ab02a+2930106]
+	GetHandleVerifier [0x0x7ff68a9cb357+3061991]
+	GetHandleVerifier [0x0x7ff68a70d60e+187294]
+	GetHandleVerifier [0x0x7ff68a71557f+219919]
+	GetHandleVerifier [0x0x7ff68a6fc294+116772]
+	GetHandleVerifier [0x0x7ff68a6fc449+117209]
+	GetHandleVerifier [0x0x7ff68a6e2618+11176]
+	BaseThreadInitThunk [0x0x7ffcdaee7374+20]
+	RtlUserThreadStart [0x0x7ffcdb49cc91+33]
+
